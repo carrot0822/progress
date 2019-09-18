@@ -1,21 +1,173 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+.index {
+  .searchBox {
+    margin-bottom: 30rpx;
+    padding-left: 30rpx;
+    position: relative;
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
+    .search {
+      padding: 10rpx 0;
+      border: 2rpx solid #c2c2c2;
+      width: 630rpx;
+      border-radius: 30rpx;
 
-.userinfo-nickname {
-  color: #aaa;
-}
+      .inputBox {
+        padding-left: 70rpx;
 
-.usermotto {
-  margin-top: 200px;
+      }
+    }
+  }
+
+  .slideBox {
+    swiper {
+      height: 270rpx;
+    }
+
+    image {
+      width: 100vw;
+      height: 270rpx;
+    }
+  }
+
+  .expand {
+    margin-bottom: 30rpx;
+  }
+
+  .hotRead {
+    margin-bottom: 30rpx;
+
+    .titleBox {
+      padding: 0 20rpx;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20rpx; 
+      .title {
+        font-size: 34rpx;
+        color: #171717;
+        font-weight: bold;
+      }
+
+      .more {
+        font-size: 24rpx;
+        color: #bebebe;
+      }
+    }
+
+    .content {
+      padding-left: 20rpx;
+      .circleBox {
+        margin-right: 30rpx;
+
+        .imageBox {
+          height: 280rpx;
+          width: 200rpx;
+          background-color: chartreuse;
+          position: relative;
+
+          .index {
+            position: absolute;
+            top: 7rpx;
+            left: 10rpx;
+            width: 32rpx;
+            height: 32rpx;
+            line-height: 32rpx;
+            text-align: center;
+            background-color: #ff2424;
+            border-radius: 50%;
+            color: #ffffff;
+          }
+
+          .textBox {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100rpx;
+            background-color: rgba(255, 255, 255, .4);
+            display: flex;
+            flex-direction: column;
+            color: #ffffff;
+            padding-left: 18rpx;
+
+            .name {
+              font-size: 24rpx;
+
+            }
+
+            .author {
+              font-size: 20rpx;
+            }
+
+            .count {
+              font-size: 16rpx;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  .recommend {
+    .titleBox {
+      padding: 0 20rpx;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20rpx;
+
+      .title {
+        font-size: 34rpx;
+        color: #171717;
+        font-weight: bold;
+      }
+
+      .more {
+        font-size: 24rpx;
+        color: #bebebe;
+      }
+    }
+
+    .contentBox {
+      .circleBox {
+        display: flex;
+        flex-direction: row;
+        padding: 0 40rpx;
+
+        .imageBox {
+          height: 256rpx;
+          width: 180rpx;
+          background-color: aqua;
+          margin-right: 30rpx;
+        }
+
+        .textBox {
+          padding-top: 47rpx;
+          display: flex;
+          flex-direction: column;
+
+          .name {
+            font-size: 28rpx;
+            font-weight: bold;
+            color: #181818;
+          }
+
+          .author {
+            font-size: 24rpx;
+            color: #1a7bff;
+          }
+
+          .summary {
+            font-size: 20rpx;
+            color: #676767;
+            width: 460rpx;
+          }
+        }
+      }
+    }
+  }
+
+
 }

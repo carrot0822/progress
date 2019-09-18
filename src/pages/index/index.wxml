@@ -1,13 +1,60 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<!-- index.wxml -->
+<view class="index">
+  <!-- 搜索框 -->
+  <view class="searchBox">
+    <view class="search">
+      <input class="inputBox" placeholder-style="font-size:12px;" placeholder="请 输 入 要 查 询 的 书 名" type="text" confirm-type="search" />
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <!-- 轮播图 -->
+  <view class="slideBox">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="355" height="150" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 扩展小功能 -->
+  <view class="expand"></view>
+  <!-- 热门借阅 -->
+  <view class="hotRead">
+    <view class="titleBox" hover-class="none" hover-stop-propagation="false">
+      <text class="title">热门借阅</text>
+      <text class="more">查看更多</text>
+    </view>
+    <view class="content" hover-class="none" hover-stop-propagation="false">
+      <view class="circleBox">
+        <view class="imageBox">
+          <view class="index">1</view>
+          <view class="textBox">
+            <text class="name">不认识</text>
+            <text class="author">不知道</text>
+            <text class="count">100次</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 为你推荐 -->
+  <view class="recommend">
+    <view class="titleBox" hover-class="none" hover-stop-propagation="false">
+      <text class="title">为你推荐</text>
+      <text class="more">查看更多</text>
+    </view>
+    <view class="contentBox" >
+      <view class="circleBox" hover-class="none" hover-stop-propagation="false">
+        <view class="imageBox"></view>
+        <view class="textBox">
+          <text class="name">书名</text>
+          <text class="author">这里是作者 要超出隐藏的</text>
+          <view class="summary">
+          简介
+          这里是介绍也是要隐藏的
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>
