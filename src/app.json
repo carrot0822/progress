@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/userMode/user/user"
+    "pages/userMode/user/user",
+    "pages/list/list"
   ],
   "window": {
     "backgroundTextStyle": "light",

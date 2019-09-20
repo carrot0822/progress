@@ -6,13 +6,14 @@ const errMsg = '服务异常，请稍后重试';
 @ismock 是否开启了mock
 */
 const fetch = function ({
+    url,
+    data,
+    method,
     loading = true,
     toast = true,
     mode,
     isMock,
-    url,
-    data,
-    method
+    
 }) {
     // 自定义参数 token放在这
     const clientInfo = {

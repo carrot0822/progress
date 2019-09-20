@@ -1,0 +1,50 @@
+.listBox{
+    padding-left: 36rpx;
+    .circleBox{
+        max-width: 580rpx;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 30rpx;
+        .imgBox{
+            height: 224rpx;
+            width: 160rpx;
+            background-color: aqua;
+            margin-right: 36rpx;
+        }
+        .textBox{
+            display: flex;
+            flex-direction: column;
+            .title{
+                font-size: 26rpx;
+                font-weight: bold;
+                color: #171717;
+                margin-bottom: 12rpx;
+            }
+            .author{
+                font-size: 22rpx;
+                color: #1a7bff;
+                margin-bottom: 10rpx;
+            }
+            .special{
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                margin-bottom: 5rpx;
+                justify-content: space-between;
+                width: 380rpx;
+                .fix{
+                    font-size: 18rpx;
+                    color: #878997;
+                }
+                .data{
+                    font-size: 18rpx;
+                    color: #878997;
+                }
+            }
+            .position{
+                font-size: 20rpx;
+                color: #171717;
+            }
+        }
+    }
+}

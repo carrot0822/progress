@@ -3,7 +3,8 @@
   <!-- 搜索框 -->
   <view class="searchBox">
     <view class="search">
-      <input class="inputBox" placeholder-style="font-size:12px;" placeholder="请 输 入 要 查 询 的 书 名" type="text" confirm-type="search" />
+      <icon type='search' class='search-img' size='20' color='#c8c8c8'></icon>
+      <input value="{{inputValue}}" class="inputBox" placeholder-class="placeholder" placeholder="请 输 入 要 查 询 的 书 名" type="text" confirm-type="search" />
     </view>
   </view>
   <!-- 轮播图 -->
@@ -17,12 +18,29 @@
     </swiper>
   </view>
   <!-- 扩展小功能 -->
-  <view class="expand"></view>
+  <view class="expand">
+    <view class="iconBox">
+      <view class="icon"></view>
+      <view class="text">图书借阅</view>
+    </view>
+    <view class="iconBox">
+      <view class="icon"></view>
+      <view class="text">图书借阅</view>
+    </view>
+    <view class="iconBox">
+      <view class="icon"></view>
+      <view class="text">图书借阅</view>
+    </view>
+    <view class="iconBox">
+      <view class="icon"></view>
+      <view class="text">图书借阅</view>
+    </view>
+  </view>
   <!-- 热门借阅 -->
   <view class="hotRead">
     <view class="titleBox" hover-class="none" hover-stop-propagation="false">
       <text class="title">热门借阅</text>
-      <text class="more">查看更多</text>
+      <text class="more" catchtap="tohotBro">查看更多</text>
     </view>
     <view class="content" hover-class="none" hover-stop-propagation="false">
       <view class="circleBox">
@@ -41,7 +59,7 @@
   <view class="recommend">
     <view class="titleBox" hover-class="none" hover-stop-propagation="false">
       <text class="title">为你推荐</text>
-      <text class="more">查看更多</text>
+      <text class="more" catchtap="toRecommend">查看更多</text>
     </view>
     <view class="contentBox" >
       <view class="circleBox" hover-class="none" hover-stop-propagation="false">

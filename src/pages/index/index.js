@@ -1,12 +1,10 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+let myAxios = require('../../http/myaxios')
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
+
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     imgUrls: [
       'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
@@ -17,14 +15,43 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 1000,
+    inputValue:"", 
+    hotRead:[],
+    recommend:[],
+    swiperArr:[],
+    getUrl:"http://t.yushu.im/v2/movie/top250",
+    bookUrl:'https://t.yushu.im/v2/book/search'
   },
   //事件处理函数
   bindViewTap: function() {
+    
+  },
+  toRecommend(){
+    console.log('前往查看更多')
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../list/list'
+    })
+  },
+  tohotBro(){
+    console.log('前往热门借阅')
+  },
+  _getBook(url){
+    let par= url
+    let data = {
+      tag:'犯罪',
+      start:'0',
+      count:'3'
+    }
+    
+    myAxios(par,data).then((res) => {
+      console.log('这个接口调用成功了吗',res)
     })
   },
   onLoad: function () {
+    this._getBook(this.data.bookUrl)
+
+
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -51,6 +78,7 @@ Page({
         }
       })
     }
+    
   },
   getUserInfo: function(e) {
     console.log(e)

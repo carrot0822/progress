@@ -1,0 +1,26 @@
+<view class="listBox">
+    <view class="circleBox">
+        <view class="imgBox"></view>
+        <view class="textBox">
+            <text class="title">修道院</text>
+            <text class="author">修道院</text>
+            <view class="special">
+                <text class="fix">出版社</text>
+                <text class="data">不知名出版社</text>
+            </view>
+            <view class="special">
+                <text class="fix">出版时间</text>
+                <text class="data">2019-9-20</text>
+            </view>
+            <view class="special">
+                <text class="fix">馆藏地</text>
+                <text class="data">重庆图书馆</text>
+            </view>
+            <view class="special">
+                <text class="fix">ISBN</text>
+                <text class="data">999999999</text>
+            </view>
+            <text class="position">图书位置：D区XXXXX</text>
+        </view>
+    </view>
+</view>
