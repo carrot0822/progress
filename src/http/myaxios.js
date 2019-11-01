@@ -5,7 +5,7 @@ let myAxios = function(url,data,method){
             url: url,
             data: data,
             header: {'content-type':'application/json'},
-            method: 'GET' || method,
+            method: method,
             dataType: 'json',
             responseType: 'text',
             success: (result)=>{
