@@ -1,9 +1,12 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/personal/personal",
+    "pages/article/article",
+    "pages/list/list",
     "pages/logs/logs",
-    "pages/userMode/user/user",
-    "pages/list/list"
+    "pages/test/test",
+    "pages/userMode/user/user"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,8 +19,8 @@
       "pagePath":"pages/index/index",
       "text":"首页"
     },{
-      "pagePath":"pages/userMode/user/user",
-      "text":"我的"
+      "pagePath":"pages/personal/personal",
+      "text":"个人中心"
     }]
   },
   "sitemapLocation": "sitemap.json"

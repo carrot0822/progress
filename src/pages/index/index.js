@@ -30,7 +30,7 @@ Page({
   },
   
   onLoad: function () {
-    
+    console.log('进入首页')
   },
   getUserInfo: function(e) {
     console.log(e)

@@ -21,19 +21,19 @@
   <view class="expand">
     <view class="iconBox">
       <view class="icon"></view>
-      <view class="text">图书借阅</view>
+      <view class="text">我的借阅</view>
     </view>
     <view class="iconBox">
       <view class="icon"></view>
-      <view class="text">图书借阅</view>
+      <view class="text">借阅历史</view>
     </view>
     <view class="iconBox">
       <view class="icon"></view>
-      <view class="text">图书借阅</view>
+      <view class="text">活动资讯</view>
     </view>
     <view class="iconBox">
       <view class="icon"></view>
-      <view class="text">图书借阅</view>
+      <view class="text">馆藏地选择</view>
     </view>
   </view>
   <!-- 热门借阅 -->

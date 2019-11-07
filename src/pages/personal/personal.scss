@@ -1,0 +1,144 @@
+.mainBox {
+    position: relative;
+
+    .posBox {
+        position: absolute;
+        top: 50rpx;
+        padding: 0 24rpx;
+        width: 100%;
+        box-sizing: border-box;
+
+        .userBox {
+            width: 100%;
+            height: 286rpx;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            box-shadow: 0rpx 5rpx 16rpx 0rpx rgba(132, 132, 132, 0.28);
+            border-radius: 10rpx;
+            
+            .blockBox {
+                padding-top: 30rpx;
+                padding-left: 50rpx;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 30rpx;
+                .userInfo {
+                    display: flex;
+                    flex-direction: row;
+
+                    .headBox {
+                        height: 110rpx;
+                        width: 110rpx;
+                        border-radius: 50%;
+                        background-color: bisque;
+                    }
+
+                    .nameBox {
+                        padding-top: 20rpx;
+                        padding-left:32rpx;
+                        display: flex;
+                        flex-direction: column;
+
+                        .name {
+                            width: 200rpx;
+                            color: #333333;
+                            font-size: 26rpx;
+                            line-height: 36rpx;
+                            margin-bottom: 8rpx;
+                            font-weight: bold;
+                        }
+
+                        .cardNum {
+                            color: #b0b0b0;
+                            font-size: 20rpx;
+                            font-weight: bold;
+                        }
+                    }
+                }
+                .more {
+                    width: 162rpx;
+                    margin-top: 12rpx;
+                    height: 58rpx;
+                    line-height: 58rpx;
+                    text-align: center;
+                    background-color: #ff9b24;
+                    border-radius: 29rpx 0rpx 0rpx 29rpx;
+                    color: #ffffff;
+                    font-size: 24rpx;
+                    font-weight: bold;
+                }
+            }
+
+            .bookInfo {
+                display: flex;
+                flex-direction: row;
+                position: relative;
+                .textData{
+                    width: 50%;
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                    .number{
+                        color: #1a5fff;
+                        font-size: 30rpx;
+                        margin-bottom: 20rpx;
+                        font-weight: bold;
+                    }
+                    .des{
+                        color: #333333;
+                        font-size: 26rpx;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+
+    .blueBg {
+        height: 250rpx;
+        width: 100%;
+        background-color: #1a5fff;
+    }
+
+    .whiteBg {
+        padding-top: 114rpx;
+        padding-bottom: 135rpx;
+        padding-left: 24rpx;
+        padding-right: 24rpx;
+        background-color: #ffffff;
+    }
+
+    .cardBox {
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0rpx -5rpx 16rpx 0rpx rgba(132, 132, 132, 0.28);
+        border-radius: 10rpx;
+        min-height: 600rpx;
+
+        .itemBox {
+            padding-left: 20rpx;
+            padding-right: 35rpx;
+            height: 88rpx;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1rpx solid #b0b0b0; // 像素注意检查
+
+            .itemLeft {
+                .text {
+                    font-size: 30rpx;
+                    font-weight: bold;
+                }
+            }
+
+            .itemRight {}
+        }
+    }
+
+    .noBottom {
+        border: none !important;
+    }
+}
