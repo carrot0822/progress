@@ -11,7 +11,7 @@ Page({
     // 路由跳转
     toCollect(){
         wx.navigateTo({
-            url:"pages/userMode/user/user",
+            url:"../userMode/user/user",
             events:{
 
             },

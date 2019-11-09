@@ -2,15 +2,15 @@
 <view class="index">
   <!-- 搜索框 -->
   <view class="searchBox">
-    <view class="search">
-      <icon type='search' class='search-img' size='20' color='#c8c8c8'></icon>
-      <input value="{{inputValue}}" class="inputBox" placeholder-class="placeholder" placeholder="请 输 入 要 查 询 的 书 名" type="text" confirm-type="search" />
+    <view class="search" catchtap="toSearch">
+      <icon type='search' class='search-img' size='15' color='#c8c8c8'></icon>
+      <text class="text">请输入要查询的书名</text>
     </view>
   </view>
   <!-- 轮播图 -->
   <view class="slideBox">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{imgUrls}}">
+      <block wx:for="{{imgUrls}}" wx:key="{{index}}">
         <swiper-item>
           <image src="{{item}}" class="slide-image" width="355" height="150" />
         </swiper-item>
@@ -20,19 +20,19 @@
   <!-- 扩展小功能 -->
   <view class="expand">
     <view class="iconBox">
-      <view class="icon"></view>
+      <view class="icon iconfontIndex icon-tushujieyue"></view>
       <view class="text">我的借阅</view>
     </view>
     <view class="iconBox">
-      <view class="icon"></view>
+      <view class="icon iconfontIndex icon--huodongzixun-fill"></view>
       <view class="text">借阅历史</view>
     </view>
     <view class="iconBox">
-      <view class="icon"></view>
+      <view class="icon iconfontIndex .icon-icon1"></view>
       <view class="text">活动资讯</view>
     </view>
     <view class="iconBox">
-      <view class="icon"></view>
+      <view class="icon iconfontIndex icon-icon"></view>
       <view class="text">馆藏地选择</view>
     </view>
   </view>
@@ -40,36 +40,149 @@
   <view class="hotRead">
     <view class="titleBox" hover-class="none" hover-stop-propagation="false">
       <text class="title">热门借阅</text>
-      <text class="more" catchtap="tohotBro">查看更多</text>
+      <text class="more" catchtap="tohotBro">查看全部</text>
     </view>
     <view class="content" hover-class="none" hover-stop-propagation="false">
       <view class="circleBox">
-        <view class="imageBox">
-          <view class="index">1</view>
-          <view class="textBox">
-            <text class="name">不认识</text>
-            <text class="author">不知道</text>
-            <text class="count">100次</text>
+        <scroll-view class="scrollWidth" scroll-x="true">
+          <view class="imageBox">
+            <image class="bookImg" src="../../assets/image/indexIcon/9.jpg" />
+            <view class="index">1</view>
+            <view class="textBox">
+              <text class="name">不认识</text>
+              <text class="author">不知道</text>
+              <text class="count">100次</text>
+            </view>
           </view>
-        </view>
+          <view class="imageBox">
+            <image class="bookImg" src="../../assets/image/indexIcon/9.jpg" />
+            <view class="index">1</view>
+            <view class="textBox">
+              <text class="name">不认识</text>
+              <text class="author">不知道</text>
+              <text class="count">100次</text>
+            </view>
+          </view>
+          <view class="imageBox">
+            <image class="bookImg" src="../../assets/image/indexIcon/9.jpg" />
+            <view class="index">1</view>
+            <view class="textBox">
+              <text class="name">不认识</text>
+              <text class="author">不知道</text>
+              <text class="count">100次</text>
+            </view>
+          </view>
+          <view class="imageBox">
+            <image class="bookImg" src="../../assets/image/indexIcon/9.jpg" />
+            <view class="index">1</view>
+            <view class="textBox">
+              <text class="name">不认识</text>
+              <text class="author">不知道</text>
+              <text class="count">100次</text>
+            </view>
+          </view>
+          <view class="imageBox">
+            <image class="bookImg" src="../../assets/image/indexIcon/9.jpg" />
+            <view class="index">1</view>
+            <view class="textBox">
+              <text class="name">不认识</text>
+              <text class="author">不知道</text>
+              <text class="count">100次</text>
+            </view>
+          </view>
+        </scroll-view>
       </view>
     </view>
   </view>
   <!-- 为你推荐 -->
   <view class="recommend">
-    <view class="titleBox" hover-class="none" hover-stop-propagation="false">
-      <text class="title">为你推荐</text>
-      <text class="more" catchtap="toRecommend">查看更多</text>
+    <view class="tabBox" hover-class="none" hover-stop-propagation="false">
+      <view class="selectBtn active">
+        <text class="text ">推荐书籍</text>
+      </view>
+      <view class="selectBtn">
+        <text class="text">新书</text>
+      </view>
     </view>
-    <view class="contentBox" >
+    <view class="contentBox">
       <view class="circleBox" hover-class="none" hover-stop-propagation="false">
-        <view class="imageBox"></view>
+        <view class="collect iconfontIndex icon-icon"></view>
+        <view class="imageBox">
+          <image class="img" src="../../assets/image/indexIcon/9.jpg" />
+        </view>
         <view class="textBox">
           <text class="name">书名</text>
           <text class="author">这里是作者 要超出隐藏的</text>
+          <text class="summary">简介</text>
           <view class="summary">
-          简介
-          这里是介绍也是要隐藏的
+            比梦境更离奇的全球隐秘之地风趣与格调并存的旅行
+            书美国亚马逊地理类/旅游类畅销书榜首《纽约时报》
+              年度畅销书 比神话与梦境更离奇的现实世界
+          </view>
+        </view>
+      </view>
+
+      <view class="circleBox" hover-class="none" hover-stop-propagation="false">
+        <view class="collect iconfontIndex icon-icon"></view>
+        <view class="imageBox">
+          <image class="img" src="../../assets/image/indexIcon/9.jpg" />
+        </view>
+        <view class="textBox">
+          <text class="name">书名</text>
+          <text class="author">这里是作者 要超出隐藏的</text>
+          <text class="summary">简介</text>
+          <view class="summary">
+            比梦境更离奇的全球隐秘之地风趣与格调并存的旅行
+            书美国亚马逊地理类/旅游类畅销书榜首《纽约时报》
+              年度畅销书 比神话与梦境更离奇的现实世界
+          </view>
+        </view>
+      </view>
+      <view class="circleBox" hover-class="none" hover-stop-propagation="false">
+        <view class="collect iconfontIndex icon-icon"></view>
+        <view class="imageBox">
+          <image class="img" src="../../assets/image/indexIcon/9.jpg" />
+        </view>
+        <view class="textBox">
+          <text class="name">书名</text>
+          <text class="author">这里是作者 要超出隐藏的</text>
+          <text class="summary">简介</text>
+          <view class="summary">
+            比梦境更离奇的全球隐秘之地风趣与格调并存的旅行
+            书美国亚马逊地理类/旅游类畅销书榜首《纽约时报》
+              年度畅销书 比神话与梦境更离奇的现实世界
+          </view>
+        </view>
+      </view>
+      <view class="circleBox" hover-class="none" hover-stop-propagation="false">
+        <view class="collect iconfontIndex icon-icon"></view>
+        <view class="imageBox">
+          <image class="img" src="../../assets/image/indexIcon/9.jpg" />
+        </view>
+        <view class="textBox">
+          <text class="name">书名</text>
+          <text class="author">这里是作者 要超出隐藏的</text>
+          <text class="summary">简介</text>
+          <view class="summary">
+            比梦境更离奇的全球隐秘之地风趣与格调并存的旅行
+            书美国亚马逊地理类/旅游类畅销书榜首《纽约时报》
+              年度畅销书 比神话与梦境更离奇的现实世界
+          </view>
+        </view>
+      </view>
+      <view class="circleBox" hover-class="none" hover-stop-propagation="false">
+        <view class="collect iconfontIndex icon-icon"></view>
+        <view class="imageBox">
+          <image class="img" src="../../assets/image/indexIcon/9.jpg" />
+        </view>
+        <view class="textBox">
+          <text class="name">书名</text>
+          <text class="author">这里是作者 要超出隐藏的</text>
+          <text class="summary">简介</text>
+          <view class="summary">
+            比梦境更离奇的全球隐秘之地风趣与格调并存的旅行
+            书美国亚马逊地理类/旅游类畅销书榜首《纽约时报》
+              年度畅销书 比神话与梦境更离奇的现实世界
           </view>
         </view>
       </view>

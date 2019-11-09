@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/searchMode/searchInput/searchInput",
     "pages/index/index",
     "pages/personal/personal",
     "pages/article/article",
@@ -7,6 +8,7 @@
     "pages/logs/logs",
     "pages/test/test",
     "pages/userMode/user/user"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

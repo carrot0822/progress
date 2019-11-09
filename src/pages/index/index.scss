@@ -9,20 +9,26 @@
     
     width: 100%;
     background-image: #f2f2f2;
-    padding-left: 34rpx;
+    padding-left: 30rpx;
     box-sizing: border-box;
     margin-bottom: 30rpx;
     .search {
       display: flex;
       flex-direction: row;
+      align-items: center;
       border: 2rpx solid #c2c2c2;
-      padding: 10rpx 0;
+      height: 60rpx;
       width: 630rpx;
+      box-shadow: 0rpx 0rpx 13rpx 0rpx 
+		rgba(141, 141, 141, 0.3);
       box-sizing: border-box;
       border-radius: 30rpx;
       .search-img{
-        margin: 0 18rpx;
-        padding-top: 6rpx;
+        margin:0 18rpx;
+      }
+      .text{
+        font-size: 24rpx;
+        color: #c2c2c2;
       }
       .inputBox {
         width: 100%;
@@ -40,6 +46,7 @@
     image {
       width: 100vw;
       height: 270rpx;
+      object-fit: cover;
     }
   }
 
@@ -50,15 +57,15 @@
     align-items: center;
     justify-content: space-around;
     box-sizing: border-box;
-    padding:0 70rpx;
+    padding:0 40rpx;
     .iconBox {
-      
+      margin: 0 20rpx;
       .icon {
-        width: 80rpx;
-        height: 80rpx;
+        width: 60rpx;
+        height: 60rpx;
         margin:0 auto;
         margin-bottom: 20rpx;
-        background-color: #676767;
+        
       }
 
       .text {
@@ -92,17 +99,25 @@
     }
 
     .content {
-      padding-left: 20rpx;
+      
 
       .circleBox {
-        margin-right: 15px;
-
+        
+        .scrollWidth{
+          white-space: nowrap; // 关键样式
+        }
         .imageBox {
           height: 280rpx;
           width: 200rpx;
-          background-color: chartreuse;
+          border-radius: 10rpx;
+          overflow: hidden;
           position: relative;
-
+          margin-left: 25rpx;
+          display: inline-block;
+          .bookImg{
+            height: 280rpx;
+            width: 200rpx;
+          }
           .index {
             position: absolute;
             top: 7rpx;
@@ -114,6 +129,8 @@
             background-color: #ff2424;
             border-radius: 50%;
             color: #ffffff;
+            font-size: 24rpx;
+            line-height: 32rpx;
           }
 
           .textBox {
@@ -121,15 +138,18 @@
             bottom: 0;
             width: 100%;
             height: 100rpx;
-            background-color: rgba(255, 255, 255, .4);
+            background-color: rgba(0, 0, 0, .5);
             display: flex;
             flex-direction: column;
             color: #ffffff;
             padding-left: 18rpx;
-
+            padding-top: 14rpx;
+            box-sizing: border-box;
             .name {
+              
               font-size: 24rpx;
-
+              
+              width: 100%;
             }
 
             .author {
@@ -147,41 +167,66 @@
   }
 
   .recommend {
-    .titleBox {
+    .tabBox {
       padding: 0 20rpx;
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20rpx;
-
-      .title {
-        font-size: 34rpx;
-        color: #171717;
-        font-weight: bold;
+      margin-bottom: 50rpx;
+      .selectBtn{
+        width: 50%;
+        height: 60rpx;
+        text-align: center;
+        background-color: #ffffff;
+        border: solid 1rpx #1a5fff;
+        box-sizing: border-box;
+        .text{
+          font-size: 34rpx;
+          font-weight: bold;
+        }
+        &.active{
+          color: #ffffff;
+          background-color: #1a5fff;
+        }
       }
-
-      .more {
-        font-size: 24rpx;
-        color: #bebebe;
-      }
+      
+      
     }
 
     .contentBox {
+      padding: 0 20rpx;
+      
       .circleBox {
         display: flex;
         flex-direction: row;
-        padding: 0 40rpx;
-
+        padding: 0 16rpx;
+        height: 230rpx;
+        margin-bottom: 60rpx;
+        background-color: #ffffff;
+	    box-shadow: 0rpx 0rpx 10rpx 0rpx 
+		rgba(159, 159, 159, 0.3);
+        position: relative;
+        .collect{
+          position: absolute;
+          top: 15rpx;
+          right: 15rpx;
+          font-size: 36rpx!important;
+        }
         .imageBox {
-          height: 256rpx;
-          width: 180rpx;
-          background-color: aqua;
+          height: 244rpx;
+          width: 184rpx;
+          position: relative;
+          
           margin-right: 30rpx;
+          .img{
+            height: 244rpx;
+            width: 184rpx;
+            position: absolute;
+            top: -30rpx;
+          }
         }
 
         .textBox {
-          padding-top: 47rpx;
+          padding-top: 16rpx;
           display: flex;
           flex-direction: column;
 

@@ -1,0 +1,157 @@
+.fixBox {
+    height: 60rpx;
+    margin-bottom: 30rpx;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.searchBox {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding-left: 30rpx;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .search {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border: 2rpx solid #c2c2c2;
+        height: 60rpx;
+        width: 630rpx;
+
+        box-shadow: 0rpx 0rpx 13rpx 0rpx rgba(141, 141, 141, 0.3);
+        box-sizing: border-box;
+        border-radius: 30rpx;
+        position: relative;
+
+        .clear-img {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 30rpx;
+        }
+
+        .search-img {
+            margin: 0 18rpx;
+        }
+
+        .inputBox {
+            width: 100%;
+            font-size: 24rpx;
+        }
+    }
+
+    .text {
+        font-size: 30rpx;
+        margin-right: 22rpx;
+        align-self: center;
+    }
+}
+
+/*------ 搜索历史 ------*/
+.searchHis {
+    .textBox {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30rpx;
+
+        .his {
+            font-size: 30rpx;
+            color: #333333;
+            font-weight: bold;
+            line-height: 36rpx;
+
+        }
+
+        .clear {
+            font-size: 26rpx;
+            font-weight: bold;
+            line-height: 36rpx;
+            color: #1a5fff;
+
+        }
+    }
+
+    .historyList {
+        padding: 0 50rpx;
+
+        .textBox {
+            font-size: 26rpx;
+            color: #565e73;
+            padding: 28rpx 0;
+        }
+    }
+
+}
+
+/*------ 搜索结果 ------*/
+.searchRe {
+    
+    padding: 0 20rpx;
+    padding-top: 30rpx;
+    .listBox{
+        
+    }
+    .circleBox {
+        display: flex;
+        flex-direction: row;
+        padding: 0 16rpx;
+        height: 230rpx;
+        margin-bottom: 60rpx;
+        background-color: #ffffff;
+	    box-shadow: 0rpx 0rpx 10rpx 0rpx 
+		rgba(159, 159, 159, 0.3);
+        position: relative;
+        .collect{
+          position: absolute;
+          top: 15rpx;
+          right: 15rpx;
+          font-size: 36rpx!important;
+        }
+        .imageBox {
+          height: 244rpx;
+          width: 184rpx;
+          position: relative;
+          
+          margin-right: 30rpx;
+          .img{
+            height: 244rpx;
+            width: 184rpx;
+            position: absolute;
+            top: -30rpx;
+          }
+        }
+
+        .textBox {
+          padding-top: 16rpx;
+          display: flex;
+          flex-direction: column;
+
+          .name {
+            font-size: 28rpx;
+            font-weight: bold;
+            color: #181818;
+          }
+
+          .author {
+            font-size: 24rpx;
+            color: #1a7bff;
+          }
+
+          .summary {
+            font-size: 20rpx;
+            color: #676767;
+            width: 460rpx;
+          }
+        }
+      }
+}

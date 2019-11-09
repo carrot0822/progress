@@ -9,15 +9,29 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 1000,
+    imgUrls:['https://game.gtimg.cn/images/c2/web201801/pc/slider1.jpg',
+            'https://game.gtimg.cn/images/c2/web201801/pc/slider2.jpg',
+            'https://game.gtimg.cn/images/c2/web201801/pc/slider3.jpg',
+            'https://game.gtimg.cn/images/c2/web201801/pc/slider4.jpg',
+            'https://game.gtimg.cn/images/c2/web201801/pc/slider5.jpg',
+
+          ],
     inputValue:"", 
     hotRead:[],
     recommend:[],
     swiperArr:[],
 
   },
+  
   //事件处理函数
   bindViewTap: function() {
     
+  },
+  // 前往搜索
+  toSearch(){
+    wx.navigateTo({
+      url:"../searchMode/searchInput/searchInput"
+    })
   },
   toRecommend(){
     console.log('前往查看更多')
