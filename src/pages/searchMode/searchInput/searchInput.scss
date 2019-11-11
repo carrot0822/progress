@@ -22,7 +22,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        border: 2rpx solid #c2c2c2;
+        
         height: 60rpx;
         width: 630rpx;
 
@@ -138,18 +138,22 @@
 
           .name {
             font-size: 28rpx;
+            line-height: 42rpx;
             font-weight: bold;
             color: #181818;
           }
 
           .author {
             font-size: 24rpx;
+            line-height: 36rpx;
             color: #1a7bff;
           }
 
           .summary {
             font-size: 20rpx;
+            line-height: 30rpx;
             color: #676767;
+            text-align: justify;
             width: 460rpx;
           }
         }

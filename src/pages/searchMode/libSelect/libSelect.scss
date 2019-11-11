@@ -1,0 +1,98 @@
+.fixBox {
+    height: 60rpx;
+    padding-top: 20rpx;
+    margin-bottom: 30rpx;
+    position: relative;
+    background-color: #ffffff;
+    margin-bottom: 30rpx;
+}
+
+.searchBox {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding-left: 30rpx;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .search {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        height: 60rpx;
+        width: 600rpx;
+
+        box-shadow: 0rpx 0rpx 13rpx 0rpx rgba(141, 141, 141, 0.3);
+        box-sizing: border-box;
+        border-radius: 30rpx;
+        position: relative;
+
+        .clear-img {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 30rpx;
+        }
+
+        .search-img {
+            margin: 0 18rpx;
+        }
+
+        .inputBox {
+            width: 100%;
+            font-size: 24rpx;
+        }
+    }
+
+    .text {
+        font-size: 30rpx;
+        margin-right: 22rpx;
+        align-self: center;
+    }
+}
+
+.searchRe {
+
+    padding: 0 30rpx;
+
+    .circleBox {
+        display: flex;
+        flex-direction: row;
+        background-color: #ffffff;
+        box-shadow: 0rpx 0rpx 10rpx 0rpx rgba(159, 159, 159, 0.18);
+        margin-bottom: 30rpx;
+        .logoBox {
+            width: 180rpx;
+            height: 180rpx;
+            background-color: #cdcdcd;
+            margin-right: 24rpx;
+        }
+
+        .desBox {
+            display: flex;
+            flex-direction: column;
+            padding-top: 36rpx;
+            .title {
+                font-size: 30rpx;
+                line-height: 45rpx;
+                color: #181818;
+                font-weight: bold;
+                margin-bottom: 30rpx;
+            }
+
+            .concrete {
+                font-size: 22rpx;
+                color: #1a7bff;
+                line-height: 29rpx;
+            }
+        }
+    }
+
+
+}

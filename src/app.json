@@ -1,13 +1,17 @@
 {
   "pages": [
-    "pages/searchMode/searchInput/searchInput",
+    
     "pages/index/index",
     "pages/personal/personal",
     "pages/article/article",
     "pages/list/list",
     "pages/logs/logs",
-    "pages/test/test",
-    "pages/userMode/user/user"
+    "pages/detail/detail",
+    "pages/searchMode/searchInput/searchInput",
+    "pages/searchMode/libSelect/libSelect",
+    "pages/userMode/user/user",
+    "pages/userMode/myBorrow/myBorrow",
+    "pages/userMode/borrowHis/borrowHis"
     
   ],
   "window": {

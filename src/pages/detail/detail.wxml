@@ -1,0 +1,58 @@
+<!-- detail.wxml -->
+<view class="mainBox">
+  <view class="infoBox">
+    <view class="circleBox" hover-class="none" hover-stop-propagation="false">
+      <view class="collect iconfontIndex icon-icon"></view>
+      <view class="imageBox">
+        <image class="img" src="../../assets/image/indexIcon/9.jpg" />
+      </view>
+      <view class="detailBox">
+        <text class="name">书名</text>
+        <text class="author">这里是作者 要超出隐藏的</text>
+        <view class="textBox">
+          <text class="textfront">出版社：</text>
+          <text class="textEnd">南海出版公司</text>
+        </view>
+        <view class="textBox">
+          <text class="textfront">出版时间：</text>
+          <text class="textEnd">2019-10-20</text>
+        </view>
+        <view class="textBox">
+          <text class="textfront">馆藏地：</text>
+          <text class="textEnd">重庆图书馆</text>
+        </view>
+        <view class="textBox">
+          <text class="textfront">ISBN：</text>
+          <text class="textEnd">9787544294164</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 书籍简介 -->
+  <view class="desBox">
+    <text class="font">书籍简介</text>
+    <text class="summary">比梦境更离奇的全球隐秘之地风趣与格调并存的旅行书美国亚马逊地理类/旅游类畅销书榜首《纽约时报》年度畅销书 比神话与梦境更离奇的现实</text>
+  </view>
+  <!-- 馆藏列表 -->
+  <view class="list">
+    <view class="icon">这是图标</view>
+    <text class="text">馆藏列表</text>
+  </view>
+  <!-- 位置信息 -->
+  <view class="posBox">
+    <view class="posCard">
+      <view class="textBox" hover-class="none" hover-stop-propagation="false">
+        <text class="text">索书号：</text>
+        <text class="text">12254</text>
+      </view>
+      <view class="textBox" hover-class="none" hover-stop-propagation="false">
+        <text class="text">状态：</text>
+        <text class="text">在柜</text>
+      </view>
+      <view class="textBox" hover-class="none" hover-stop-propagation="false">
+        <text class="text">图书位置：</text>
+        <text class="text">D区3架4排5列</text>
+      </view>
+    </view>
+  </view>
+</view>

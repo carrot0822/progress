@@ -1,0 +1,34 @@
+<view class="main">
+   <view class="contentBox">
+    <view class="circleBox" hover-class="none" hover-stop-propagation="false">
+      <view class="imageBox">
+        <image class="img" src="../../../assets/image/indexIcon/9.jpg" />
+      </view>
+      <view class="desBox">
+        <text class="name">书名</text>
+        <text class="author">这里是作者 要超出隐藏的</text>
+        <view class="textBox">
+          <text class="textfront">出版社</text>
+          <text class="textEnd">南海出版公司</text>
+        </view>
+        <view class="textBox">
+          <text class="textfront">出版时间</text>
+          <text class="textEnd">2019-10-20</text>
+        </view>
+        <view class="textBox">
+          <text class="textfront">索书号</text>
+          <text class="textEnd">9787544294164</text>
+        </view>
+        <view class="textBox">
+          <text class="textfront">馆藏地</text>
+          <text class="textEnd">重庆图书馆</text>
+        </view>
+        
+        <view class="textBox">
+          <text class="textfront">借阅日期</text>
+          <text class="textEnd">2019-07-08</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

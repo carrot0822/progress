@@ -16,7 +16,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      border: 2rpx solid #c2c2c2;
+      
       height: 60rpx;
       width: 630rpx;
       box-shadow: 0rpx 0rpx 13rpx 0rpx 
@@ -175,6 +175,9 @@
       .selectBtn{
         width: 50%;
         height: 60rpx;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         text-align: center;
         background-color: #ffffff;
         border: solid 1rpx #1a5fff;
@@ -194,7 +197,6 @@
 
     .contentBox {
       padding: 0 20rpx;
-      
       .circleBox {
         display: flex;
         flex-direction: row;
@@ -224,7 +226,6 @@
             top: -30rpx;
           }
         }
-
         .textBox {
           padding-top: 16rpx;
           display: flex;
@@ -232,18 +233,22 @@
 
           .name {
             font-size: 28rpx;
+            line-height: 42rpx;
             font-weight: bold;
             color: #181818;
           }
 
           .author {
             font-size: 24rpx;
+            line-height: 36rpx;
             color: #1a7bff;
           }
 
           .summary {
             font-size: 20rpx;
+            line-height: 30rpx;
             color: #676767;
+            text-align: justify;
             width: 460rpx;
           }
         }

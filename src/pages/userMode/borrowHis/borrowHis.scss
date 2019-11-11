@@ -1,0 +1,73 @@
+.main {
+    padding-top: 20rpx;
+
+    .contentBox {
+        padding: 0 20rpx;
+
+        .circleBox {
+            display: flex;
+            flex-direction: row;
+            padding: 10rpx 16rpx;
+            min-height: 244rpx;
+            margin-bottom: 60rpx;
+            background-color: #ffffff;
+            box-shadow: 0rpx 0rpx 10rpx 0rpx rgba(159, 159, 159, 0.3);
+            position: relative;
+            
+            .imageBox {
+                height: 244rpx;
+                width: 184rpx;
+                position: relative;
+                margin-right: 30rpx;
+
+                .img {
+                    height: 244rpx;
+                    width: 184rpx;
+                    position: absolute;
+                    
+                }
+            }
+
+            .desBox {
+                display: flex;
+                flex-direction: column;
+                width: 460rpx;
+
+                .name {
+                    font-size: 28rpx;
+                    line-height: 42rpx;
+                    font-weight: bold;
+                    color: #181818;
+                }
+
+                .author {
+                    font-size: 24rpx;
+                    line-height: 36rpx;
+                    color: #1a7bff;
+                }
+
+                .textBox {
+
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    .textfront {
+                        font-size: 22rpx;
+                        color: #878997;
+                        line-height: 34rpx;
+
+                    }
+
+                    .textEnd {
+                        font-size: 22rpx;
+                        color: #565e73;
+                        line-height: 34rpx;
+                    }
+
+                }
+            }
+
+        }
+    }
+}

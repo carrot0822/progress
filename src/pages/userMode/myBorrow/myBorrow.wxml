@@ -1,0 +1,29 @@
+<!-- logs.wxml -->
+<view class="main">
+  <view class="contentBox">
+    <view class="circleBox" hover-class="none" hover-stop-propagation="false">
+      <view class="collect">
+        <view data-book="书ID" catchtap="renewBtn" class="button">续借</view>
+      </view>
+      <view class="imageBox">
+        <image class="img" src="../../../assets/image/indexIcon/9.jpg" />
+      </view>
+      <view class="desBox">
+        <text class="name">书名</text>
+        <text class="author">这里是作者 要超出隐藏的</text>
+        <view class="textBox">
+          <text class="textfront">状态</text>
+          <text class="textEnd">逾期</text>
+        </view>
+        <view class="textBox">
+          <text class="textfront">馆藏地</text>
+          <text class="textEnd">重庆图书馆</text>
+        </view>
+        <view class="textBox">
+          <text class="textfront">待还日期</text>
+          <text class="textEnd">2019-10-20</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

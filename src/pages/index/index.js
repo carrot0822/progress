@@ -27,7 +27,32 @@ Page({
   bindViewTap: function() {
     
   },
+  // 扩展四个小功能
+  toBorrow(){
+    wx.navigateTo({
+      url: '../userMode/myBorrow/myBorrow'
+    })
+  },
+  toBorrowHis(){
+    wx.navigateTo({
+      url:"../userMode/borrowHis/borrowHis"
+    })
+  },
+  toActivity(){
+
+  },
+  toLibSelect(){
+    wx.navigateTo({
+      url:"../searchMode/libSelect/libSelect"
+    })
+  },
   // 前往搜索
+  // 
+  toDetail(){
+    wx.navigateTo({
+      url:"../detail/detail"
+    })
+  },
   toSearch(){
     wx.navigateTo({
       url:"../searchMode/searchInput/searchInput"
@@ -39,6 +64,7 @@ Page({
       url: '../list/list'
     })
   },
+  
   tohotBro(){
     console.log('前往热门借阅')
   },
