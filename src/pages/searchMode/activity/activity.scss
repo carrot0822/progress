@@ -1,0 +1,70 @@
+.main {
+    padding: 0 24rpx;
+    padding-top: 20rpx;
+
+    .cardBox {
+        padding: 20rpx 40rpx;
+        background-color: #ffffff;
+        box-shadow: 0rpx 0rpx 10rpx 0rpx rgba(159, 159, 159, 0.18);
+        position: relative;
+        margin-bottom: 20rpx;
+        .layout {
+            height: 300rpx;
+            width: 100%;
+            background-color: #555555;
+            margin-bottom: 8rpx;
+        }
+        .desBox{
+            display: flex;
+            flex-direction: column;
+            .title{
+                font-size: 26rpx;
+                line-height: 36rpx;
+                color: #171717;
+                font-weight: bold;
+                margin-bottom: 8rpx;
+            }
+            .content{
+                color: #878997;
+                font-size: 24rpx;
+                line-height: 30rpx;
+            }
+        }
+        .dateBox{
+            position: absolute;
+            top: 0rpx;
+            right: 60rpx;
+            width: 120rpx;
+            box-sizing: border-box;
+            border: solid 1rpx #1a5fff;
+            .year{
+                background-color: #1a5fff;
+                color: #ffffff;
+                line-height: 30rpx;
+                height: 30rpx;
+                text-align: center;
+                font-size: 18rpx;
+            }
+            .day{
+                background-color: #ffffff;
+                height: 90rpx;
+                position: relative;
+                display: flex;
+                .num{
+                    align-self: center;
+                    color: #b6b6b6;
+                    font-size: 60rpx;
+                    margin-left:20rpx ;
+                    &::after{
+                        content:"日";
+                        color:#b6b6b6;
+                        font-size: 24rpx;
+                        position: absolute;
+                        bottom:10rpx;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}

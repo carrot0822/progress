@@ -3,14 +3,17 @@
         <view class="userBox">
             <view class="blockBox">
                 <view class="userInfo">
-                    <view class="headBox"></view>
+                    <view class="headBox">
+                        <image class="imgHead" src="../../assets/image/person/head.png" />
+                    </view>
                     <view class="nameBox">
                         <text class="name">章鱼小丸子</text>
-                        <text class="cardNum">卡号11111111111</text>
+                        <text class="cardNum">卡号1111111111</text>
                     </view>
                 </view>
                 <view class="moreBox">
                     <view class="more">
+                        <image class="imgICon" src="../../assets/image/person/more.png" />
                         <text class="text">更多资料</text>
                     </view>
                 </view>
@@ -32,65 +35,65 @@
         <view class="cardBox">
             <view bindtap="toCollect" class="itemBox">
                 <view class="itemLeft">
-                    <icon type="success" size="15" />
+                    <image class="img"  src="../../assets/image/person/collect@2x.png" />
                     <text class="text">我的收藏</text>
                 </view>
                 <view class="itemRight">
-                    <icon type="success" size="15" />
+                    <image class="imgArrow" src="../../assets/image/person/arrow.png" />
                 </view>
             </view>
             <view bindtap="toCollect" class="itemBox">
                 <view class="itemLeft">
-                    <icon type="success" size="15" />
-                    <text class="text">我的收藏</text>
+                    <image class="img"  src="../../assets/image/person/borrow@2x.png" />
+                    <text class="text">我的借还</text>
                 </view>
                 <view class="itemRight">
-                    <icon type="success" size="15" />
+                    <image class="imgArrow" src="../../assets/image/person/arrow.png" />
                 </view>
             </view>
             <view bindtap="toCollect" class="itemBox">
                 <view class="itemLeft">
-                    <icon type="success" size="15" />
-                    <text class="text">我的收藏</text>
+                    <image class="img"  src="../../assets/image/person/readerCard@2x.png" />
+                    <text class="text">数字读者证</text>
                 </view>
                 <view class="itemRight">
-                    <icon type="success" size="15" />
+                    <image class="imgArrow" src="../../assets/image/person/arrow.png" />
                 </view>
             </view>
             <view bindtap="toCollect" class="itemBox">
                 <view class="itemLeft">
-                    <icon type="success" size="15" />
-                    <text class="text">我的收藏</text>
+                    <image class="img"  src="../../assets/image/person/unBind@2x.png" />
+                    <text class="text">解绑读者卡</text>
                 </view>
                 <view class="itemRight">
-                    <icon type="success" size="15" />
+                    <image class="imgArrow" src="../../assets/image/person/arrow.png" />
                 </view>
             </view>
             <view bindtap="toCollect" class="itemBox">
                 <view class="itemLeft">
-                    <icon type="success" size="15" />
-                    <text class="text">我的收藏</text>
+                    <image class="img"  src="../../assets/image/person/bill@2x.png" />
+                    <text class="text">我的账单</text>
                 </view>
                 <view class="itemRight">
-                    <icon type="success" size="15" />
+                    <image class="imgArrow" src="../../assets/image/person/arrow.png" />
                 </view>
             </view>
             <view bindtap="toCollect" class="itemBox">
                 <view class="itemLeft">
-                    <icon type="success" size="15" />
-                    <text class="text">我的收藏</text>
+                    <image class="img"  src="../../assets/image/person/aboutUs@2x.png" />
+                    <text class="text">关于我们</text>
                 </view>
                 <view class="itemRight">
-                    <icon type="success" size="15" />
+                    <image class="imgArrow" src="../../assets/image/person/arrow.png" />
                 </view>
             </view>
             <view bindtap="toCollect" class="itemBox noBottom">
                 <view class="itemLeft">
-                    <icon type="success" size="15" />
-                    <text class="text">我的收藏</text>
+                    <image class="img"  src="../../assets/image/person/suggestion@2x.png" />
+                    <text class="text">意见反馈</text>
                 </view>
                 <view class="itemRight">
-                    <icon type="success" size="15" />
+                    <image class="imgArrow" src="../../assets/image/person/arrow.png" />
                 </view>
             </view>
         </view>

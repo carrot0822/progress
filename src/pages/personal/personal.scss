@@ -32,6 +32,11 @@
                         width: 110rpx;
                         border-radius: 50%;
                         background-color: bisque;
+                        .imgHead{
+                            height: 110rpx;
+                        width: 110rpx;
+                            border-radius: 50%;
+                        }
                     }
 
                     .nameBox {
@@ -52,21 +57,30 @@
                         .cardNum {
                             color: #b0b0b0;
                             font-size: 20rpx;
-                            font-weight: bold;
+                            
                         }
                     }
                 }
                 .more {
-                    width: 162rpx;
+                    width: 186rpx;
                     margin-top: 12rpx;
                     height: 58rpx;
                     line-height: 58rpx;
-                    text-align: center;
+                    
                     background-color: #ff9b24;
                     border-radius: 29rpx 0rpx 0rpx 29rpx;
                     color: #ffffff;
                     font-size: 24rpx;
-                    font-weight: bold;
+                    
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    .imgICon{
+                        margin: 0 20rpx;
+                        margin-right: 10rpx;
+                        width: 30rpx;
+                        height: 30rpx;
+                    }
                 }
             }
 
@@ -128,13 +142,26 @@
             border-bottom: 1rpx solid #b0b0b0; // 像素注意检查
 
             .itemLeft {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                .img{
+                    width: 40rpx;
+                    height: 40rpx;
+                }
                 .text {
+                    margin-left: 20rpx;
                     font-size: 30rpx;
                     font-weight: bold;
                 }
             }
 
-            .itemRight {}
+            .itemRight {
+                .imgArrow{
+                    width: 18rpx;
+	                height: 34rpx;
+                }
+            }
         }
     }
 

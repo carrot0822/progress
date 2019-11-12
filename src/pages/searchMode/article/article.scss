@@ -1,0 +1,44 @@
+.main {
+    padding: 0 66rpx;
+    padding-top: 20rpx;
+
+    .imageBox {
+        width: 100%;
+        height: 280rpx;
+        background-color: #555555;
+        margin-bottom: 10rpx;
+    }
+
+    .contentBox {
+        margin-bottom: 10rpx;
+
+        .title {
+            font-size: 30rpx;
+            color: #171717;
+            line-height: 40rpx;
+            font-weight: bold;
+        }
+
+        .des {
+            font-size: 26rpx;
+            color: #878997;
+            text-align: justify;
+            line-height: 36rpx;
+        }
+
+    }
+
+    .authorBox {
+        display: flex;
+        flex-direction: column;
+
+        text {
+            font-size: 28rpx;
+            color: #000000;
+            line-height: 42rpx;
+            font-weight: bold;
+            margin-bottom: 8rpx;
+        }
+
+    }
+}

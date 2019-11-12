@@ -58,7 +58,7 @@ App({
       }
     })
     // 获取用户信息
-    
+    // 获取设备信息
   },
   globalData: {
     userInfo: null,

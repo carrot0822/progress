@@ -1,0 +1,41 @@
+<view class="main">
+    <view id="???" bindtap="toArticle" class="cardBox">
+        <view class="layout"></view>
+        <view class="desBox">
+            <text class="title">“星空”的秘密主题艺术展</text>
+            <text class="content">继2015年巫鸿策划的群展“天人之际II: 上海星空”之后，美术馆在今年秋季迎来了“上海星空”系列的第二次大规模展览........</text>
+        </view>
+        <view class="dateBox">
+            <view class="year">2019年07月</view>
+            <view class="day">
+                <text class="num">26</text>
+            </view>
+        </view>
+    </view>
+    <view class="cardBox">
+        <view class="layout"></view>
+        <view class="desBox">
+            <text class="title">“星空”的秘密主题艺术展</text>
+            <text class="content">继2015年巫鸿策划的群展“天人之际II: 上海星空”之后，美术馆在今年秋季迎来了“上海星空”系列的第二次大规模展览........</text>
+        </view>
+        <view class="dateBox">
+            <view class="year">2019年07月</view>
+            <view class="day">
+                <text class="num">26</text>
+            </view>
+        </view>
+    </view>
+    <view class="cardBox">
+        <view class="layout"></view>
+        <view class="desBox">
+            <text class="title">“星空”的秘密主题艺术展</text>
+            <text class="content">继2015年巫鸿策划的群展“天人之际II: 上海星空”之后，美术馆在今年秋季迎来了“上海星空”系列的第二次大规模展览........</text>
+        </view>
+        <view class="dateBox">
+            <view class="year">2019年07月</view>
+            <view class="day">
+                <text class="num">26</text>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,3 +1,15 @@
-<!--logs.wxml-->
-<import src="../../wxParse/wxParse.wxml"/>
-<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+
+<view class="main">
+    <view class="imageBox">
+
+    </view>
+    <view class="contentBox">
+        <text class="title">“星空”的秘密主题艺术展</text>
+        <text class="des"></text>
+    </view>
+    <view class="authorBox">
+        <text class="publish">发布者：重庆大学图书馆</text>
+        <text class="position">地点：重庆大学A校区</text>
+        <text class="date">2019/03/040-2019/10/03/04</text>
+    </view>
+</view>

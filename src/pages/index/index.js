@@ -39,7 +39,9 @@ Page({
     })
   },
   toActivity(){
-
+    wx.navigateTo({
+      url:"../searchMode/activity/activity"
+    })
   },
   toLibSelect(){
     wx.navigateTo({

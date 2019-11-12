@@ -9,6 +9,8 @@
     "pages/detail/detail",
     "pages/searchMode/searchInput/searchInput",
     "pages/searchMode/libSelect/libSelect",
+    "pages/searchMode/activity/activity",
+    "pages/searchMode/article/article",
     "pages/userMode/user/user",
     "pages/userMode/myBorrow/myBorrow",
     "pages/userMode/borrowHis/borrowHis"
