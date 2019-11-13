@@ -49,6 +49,11 @@ Page({
     })
   },
   // 前往搜索
+  toHot(){
+    wx.navigateTo({
+      url:"../searchMode/hotRecommend/hotRecommend"
+    })
+  },
   // 
   toDetail(){
     wx.navigateTo({

@@ -1,0 +1,9 @@
+<view class="main">
+  <text class="tips">请填入你的手机号</text>
+  <view class="inputBox">
+    <input class="input" bindconfirm="search" bindinput="watchInput" value="{{inputValue}}" confirm-type="search" />
+  </view>
+  <view class="buttonBox">
+    <text class="btn">保存</text>
+  </view>
+</view>

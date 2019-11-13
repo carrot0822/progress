@@ -40,7 +40,7 @@
   <view class="hotRead">
     <view class="titleBox" hover-class="none" hover-stop-propagation="false">
       <text class="title">热门借阅</text>
-      <text class="more" catchtap="tohotBro">查看全部</text>
+      <text class="more" catchtap="toHot">查看全部</text>
     </view>
     <view class="content" hover-class="none" hover-stop-propagation="false">
       <view class="circleBox">

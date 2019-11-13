@@ -1,0 +1,31 @@
+<!-- logs.wxml -->
+<view class="main">
+  <view class="desBox">
+    <text class="title">读者卡号</text>
+    <text class="value">50001111</text>
+  </view>
+  <view class="desBox">
+    <text class="title">姓名</text>
+    <text class="value">01</text>
+  </view>
+  <view class="desBox">
+    <text class="title">性别</text>
+    <text class="value">♂</text>
+  </view>
+  <view class="desBox">
+    <text class="title">身份证号</text>
+    <text class="value">500244188647268459</text>
+  </view>
+  <view class="desBox">
+    <text class="title">邮箱</text>
+    <view bindtap="toMail" class="point">
+      <image  class="arrow" src="../../../assets/image/person/arrow.png" />
+    </view>
+  </view>
+  <view class="desBox">
+    <text class="title">手机号</text>
+    <view bindtap="toPhone" class="point">
+      <image  class="arrow" src="../../../assets/image/person/arrow.png" />
+    </view>
+  </view>
+</view>

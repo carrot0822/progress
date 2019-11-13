@@ -12,7 +12,7 @@
                     </view>
                 </view>
                 <view class="moreBox">
-                    <view class="more">
+                    <view bindtap="toMyInfo" class="more">
                         <image class="imgICon" src="../../assets/image/person/more.png" />
                         <text class="text">更多资料</text>
                     </view>
@@ -42,7 +42,7 @@
                     <image class="imgArrow" src="../../assets/image/person/arrow.png" />
                 </view>
             </view>
-            <view bindtap="toCollect" class="itemBox">
+            <view bindtap="toBorRet" class="itemBox">
                 <view class="itemLeft">
                     <image class="img"  src="../../assets/image/person/borrow@2x.png" />
                     <text class="text">我的借还</text>
@@ -51,7 +51,7 @@
                     <image class="imgArrow" src="../../assets/image/person/arrow.png" />
                 </view>
             </view>
-            <view bindtap="toCollect" class="itemBox">
+            <view bindtap="toReaderCard" class="itemBox">
                 <view class="itemLeft">
                     <image class="img"  src="../../assets/image/person/readerCard@2x.png" />
                     <text class="text">数字读者证</text>
@@ -60,7 +60,7 @@
                     <image class="imgArrow" src="../../assets/image/person/arrow.png" />
                 </view>
             </view>
-            <view bindtap="toCollect" class="itemBox">
+            <view bindtap="toUnbind" class="itemBox">
                 <view class="itemLeft">
                     <image class="img"  src="../../assets/image/person/unBind@2x.png" />
                     <text class="text">解绑读者卡</text>
@@ -69,7 +69,7 @@
                     <image class="imgArrow" src="../../assets/image/person/arrow.png" />
                 </view>
             </view>
-            <view bindtap="toCollect" class="itemBox">
+            <view bindtap="toBill" class="itemBox">
                 <view class="itemLeft">
                     <image class="img"  src="../../assets/image/person/bill@2x.png" />
                     <text class="text">我的账单</text>
@@ -78,7 +78,7 @@
                     <image class="imgArrow" src="../../assets/image/person/arrow.png" />
                 </view>
             </view>
-            <view bindtap="toCollect" class="itemBox">
+            <view bindtap="toAboutUs" class="itemBox">
                 <view class="itemLeft">
                     <image class="img"  src="../../assets/image/person/aboutUs@2x.png" />
                     <text class="text">关于我们</text>
@@ -87,7 +87,7 @@
                     <image class="imgArrow" src="../../assets/image/person/arrow.png" />
                 </view>
             </view>
-            <view bindtap="toCollect" class="itemBox noBottom">
+            <view bindtap="toSuggestion" class="itemBox noBottom">
                 <view class="itemLeft">
                     <image class="img"  src="../../assets/image/person/suggestion@2x.png" />
                     <text class="text">意见反馈</text>

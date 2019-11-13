@@ -1,0 +1,12 @@
+<!--logs.wxml-->
+<view class="main">
+  <view class="tabBox" hover-class="none" hover-stop-propagation="false">
+      <view class="selectBtn active">
+        <text class="text ">当前借阅</text>
+      </view>
+      <view class="selectBtn">
+        <text class="text">历史借阅</text>
+      </view>
+    </view>
+    
+</view>

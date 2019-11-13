@@ -1,0 +1,47 @@
+.main {
+  //padding: 0 40rpx;
+  padding-top: 12rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  //justify-content: space-between;
+  .cardBox {
+    margin-bottom: 36rpx;
+    width: 33%;
+
+    .centerBox {
+      width: 184rpx;
+      margin:  0 auto;
+      .coverBox {
+        margin-bottom: 20rpx;
+
+        .cover {
+          width: 184rpx;
+          height: 244rpx;
+          background-color: #cdcdcd;
+        }
+      }
+
+      .textBox {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+          font-size: 22rpx;
+          color: #1a7bff;
+          line-height: 33rpx;
+          margin-bottom: 28rpx;
+        }
+
+        .author {
+          font-size: 20rpx;
+          line-height: 30rpx;
+          color: #676767;
+        }
+      }
+    }
+
+  }
+
+}

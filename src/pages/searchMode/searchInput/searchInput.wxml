@@ -29,7 +29,6 @@
         <!-- 搜索结果列表 -->
         <view class="listBox" hover-class="none" hover-stop-propagation="false">
             <view class="resultList">
-                
                 <view class="circleBox" hover-class="none" hover-stop-propagation="false">
                     <view class="collect iconfontIndex icon-icon"></view>
                     <view class="imageBox">

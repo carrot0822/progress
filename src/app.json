@@ -11,10 +11,20 @@
     "pages/searchMode/libSelect/libSelect",
     "pages/searchMode/activity/activity",
     "pages/searchMode/article/article",
+    "pages/searchMode/hotRecommend/hotRecommend",
     "pages/userMode/user/user",
+    "pages/userMode/collect/collect",
+    "pages/userMode/bill/bill",
+    "pages/userMode/borRet/borRet",
+    "pages/userMode/unBindCard/unBindCard",
+    "pages/userMode/readerCard/readerCard",
+    "pages/userMode/about/about",
+    "pages/userMode/suggestion/suggestion",
     "pages/userMode/myBorrow/myBorrow",
-    "pages/userMode/borrowHis/borrowHis"
-    
+    "pages/userMode/borrowHis/borrowHis",
+    "pages/userMode/myInfo/myInfo",
+    "pages/userMode/reviseMail/reviseMail",
+    "pages/userMode/revisePhone/revisePhone"
   ],
   "window": {
     "backgroundTextStyle": "light",
