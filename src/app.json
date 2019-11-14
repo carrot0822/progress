@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "pages/index/index",
     "pages/personal/personal",
     "pages/article/article",
@@ -15,6 +14,7 @@
     "pages/userMode/user/user",
     "pages/userMode/collect/collect",
     "pages/userMode/bill/bill",
+    "pages/userMode/billDetail/billDetail",
     "pages/userMode/borRet/borRet",
     "pages/userMode/unBindCard/unBindCard",
     "pages/userMode/readerCard/readerCard",
@@ -33,12 +33,18 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar":{
+    "color":"#b6b6b6",
+    "selectedColor":"#171717",
     "list":[{
       "pagePath":"pages/index/index",
-      "text":"首页"
+      "text":"首页",
+      "iconPath":"./assets/index.png",
+      "selectedIconPath":"./assets/indexSelect.png"
     },{
       "pagePath":"pages/personal/personal",
-      "text":"个人中心"
+      "text":"个人中心",
+      "iconPath":"./assets/user.png",
+      "selectedIconPath":"./assets/userSelect.png"
     }]
   },
   "sitemapLocation": "sitemap.json"

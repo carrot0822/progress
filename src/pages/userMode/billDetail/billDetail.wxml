@@ -1,0 +1,18 @@
+<view class="main">
+  <view class="cardBox">
+    <text class="tips">押金充值成功提醒</text>
+    <text class="flow">流水号：5002215547566 </text>
+    <view class="content">
+      <view class="text">内容：</view>
+      <view class="des">读者卡使用时间已到期.如需继续借书请续费,以便更好地使用便更好地使用便更好地使用</view>
+    </view> 
+    <view class="content">
+      <view class="text">地点：</view>
+      <view class="des">重庆大学图书馆</view>
+    </view> 
+    <view class="content">
+      <text class="text">发生时间：</text>
+      <text class="des">2019-08-30   16:56:15</text>
+    </view> 
+  </view>
+</view>

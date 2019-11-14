@@ -1,8 +1,35 @@
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
-}
-.log-item {
-  margin: 10rpx;
+.main{
+  padding: 0 60rpx;
+  .text{
+    font-size: 32rpx;
+    color: #333333;
+    line-height: 36rpx;
+    margin-bottom: 10rpx;
+  }
+  .inputBox{
+    border: solid 1rpx #bfbfbf;
+    margin-bottom: 50rpx;
+    padding: 10rpx;
+    .input{
+      font-size: 24rpx;
+
+    }
+  }
+  .btnBox{
+    display: flex;
+    justify-content: center;
+    
+    
+    .confirmBtn{
+      font-size: 32rpx;
+      color: #ffffff;
+      width: 180rpx;
+      height: 60rpx;
+      display: inline-block;
+      line-height: 60rpx;
+      text-align: center;
+	background-color: #1a5fff;
+	border-radius: 10rpx;
+    }
+  }
 }

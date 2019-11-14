@@ -1,4 +1,10 @@
-<!--logs.wxml-->
-<view class="container log-list">
-  关于我们
+
+<view class="main">
+  <view class="text">请输入你遇到的问题：</view>
+  <view class="inputBox">
+    <textarea class="input"></textarea>
+  </view>
+  <view class="btnBox">
+    <text class="confirmBtn">提交</text>
+  </view>
 </view>

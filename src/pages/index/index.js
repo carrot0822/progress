@@ -22,6 +22,7 @@ Page({
     swiperArr:[],
 
   },
+  //API处理
   
   //事件处理函数
   bindViewTap: function() {

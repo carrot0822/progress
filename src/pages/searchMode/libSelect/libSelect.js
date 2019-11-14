@@ -1,3 +1,5 @@
+let app = getApp()
+
 Page({
     data:{
         inputMode:{

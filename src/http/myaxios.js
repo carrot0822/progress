@@ -1,6 +1,9 @@
-
+// 还是需呀一个加载中的判定
 let myAxios = function(url,data,method){
     let promise = new Promise((resolve, reject) => {
+         wx.showLoading({
+             title:'加载中'
+         })
          wx.request({
             url: url,
             data: data,
@@ -23,7 +26,9 @@ let myAxios = function(url,data,method){
                 });
                 reject(e);
             },
-            complete: ()=>{}
+            complete: ()=>{
+                wx.hideLoading()
+            }
         });
     })
     return promise
