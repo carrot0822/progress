@@ -3,34 +3,26 @@
         <view class="searchBox">
             <view class="search">
                 <icon type='search' class='search-img' size='15' color='#c8c8c8'></icon>
-                <input class="inputBox" bindconfirm="search" bindinput="watchInput" value="{{inputMode.inputValue}}" confirm-type="search" placeholder="将会获取焦点" />
-                <icon wx:if="{{clearShow}}" type='clear' class='clear-img' size='15' color='#c8c8c8'></icon>
+                <input class="inputBox" bindconfirm="searchBtn" bindinput="watchInput" value="{{inputMode.inputValue}}" confirm-type="search" placeholder="将会获取焦点" />
+                <view bindtap="clear" class="iconBox">
+                    <icon wx:if="{{clearShow}}" type='clear' class='clear-img' size='15' color='#c8c8c8'></icon>
+                </view>
             </view>
             <view catchtap="toIndex" class="text">取消</view>
         </view>
     </view>
     <!-- 搜索结果 -->
-    <view class="searchRe">
-        <view class="circleBox">
-            <view class="logoBox"></view>
-            <view class="desBox">
-                <text class="title">重庆大学A区</text>
-                <text class="concrete">重庆市沙坪坝区沙正街174号</text>
+    <view wx:if="{{list.length}}" class="searchRe">
+        <block wx:for="{{list}}" wx:key="{{index}}">
+            <view bindtap="select" data-item="{{item}}" class="circleBox">
+                <view class="logoBox"></view>
+                <view class="desBox">
+                    <text class="title">{{item.name}}</text>
+                    <text class="concrete">{{item.location}}</text>
+                </view>
             </view>
-        </view>
-        <view class="circleBox">
-            <view class="logoBox"></view>
-            <view class="desBox">
-                <text class="title">重庆大学A区</text>
-                <text class="concrete">重庆市沙坪坝区沙正街174号</text>
-            </view>
-        </view>
-        <view class="circleBox">
-            <view class="logoBox"></view>
-            <view class="desBox">
-                <text class="title">重庆大学A区</text>
-                <text class="concrete">重庆市沙坪坝区沙正街174号</text>
-            </view>
-        </view>
+        </block>
     </view>
+    <!-- 暂无结果 -->
+    <view wx:if="{{!list.length}}" class="end">暂无结果</view>
 </view>

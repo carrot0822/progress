@@ -33,12 +33,7 @@
         border-radius: 30rpx;
         position: relative;
 
-        .clear-img {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 30rpx;
-        }
+        
 
         .search-img {
             margin: 0 18rpx;
@@ -46,7 +41,18 @@
 
         .inputBox {
             width: 100%;
+            padding-right: 84rpx;
             font-size: 24rpx;
+        }
+        .iconBox{
+            padding:0 30rpx;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0rpx;
+            .clear-img {
+               
+            }
         }
     }
 

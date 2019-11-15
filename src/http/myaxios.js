@@ -1,14 +1,14 @@
 // 还是需呀一个加载中的判定
 let myAxios = function(url,data,method){
     let promise = new Promise((resolve, reject) => {
-         wx.showLoading({
+         /* wx.showLoading({
              title:'加载中'
-         })
+         }) */
          wx.request({
             url: url,
             data: data,
             header: {'content-type':'application/json'},
-            method: method,
+            method: method||'GET',
             dataType: 'json',
             responseType: 'text',
             success: (result)=>{
@@ -27,7 +27,7 @@ let myAxios = function(url,data,method){
                 reject(e);
             },
             complete: ()=>{
-                wx.hideLoading()
+                //wx.hideLoading()
             }
         });
     })

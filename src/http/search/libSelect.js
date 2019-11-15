@@ -1,5 +1,5 @@
 const api = {
-    search:'wxxcxmodule/query/getBorrowHost/getLibSelect' // 馆藏选择
+    search:'wxxcxmodule/query/getLibSelect' // 馆藏选择
 }
 
 module.exports = api

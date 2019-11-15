@@ -1,78 +1,117 @@
-let app = getApp()
-
+let App = getApp()
+let Ip = App.config.baseApi
+let Api = App.Api
+let axios = App.axios
+let Store = App.Store
 Page({
-    data:{
-        inputMode:{
-            inputValue:"",
-            
+    data: {
+        inputMode: {
+            inputValue: "",
+
         },
-        clearShow:true,
-        page:1,
-        height:0
+        list:[],
+        clearShow: false,
+        page: 1,
+        height: 0
     },
 
     // 事件触发函数
-    toIndex(){
+    toIndex() {
         console.log("??")
         wx.switchTab({
             url: '../../index/index'
-          })
+        })
     },
-    watchInput(event){
-        console.log('输入的话',event.detail)
+    watchInput(event) {
+        let detail = event.detail
+        
+        if(this.data.clearShow){
+            console.log('已经是true了')
+        } else {
+            if(detail.cursor){
+                this.setData({
+                    clearShow:true
+                })
+            }else {
+                this.setData({
+                    clearShow:false
+                })
+            }
+        } 
+        
+        console.log('输入的话', event.detail,detail.cursor)
     },
-    searchHis(event){
-        console.log(event)
+    clear(){
+        this.setData({
+            clearShow:false,
+            inputMode:{
+                inputValue:''
+            }
+        })
+        console.log('肯定没执行')
     },
-    search(event){
-        console.log(event.detail,'点击搜索的话')
+    select(e){
+        // 把name存在本地
+        let data = e.currentTarget.dataset.item
+        Store.setItem('lib',data)
+        // 跳转回首页
+        this.toIndex()
+        console.log(e,'数据肯定是这里拿啊')
+    },
+    searchBtn(e){
+        let obj = {}
+        obj.name = e.detail.value
+        this._search(obj)
+        
     },
     // api
-    //数据过滤函数
-    // 生命周期函数
-    //钩子函数
-    toBottom(){
-        var that = this
-        let page = this.data.page + 1
-        let testArr = ['1111','2222','3333','4444']
-        let data = this.data.searchHis.concat(testArr)
-        that.setData({
-            page:page,
-            searchHis:data
+    _search(params) {
+        let data = params || {}
+        let url = Ip + Api.libSelect.search
+        axios(url,data,'GET').then((res) => {
+            let list = res.row
+            this.setData({
+                list:list
+            })
+            console.log(url, App,this.data.list)
         })
-        console.log("已经到底了",this.data.page)
     },
-    onLoad(){
+
+    onLoad() {
         let that = this
         console.log("???")
+        this._search()
         wx.getSystemInfo({
-            success (res) {
-              let multiple = 750 / res.windowWidth
-              let height =Math.floor(multiple * res.windowHeight) - 33;
-              that.setData({
-                  height:height + 'rpx'
-              })
-              console.log(that.data.height,'比较后高度')
-              console.log(res.model)
-              console.log(res.pixelRatio)
-              console.log(res.windowWidth)
-              console.log(res.windowHeight)
-              console.log(res.language)
-              console.log(res.version)
-              console.log(res.platform)
+            success(res) {
+                let multiple = 750 / res.windowWidth
+                let height = Math.floor(multiple * res.windowHeight) - 33;
+                that.setData({
+                    height: height + 'rpx'
+                })
+                console.log(that.data.height, '比较后高度')
+                console.log(res.model)
+                console.log(res.pixelRatio)
+                console.log(res.windowWidth)
+                console.log(res.windowHeight)
+                console.log(res.language)
+                console.log(res.version)
+                console.log(res.platform)
             }
-          })
+        })
+
+
     },
-    
-    onReachBottom(){
+
+    onReachBottom() {
         var that = this
         let page = this.data.page + 1
-        let testArr = ['1111','2222','3333','4444']
+        let testArr = ['1111', '2222', '3333', '4444']
         let data = this.data.searchHis.concat(testArr)
         that.setData({
-            page:page,
-            searchHis:data
+            page: page,
+            searchHis: data
         })
-        console.log("已经到底了",this.data.page)
-    }
+        console.log("已经到底了", this.data.page)
+    },
+
 })

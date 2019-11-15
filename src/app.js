@@ -4,15 +4,22 @@ let Api = require('./http/api');
 let myAxios = require('./http/myaxios')
 let loginUrl = require("./http/user")
 let Env_config = require('./env/index.js')
+let Router = require('./utils/Router')
+let Store = require('./utils/Store')
 console.log(loginUrl,'调用')
 /*------ 版本发布修改环境配置 ------*/
 let env = 'Dev';
-App.config = Env_config[env]; // 环境更换配置
-App.config.mockApi = Env_config.mockApi;
-App.config.env = env;
-App.config.api = Api
+let config = {}
+config = Env_config[env]; // 环境更换配置
+config.mockApi = Env_config.mockApi;
+config.env = env;
+
 App({
-  myAxios:myAxios,
+  axios:myAxios,
+  Api:Api,
+  Router:Router,
+  Store:Store,
+  config:config,
   onLaunch: function () {
     // 展示本地存储能力
     console.log(App.config,'这样调的到吗')
