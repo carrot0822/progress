@@ -43,54 +43,23 @@
       <text class="more" catchtap="toHot">查看全部</text>
     </view>
     <view class="content" hover-class="none" hover-stop-propagation="false">
-      <view class="circleBox">
+      <view wx:if="{{hotRead.length}}"  class="circleBox">
         <scroll-view class="scrollWidth" scroll-x="true">
-          <view class="imageBox">
+        <block wx:for="{{hotRead}}" wx:key="{{index}}">
+          <view bindtap="toDetail" id="{{item.id}}" class="imageBox">
             <image class="bookImg" src="../../assets/image/indexIcon/9.jpg" />
-            <view class="index">1</view>
+            <view class="index">{{index+1}}</view>
             <view class="textBox">
-              <text class="name">不认识</text>
-              <text class="author">不知道</text>
-              <text class="count">100次</text>
+              <text class="name">{{item.name}}</text>
+              <text class="author">{{item.author}}</text>
+              <text class="count">{{item.sum}}</text>
             </view>
           </view>
-          <view class="imageBox">
-            <image class="bookImg" src="../../assets/image/indexIcon/9.jpg" />
-            <view class="index">1</view>
-            <view class="textBox">
-              <text class="name">不认识</text>
-              <text class="author">不知道</text>
-              <text class="count">100次</text>
-            </view>
-          </view>
-          <view class="imageBox">
-            <image class="bookImg" src="../../assets/image/indexIcon/9.jpg" />
-            <view class="index">1</view>
-            <view class="textBox">
-              <text class="name">不认识</text>
-              <text class="author">不知道</text>
-              <text class="count">100次</text>
-            </view>
-          </view>
-          <view class="imageBox">
-            <image class="bookImg" src="../../assets/image/indexIcon/9.jpg" />
-            <view class="index">1</view>
-            <view class="textBox">
-              <text class="name">不认识</text>
-              <text class="author">不知道</text>
-              <text class="count">100次</text>
-            </view>
-          </view>
-          <view class="imageBox">
-            <image class="bookImg" src="../../assets/image/indexIcon/9.jpg" />
-            <view class="index">1</view>
-            <view class="textBox">
-              <text class="name">不认识</text>
-              <text class="author">不知道</text>
-              <text class="count">100次</text>
-            </view>
-          </view>
+        </block>
         </scroll-view>
+      </view>
+      <view wx:if="{{!hotRead.length}}" class="noData">
+         暂无数据
       </view>
     </view>
   </view>

@@ -7,23 +7,23 @@
         <image class="img" src="../../assets/image/indexIcon/9.jpg" />
       </view>
       <view class="detailBox">
-        <text class="name">书名</text>
-        <text class="author">这里是作者 要超出隐藏的</text>
+        <text class="name">{{detail.name}}</text>
+        <text class="author">{{detail.author}}</text>
         <view class="textBox">
           <text class="textfront">出版社：</text>
-          <text class="textEnd">南海出版公司</text>
+          <text class="textEnd">{{detail.fkPressName}}</text>
         </view>
         <view class="textBox">
           <text class="textfront">出版时间：</text>
-          <text class="textEnd">2019-10-20</text>
+          <text class="textEnd">{{detail.publishingTime}}</text>
         </view>
         <view class="textBox">
           <text class="textfront">馆藏地：</text>
-          <text class="textEnd">重庆图书馆</text>
+          <text class="textEnd">{{place}}</text>
         </view>
         <view class="textBox">
           <text class="textfront">ISBN：</text>
-          <text class="textEnd">9787544294164</text>
+          <text class="textEnd">{{detail.isbn}}</text>
         </view>
       </view>
     </view>
@@ -31,7 +31,7 @@
   <!-- 书籍简介 -->
   <view class="desBox">
     <text class="font">书籍简介</text>
-    <text class="summary">比梦境更离奇的全球隐秘之地风趣与格调并存的旅行书美国亚马逊地理类/旅游类畅销书榜首《纽约时报》年度畅销书 比神话与梦境更离奇的现实</text>
+    <text class="summary">{{detail.introduction}}</text>
   </view>
   <!-- 馆藏列表 -->
   <view class="list">
@@ -39,20 +39,23 @@
     <text class="text">馆藏列表</text>
   </view>
   <!-- 位置信息 -->
-  <view class="posBox">
-    <view class="posCard">
-      <view class="textBox" hover-class="none" hover-stop-propagation="false">
-        <text class="text">索书号：</text>
-        <text class="text">12254</text>
+  <view wx:if="{{list.length}}" class="posBox">
+    <block wx:for="{{list}}" wx:key="{{index}}">
+      <view class="posCard">
+        <view class="textBox" hover-class="none" hover-stop-propagation="false">
+          <text class="text">索书号：</text>
+          <text class="text">{{item.callNumber}}</text>
+        </view>
+        <view class="textBox" hover-class="none" hover-stop-propagation="false">
+          <text class="text">状态：</text>
+          <text class="text">{{item.lendState}}</text>
+        </view>
+        <view class="textBox" hover-class="none" hover-stop-propagation="false">
+          <text class="text">图书位置：</text>
+          <text class="text">{{item.position}}</text>
+        </view>
       </view>
-      <view class="textBox" hover-class="none" hover-stop-propagation="false">
-        <text class="text">状态：</text>
-        <text class="text">在柜</text>
-      </view>
-      <view class="textBox" hover-class="none" hover-stop-propagation="false">
-        <text class="text">图书位置：</text>
-        <text class="text">D区3架4排5列</text>
-      </view>
-    </view>
+    </block>
   </view>
+  <view wx:if="{{!list.length}}">暂无数据</view>
 </view>

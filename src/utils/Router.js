@@ -6,7 +6,7 @@ const routerPath = {
      activity:"/pages/searchMode/activity/activity", // 活动资讯
      article:"pages/searchMode/article/article", // 活动详情
      hotRecommend:"/pages/searchMode/hotRecommend/hotRecommend", // 热门详情
-     
+     detail:"/pages/detail/detail", // 书籍详情
      personal:"/pages/personal/personal", // 个人中心
      collect:"pages/userMode/collect/collect", // 我的收藏
      borRetL:"pages/userMode/borRet/borRet", // 我的借还
@@ -43,6 +43,12 @@ class Router{
      * 传入地址和参数后将会携参跳转 vue router的push
      * @param {string} path 
      * @param {object} option 
+     * option{
+     *  path:
+     *  query{}
+     *  openType
+     *  duration
+     * }
      */
     push(path,option = {}){
         if(typeof path == 'string'){

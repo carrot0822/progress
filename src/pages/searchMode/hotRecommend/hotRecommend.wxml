@@ -1,14 +1,14 @@
 <!-- logs.wxml -->
 <view class="main">
   <block wx:for="{{list}}" wx:key="{{index}}">
-    <view id="{{item}}" class="cardBox">
+    <view bindtap="toDetail" id="{{item.id}}" class="cardBox">
       <view class="centerBox">
         <view class="coverBox">
           <image class="cover" src="../../../assets/image/indexIcon/9.jpg" />
         </view>
         <view class="textBox">
-          <text class="title">秘籍</text>
-          <text class="author">[美】乔舒亚.福尔</text>
+          <text class="title">{{item.name}}</text>
+          <text class="author">{{item.author}}</text>
         </view>
       </view>
     </view>
