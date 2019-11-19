@@ -18,6 +18,7 @@ Page({
     axios(url, data, 'GET').then((res) => {
       console.log(res)
       if (res.state) {
+        this.filterNull(res.row)
         this.setData({
           detail: res.row
         })
@@ -38,6 +39,15 @@ Page({
       }
       console.log(res, '馆藏')
     })
+  },
+  filterNull(obj){
+    for(let key in obj){
+      if(obj[key]){
+
+      }else{
+        obj[key] = '无数据'
+      }
+    }
   },
   filterList(arr) {
     let map = ['无', '在架', '借出']

@@ -29,24 +29,21 @@
         <!-- 搜索结果列表 -->
         <view class="listBox" hover-class="none" hover-stop-propagation="false">
             <view class="resultList">
-                <view class="circleBox" hover-class="none" hover-stop-propagation="false">
-                    <view class="collect iconfontIndex icon-icon"></view>
-                    <view class="imageBox">
-                        <image class="img" src="../../../assets/image/indexIcon/9.jpg" />
-                    </view>
-                    <view class="textBox">
-                        <text class="name">书名</text>
-                        <text class="author">这里是作者 要超出隐藏的</text>
-                        <text class="summary">简介</text>
-                        <view class="summary">
-                            比梦境更离奇的全球隐秘之地风趣与格调并存的旅行
-            书美国亚马逊地理类/旅游类畅销书榜首《纽约时报》
-              年度畅销书 比神话与梦境更离奇的现实世界
+                <block wx:for="{{list}}" wx:key="{{index}}">
+                    <view class="circleBox" hover-class="none" hover-stop-propagation="false">
+                        <view class="collect iconfontIndex icon-icon"></view>
+                        <view class="imageBox">
+                            <image class="img" src="../../../assets/image/indexIcon/9.jpg" />
+                        </view>
+                        <view class="textBox">
+                            <text class="name">{{item.name}}</text>
+                            <text class="author">{{item.author}}</text>
+                            <text class="summary">简介</text>
+                            <view class="summary">{{item.introduction}}</view>
                         </view>
                     </view>
-                </view>
+                </block>
             </view>
-            <view class="des">已经到底了</view>
         </view>
     </view>
 </view>

@@ -1,6 +1,7 @@
 <!-- logs.wxml -->
-<view class="main">
-  <block wx:for="{{list}}" wx:key="{{index}}">
+<view class="mainBox">
+ <view wx:if="{{list.length}}" class="main">
+   <block wx:for="{{list}}" wx:key="{{index}}">
     <view bindtap="toDetail" id="{{item.id}}" class="cardBox">
       <view class="centerBox">
         <view class="coverBox">
@@ -13,4 +14,8 @@
       </view>
     </view>
   </block>
+ </view>
+ <view wx:if="{{!list.length}}" class="noData">无数据</view>
+  <view wx:if="{{loading}}" class="loading">等待logo</view>
+  <!-- <view wx:if="{{toBottom}}" class="">已经一滴都没了</view> -->
 </view>

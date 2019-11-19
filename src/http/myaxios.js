@@ -25,6 +25,7 @@ let myAxios = function(url,data,method){
                     icon:'none'
                 });
                 reject(e);
+                console.log('报错的话')
             },
             complete: ()=>{
                 //wx.hideLoading()

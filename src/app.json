@@ -27,9 +27,9 @@
     "pages/userMode/revisePhone/revisePhone"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "正在加载",
     "navigationBarTextStyle": "black"
   },
   "tabBar":{

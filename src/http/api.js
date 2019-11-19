@@ -4,7 +4,8 @@ let index = {
     recommend:'wxxcxmodule/query/getRandBookByPlace', // 推荐书籍
     newBook:'wxxcxmodule/query/getNewBook', // 新书
     detail:'wxxcxmodule/query/getBopCataOne', // 馆藏详情
-    posList:'wxxcxmodule/query/getBopCollectionPage' // 位置信息
+    posList:'wxxcxmodule/query/getBopCollectionPage', // 位置信息
+    search:'wxxcxmodule/query/select', // 任意词搜索
 }
 const Api = {
     index,
