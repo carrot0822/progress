@@ -1,0 +1,18 @@
+<!-- logs.wxml -->
+<view class="main">
+  <form bindsubmit="submit">
+    <view class="accountBox">
+      <view class="text">账号</view>
+      <view class="inputBox">
+        <input name="account" class="input" placeholder-style="" placeholder="请输入账号" />
+      </view>
+    </view>
+    <view class="pswBox">
+      <view class="text">密码</view>
+      <view class="inputBox">
+        <input name="password" password type="text" class="input" placeholder-style="" placeholder="请输入账号" />
+      </view>
+    </view>
+    <button class="buttonBox" formType="submit">绑定读者卡</button>
+  </form>
+</view>

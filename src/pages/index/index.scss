@@ -1,4 +1,5 @@
 /**index.wxss**/
+@import '../../scss/mixin.scss';
 .placeholder{
   font-size: 14px;
   color: #d1d1d1;
@@ -90,6 +91,7 @@
         font-size: 16px;
         color: #171717;
         font-weight: bold;
+        
       }
 
       .more {
@@ -146,17 +148,19 @@
             padding-top: 14rpx;
             box-sizing: border-box;
             .name {
-              
+              @include textOver;
               font-size: 24rpx;
               
               width: 100%;
             }
 
             .author {
+              @include textOver;
               font-size: 20rpx;
             }
 
             .count {
+              @include textOver;
               font-size: 16rpx;
             }
           }
@@ -236,12 +240,16 @@
             line-height: 42rpx;
             font-weight: bold;
             color: #181818;
+            width: 460rpx;
+            @include textOver;
           }
 
           .author {
             font-size: 24rpx;
             line-height: 36rpx;
             color: #1a7bff;
+            width: 460rpx;
+            @include textOver;
           }
 
           .summary {
@@ -250,6 +258,7 @@
             color: #676767;
             text-align: justify;
             width: 460rpx;
+            @include textOver3;
           }
         }
       }
@@ -257,4 +266,24 @@
   }
 
 
+}
+.authBox{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0);//设置阴影半透明背景如： background: rgba(0, 0, 0, 0.4);
+  display: block;
+}
+
+.auth-btn{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  opacity: 0;
 }

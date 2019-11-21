@@ -6,6 +6,8 @@ let index = {
     detail:'wxxcxmodule/query/getBopCataOne', // 馆藏详情
     posList:'wxxcxmodule/query/getBopCollectionPage', // 位置信息
     search:'wxxcxmodule/query/select', // 任意词搜索
+    login:"wxxcxmodule/index/wxlogin", // 登录
+    bindCard:"wxxcxmodule/index/cardlogin" // 绑定卡片
 }
 const Api = {
     index,

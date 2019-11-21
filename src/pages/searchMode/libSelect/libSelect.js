@@ -9,7 +9,7 @@ Page({
             inputValue: "",
 
         },
-        list:[],
+        list: [],
         clearShow: false,
         page: 1,
         height: 0
@@ -19,61 +19,76 @@ Page({
     toIndex() {
         console.log("??")
         wx.switchTab({
-            url: '../../index/index'
+            url: '/pages/index/index',
+            success() {
+                let page = getCurrentPages().pop();
+                console.log('那么这里拿到的页面信息', page)
+                if (page == undefined || page == null) return;
+                page.onLoad()
+            }
         })
     },
     watchInput(event) {
         let detail = event.detail
-        
-        if(this.data.clearShow){
+
+        if (this.data.clearShow) {
             console.log('已经是true了')
         } else {
-            if(detail.cursor){
+            if (detail.cursor) {
                 this.setData({
-                    clearShow:true
+                    clearShow: true
                 })
-            }else {
+            } else {
                 this.setData({
-                    clearShow:false
+                    clearShow: false
                 })
             }
-        } 
-        
-        console.log('输入的话', event.detail,detail.cursor)
+        }
+
+        console.log('输入的话', event.detail, detail.cursor)
     },
-    clear(){
+    clear() {
         this.setData({
-            clearShow:false,
-            inputMode:{
-                inputValue:''
+            clearShow: false,
+            inputMode: {
+                inputValue: ''
             }
         })
         console.log('肯定没执行')
     },
-    select(e){
+    select(e) {
         // 把name存在本地
         let data = e.currentTarget.dataset.item
-        Store.setItem('lib',data)
-        // 跳转回首页
-        this.toIndex()
-        console.log(e,'数据肯定是这里拿啊')
+        let front = Store.getItem('lib') || {
+            name: ''
+        }
+        if (front.name == data.name) {
+            wx.switchTab({
+                url: '/pages/index/index',
+            })
+        } else {
+            Store.setItem('lib', data)
+            this.toIndex()
+        }
+
+        console.log(e, '数据肯定是这里拿啊')
     },
-    searchBtn(e){
+    searchBtn(e) {
         let obj = {}
         obj.name = e.detail.value
         this._search(obj)
-        
+
     },
     // api
     _search(params) {
         let data = params || {}
         let url = Ip + Api.libSelect.search
-        axios(url,data,'GET').then((res) => {
+        axios(url, data, 'GET').then((res) => {
             let list = res.row
             this.setData({
-                list:list
+                list: list
             })
-            console.log(url, App,this.data.list)
+            console.log(url, App, this.data.list)
         })
     },
 

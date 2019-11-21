@@ -3,47 +3,53 @@
         <view class="searchBox">
             <view class="search">
                 <icon type='search' class='search-img' size='15' color='#c8c8c8'></icon>
-                <input class="inputBox" bindconfirm="search" bindinput="watchInput" value="{{inputMode.inputValue}}" confirm-type="search" focus="{{inputMode.inputFocus}}" placeholder="将会获取焦点" />
-                <icon wx:if="{{clearShow}}" type='clear' class='clear-img' size='15' color='#c8c8c8'></icon>
+                <input class="inputBox" bindconfirm="search" bindinput="watchInput" value="{{inputValue}}" confirm-type="search" focus="{{inputFocus}}" placeholder="将会获取焦点" />
+                <icon catchtap="clear" wx:if="{{clearShow}}" type='clear' class='clear-img' size='15' color='#c8c8c8'></icon>
             </view>
             <view catchtap="toIndex" class="text">取消</view>
         </view>
     </view>
-    <!-- <view class="searchHis">
-        <view class="textBox">
-            <text class="his">搜索历史</text>
-            <text class="clear">清空</text>
-        </view>
-        <view class="historyList">
-            <block wx:for="{{searchHis}}" wx:key="{{index}}">
-                <view class="textBox" id="{{index}}" data-item="{{item}}" catchtap="searchHis">
-                    {{item}}
-                </view>
-            </block>
-        </view>
-        <view class="des">无搜索历史</view>
-    </view> -->
-    <!-- 搜索结果 -->
-    <view class="searchRe">
-        <!-- <view class="loading">正在搜索</view> -->
-        <!-- 搜索结果列表 -->
-        <view class="listBox" hover-class="none" hover-stop-propagation="false">
-            <view class="resultList">
-                <block wx:for="{{list}}" wx:key="{{index}}">
-                    <view class="circleBox" hover-class="none" hover-stop-propagation="false">
-                        <view class="collect iconfontIndex icon-icon"></view>
-                        <view class="imageBox">
-                            <image class="img" src="../../../assets/image/indexIcon/9.jpg" />
-                        </view>
-                        <view class="textBox">
-                            <text class="name">{{item.name}}</text>
-                            <text class="author">{{item.author}}</text>
-                            <text class="summary">简介</text>
-                            <view class="summary">{{item.introduction}}</view>
-                        </view>
+    <view wx:if="{{historyShow}}" class="searchHis">
+        <view class="dataBox">
+            <view class="textBox">
+                <text class="his">搜索历史</text>
+                <text wx:if="{{searchHis.length}}" catchtap="clearHis" class="clear">清空</text>
+            </view>
+            <view class="historyList">
+                <block wx:for="{{searchHis}}" wx:key="{{index}}">
+                    <view class="textBox" id="{{index}}" data-item="{{item}}" catchtap="searchHis">
+                        {{item}}
                     </view>
                 </block>
+                <view wx:if="{{!searchHis.length}}" class="noData">无搜索历史</view>
             </view>
         </view>
+    </view>
+    <!-- 搜索结果 -->
+    <view class="searchRe">
+        <!-- 还要补个loading来遮挡 -->
+        <scroll-view wx:if="{{!historyShow}}" bindscrolltolower="toBottom" scroll-y="true" style="height: {{height}};">
+            <!-- <view class="loading">正在搜索</view> -->
+            <!-- 搜索结果列表 -->
+            <view class="listBox" hover-class="none" hover-stop-propagation="false">
+                <view wx:if="{{list.length}}" class="resultList">
+                    <block wx:for="{{list}}" wx:key="{{index}}">
+                        <view id="{{item.fkCataBookId}}" catchtap="toDetail" class="circleBox" hover-class="none" hover-stop-propagation="false">
+                            <view class="collect iconfontIndex icon-icon"></view>
+                            <view class="imageBox">
+                                <image class="img" src="../../../assets/image/indexIcon/9.jpg" />
+                            </view>
+                            <view class="textBox">
+                                <text class="name">{{item.name}}</text>
+                                <text class="author">{{item.author}}</text>
+                                <text class="summary">简介</text>
+                                <view class="summary">{{item.introduction}}</view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+                <view wx:if="{{!list.length}}" class="">没有搜索结果啊</view>
+            </view>
+        </scroll-view>
     </view>
 </view>

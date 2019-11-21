@@ -1,4 +1,7 @@
 <!-- index.wxml -->
+
+  <button wx:if="{{isAuth == 0}}" class='auth-btn' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"></button>
+
 <view class="index">
   <!-- 搜索框 -->
   <view class="searchBox">
@@ -75,7 +78,6 @@
     <view wx:if="{{change==0}}" class="contentBox">
       <block wx:for="{{recommend}}" wx:key="{{index}}">
         <view id="{{item.fkCataBookId}}" bindtap="toDetail" class="circleBox" hover-class="none" hover-stop-propagation="false">
-          
           <view class="imageBox">
             <image class="img" src="../../assets/image/indexIcon/9.jpg" />
           </view>
@@ -83,9 +85,7 @@
             <text class="name">{{item.name}}</text>
             <text class="author">{{item.author}}</text>
             <text class="summary">简介</text>
-            <view class="summary">
-              {{item.introduction}}
-            </view>
+            <view class="summary">{{item.introduction}}</view>
           </view>
         </view>
       </block>
@@ -94,7 +94,6 @@
     <view wx:if="{{change==1}}" class="contentBox">
       <block wx:for="{{newBook}}" wx:key="{{index}}">
         <view id="{{item.fkCataBookId}}" bindtap="toDetail" class="circleBox" hover-class="none" hover-stop-propagation="false">
-          
           <view class="imageBox">
             <image class="img" src="../../assets/image/indexIcon/9.jpg" />
           </view>
@@ -102,13 +101,10 @@
             <text class="name">{{item.name}}</text>
             <text class="author">{{item.author}}</text>
             <text class="summary">简介</text>
-            <view class="summary">
-              {{item.introduction}}
-            </view>
+            <view class="summary">{{item.introduction}}</view>
           </view>
         </view>
       </block>
     </view>
-
   </view>
 </view>

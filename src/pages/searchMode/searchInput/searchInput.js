@@ -6,16 +6,17 @@ let Router = App.Router
 let Store = App.Store
 Page({
     data: {
-        inputMode: {
-            inputValue: "",
-            inputFocus: true
-        },
-        searchHis: ['社会心理学', '但是说不清', '测试应该够了', '再来几条', '有丶无聊啊'],
-        clearShow: true,
+
+        inputValue: "",
+        inputFocus: true,
+        searchHis: [],
+        historyShow: true,
+        clearShow: false,
         page: 1,
         height: 0,
-        list:[],
+        list: [],
         // 分页
+        toBottom: false, //判断是否有下一页 是否到底了
         pageSize: 10,
         currentPage: 1,
         place: '',
@@ -24,50 +25,98 @@ Page({
     },
 
     // 事件触发函数
+    clear() {
+        this.setData({
+            inputValue: '',
+            clearShow: false,
+            historyShow: true,
+            list: [],
+            currentPage: 1
+        })
+        console.log('小图标不配绑定事件？')
+    },
     toIndex() {
         console.log("??")
         wx.switchTab({
             url: '../../index/index'
         })
     },
+    toDetail(e) {
+        let {
+          id
+        } = e.currentTarget
+        let obj = {}
+        obj.fkCataBookId = id
+        console.log(e, '如果拿的到', id)
+        Router.push({
+          path: "detail",
+          query: obj,
+          openType: 'nav'
+        })
+      },
     watchInput(event) {
+        let juge = this.data.clearShow
+        if (!juge) {
+            this.setData({
+                clearShow: true,
+            })
+        }
+        // 如果没有输入值 那么搜索结果和X都该消失
+        if (!event.detail.cursor) {
+            this.setData({
+                clearShow: false,
+                list: [],
+                historyShow: true,
+                currentPage: 1
+            })
+        }
         console.log('输入的话', event.detail)
     },
     searchHis(event) {
+        let obj = {}
+        let value = event.currentTarget.dataset.item
+        obj.anyWord = value
+        this.setData({
+            historyShow: false,
+            clearShow: true,
+            inputValue: value
+        })
+        this._search(obj)
         console.log(event)
     },
+    clearHis() {
+        this.setData({
+            searchHis: []
+        })
+        Store.setItem('history', [])
+    },
     search(event) {
+        if (!event.detail.value) {
+            wx.showToast({
+                title: '请输入关键词',
+                icon: 'none',
+                duration: 2000,
+            })
+            return
+        }
         let obj = {}
         obj.anyWord = event.detail.value
-        this._search(obj)
-        console.log(event.detail, '点击搜索的话')
-    },
-    init() {
-        let that = this
-        let place = Store.getItem('lib').name || ""
-        let history = Store.getItem('history') || []
+        // 存入本地 并且关闭历史
+        let searchHis = this.data.searchHis
+        // 空值搜索不记录历史
+        if (searchHis.length > 5) {
+            searchHis.unshift(event.detail.value)
+            searchHis.pop()
+        } else {
+            searchHis.unshift(event.detail.value)
+        }
+
         this.setData({
-            place: place,
-            searchHis: history
+            historyShow: false,
+            searchHis: searchHis
         })
-        wx.getSystemInfo({
-            success(res) {
-                let multiple = 750 / res.windowWidth
-                let height = Math.floor(multiple * res.windowHeight) - 33;
-                that.setData({
-                    height: height + 'rpx'
-                })
-                console.log(that.data.height, '比较后高度')
-                console.log(res.model)
-                console.log(res.pixelRatio)
-                console.log(res.windowWidth)
-                console.log(res.windowHeight)
-                console.log(res.language)
-                console.log(res.version)
-                console.log(res.platform)
-            }
-        })
-        console.log(place, history, '初始化')
+        this._search(obj)
+        console.log(event.detail, '点击搜索的话', searchHis, '搜索历史')
     },
     // api
     _search(params = {}) {
@@ -87,7 +136,7 @@ Page({
         axios(url, data, 'GET').then((res) => {
             if (res.state) {
                 // 判断是否还有下一页 可以用page来判定
-                if (res.row.length < 15) {
+                if (res.row.length < 10) {
                     this.setData({
                         toBottom: true
                     })
@@ -100,7 +149,7 @@ Page({
                 wx.showToast({
                     title: res.msg,
                     icon: 'none',
-
+                    duration: 2000,
                 })
             }
             console.log('????啥 你阻塞了？')
@@ -109,36 +158,51 @@ Page({
 
     },
     //数据过滤函数
+    toBottom(e) {
+        let juge = this.data.toBottom
+        let currentPage = ++this.data.currentPage
+        let obj = {}
+        obj.anyWord = this.data.inputValue
+        if (!juge) {
+            this.setData({
+                currentPage: currentPage
+            })
+            this._search(obj)
+        }
+        console.log("上拉刷新会怎么样 那个logo", e)
+    },
     // 生命周期函数
-    //钩子函数
-    toBottom() {
-        var that = this
-        let page = this.data.page + 1
-        let testArr = ['1111', '2222', '3333', '4444']
-        let data = this.data.searchHis.concat(testArr)
-        that.setData({
-            page: page,
-            searchHis: data
+    init() {
+        let that = this
+        let place = Store.getItem('lib').name || ""
+        let history = Store.getItem('history') || []
+        this.setData({
+            place: place,
+            searchHis: history
         })
-        console.log("已经到底了", this.data.page)
+        wx.getSystemInfo({
+            success(res) {
+                let multiple = 750 / res.windowWidth
+                let height = Math.floor(multiple * res.windowHeight) - 120;
+                that.setData({
+                    height: height + 'rpx'
+                })
+                console.log(that.data.height, '比较后高度')
+            }
+        })
+        console.log(place, history, '初始化')
     },
     onLoad() {
-        
+
         console.log("???")
         this.init()
-        
-        
+
+
+    },
+    onUnload() {
+        let searchHis = this.data.searchHis
+        Store.setItem('history', searchHis)
+        console.log('页面离开后')
     },
 
-    onReachBottom() {
-        var that = this
-        let page = this.data.page + 1
-        let testArr = ['1111', '2222', '3333', '4444']
-        let data = this.data.searchHis.concat(testArr)
-        that.setData({
-            page: page,
-            searchHis: data
-        })
-        console.log("已经到底了", this.data.page)
-    }
 })

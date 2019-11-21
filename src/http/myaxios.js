@@ -1,5 +1,6 @@
 // 还是需呀一个加载中的判定
 let myAxios = function(url,data,method){
+    let token = wx.getStorageSync('token');
     let promise = new Promise((resolve, reject) => {
          /* wx.showLoading({
              title:'加载中'
@@ -7,7 +8,10 @@ let myAxios = function(url,data,method){
          wx.request({
             url: url,
             data: data,
-            header: {'content-type':'application/json'},
+            header: {
+                'content-type':'application/json',
+                "authorization":token,
+            },
             method: method||'GET',
             dataType: 'json',
             responseType: 'text',

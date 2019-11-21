@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 30rpx;
+    /*margin-bottom: 30rpx;*/
     .search {
         display: flex;
         flex-direction: row;
@@ -27,7 +27,9 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            right: 30rpx;
+            padding: 10rpx 30rpx;
+            right: 0;
+            z-index:55
         }
 
         .search-img {
@@ -49,6 +51,7 @@
 
 /*------ 搜索历史 ------*/
 .searchHis {
+  margin-top: 30rpx;
     .textBox {
         display: flex;
         flex-direction: row;
@@ -79,7 +82,7 @@
         .textBox {
             font-size: 26rpx;
             color: #565e73;
-            padding: 28rpx 0;
+            padding: 20rpx 0;
         }
     }
 

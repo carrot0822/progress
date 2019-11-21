@@ -1,0 +1,35 @@
+.main{
+  padding:0 58rpx;
+  padding-top: 20rpx;
+  .accountBox{
+    margin-bottom: 20rpx;
+  }
+  .pswBox{
+    margin-bottom: 60rpx;
+  }
+  .text{
+    font-size: 32rpx;
+    line-height: 36rpx;
+    color: #333333;
+  }
+  .inputBox{
+    margin: 20rpx 0;
+    border: solid 1rpx #bfbfbf;
+    
+    padding: 0 20rpx;
+    .input{
+      font-size: 28rpx;
+      height: 60rpx;
+      color: #333333;
+    }
+  }
+  .buttonBox{
+    color: #ffffff;
+    height: 60rpx;
+    line-height: 60rpx;
+    background-color: #1a5fff;
+    font-size: 32rpx;
+    
+    text-align: center;
+  }
+}

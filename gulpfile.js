@@ -12,7 +12,7 @@ const clean = require('gulp-clean');
 // src语法 important 禁用 问题不大 可以不用 但是解决方法要弄
 
 const config = {
-    cssFilterFiles: ['scss/var.scss'],
+    cssFilterFiles: ['scss/var.scss','scss/mixin.scss'],
 }
 
 const hasRmCssFiles = new Set();
