@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/bindCard/bindCard",
+    
     "pages/index/index",
     "pages/personal/personal",
     "pages/article/article",
@@ -12,7 +12,7 @@
     "pages/searchMode/activity/activity",
     "pages/searchMode/article/article",
     "pages/searchMode/hotRecommend/hotRecommend",
-    
+    "pages/bindCard/bindCard",
     "pages/userMode/user/user",
     "pages/userMode/collect/collect",
     "pages/userMode/bill/bill",

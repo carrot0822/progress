@@ -2,11 +2,11 @@
 <view class="main">
   <view class="desBox">
     <text class="title">读者卡号</text>
-    <text class="value">50001111</text>
+    <text class="value">{{userInfo.cardNumber}}</text>
   </view>
   <view class="desBox">
     <text class="title">姓名</text>
-    <text class="value">01</text>
+    <text class="value">{{userInfo.readerName}}</text>
   </view>
   <view class="desBox">
     <text class="title">性别</text>
@@ -14,7 +14,7 @@
   </view>
   <view class="desBox">
     <text class="title">身份证号</text>
-    <text class="value">500244188647268459</text>
+    <text class="value">{{userInfo.readerCard}}</text>
   </view>
   <view class="desBox">
     <text class="title">邮箱</text>

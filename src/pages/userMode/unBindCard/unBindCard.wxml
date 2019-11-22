@@ -1,4 +1,7 @@
 
 <view class="main">
-  读者卡解除绑定
+  <view class="imgBox"></view>
+  <view bindtap="submit" class="buttonBox">
+    解除绑定读者卡
+  </view>
 </view>

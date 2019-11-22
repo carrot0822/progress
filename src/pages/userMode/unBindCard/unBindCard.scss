@@ -1,1 +1,17 @@
-
+.main{
+    padding: 0 60rpx;
+    padding-top: 20rpx;
+    .imgBox{
+        height: 240rpx;
+        background-color: aqua;
+        margin-bottom: 56rpx;
+    }
+    .buttonBox{
+        background-color: #1a5fff; 
+        font-size: 32rpx;
+        line-height: 60rpx;
+        height: 60rpx;
+        text-align: center;
+        color: #ffffff;
+    }
+}
