@@ -1,5 +1,9 @@
-<!--logs.wxml-->
-<view class="container log-list">
-  <image src="{{qrCode}}" />
-  <image src="{{barCode}}" />
+<!-- logs.wxml -->
+<view class="main">
+  <view class="qrBox" hover-class="none" hover-stop-propagation="false">
+    <image style="width: 450rpx; height: 450rpx;" src="{{qrCode}}" />
+  </view>
+  <view class="barBox">
+      <image style="width: 500rpx; height: 130rpx;" src="{{barCode}}" />
+  </view>
 </view>

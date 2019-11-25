@@ -12,10 +12,10 @@ Page({
             nickName:'',
         },
         cardInfo:{
-            cardNum:"无",
-            history:"", // 已借阅
-            now:"", //  待还
+            his:"", // 已借阅
+            log:"", //  待还
         },
+        cardNum:"",
         isBind:false,
         isAuth:0,
     },
@@ -102,6 +102,7 @@ Page({
         }
         if(token){
             this._getUserInfo()
+            this._getNumbers()
         }
         // 判定是否绑定卡号 授权后 调取用户信息
         console.log(App,'开始获取用户信息')
@@ -109,6 +110,20 @@ Page({
     toBindCard(){
         wx.navigateTo({
             url:"../bindCard/bindCard",
+        })
+    },
+    // API
+    _getNumbers(params = {}){
+        let url = Ip + Api.index.numbers
+        let data = params
+        axios(url,data,'GET').then((res)=>{
+            if(res.state){
+                let data = res.row
+                this.setData({
+                    cardInfo:data
+                })
+            }
+            console.log(res,'借阅数量')
         })
     },
     // 登录授权
@@ -130,10 +145,17 @@ Page({
         let url = Ip + Api.index.getUser
         let data = params
         axios(url,data,'GET').then((res)=>{
-            this.setData({
-                isBind:true,
-            })
-
+            if(res.state){
+                this.setData({
+                    isBind:true,
+                })
+                let number = res.row.cardNumber
+                this.setData({
+                    cardNum:number
+                })
+            }
+            
+            
             console.log(res,'用户信息')
         })
     },

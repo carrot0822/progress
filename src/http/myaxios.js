@@ -2,9 +2,9 @@
 let myAxios = function (url, data, method) {
     let token = wx.getStorageSync('token');
     let promise = new Promise((resolve, reject) => {
-        /* wx.showLoading({
+        wx.showLoading({
             title:'加载中'
-        }) */
+        })
         wx.request({
             url: url,
             data: data,
@@ -40,12 +40,9 @@ let myAxios = function (url, data, method) {
                             }
                         }
                     })
-                }
-                if (res.code == 200) {
+                } else {
                     console.log('奇怪')
                     resolve(res)
-                } else {
-
                 }
 
             },
@@ -66,7 +63,7 @@ let myAxios = function (url, data, method) {
                 console.log('报错的话')
             },
             complete: () => {
-                //wx.hideLoading()
+                wx.hideLoading()
             }
         });
     })

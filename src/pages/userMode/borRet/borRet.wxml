@@ -1,12 +1,47 @@
-<!--logs.wxml-->
+<!-- logs.wxml -->
 <view class="main">
-  <view class="tabBox" hover-class="none" hover-stop-propagation="false">
-      <view class="selectBtn active">
+  <view class="fixBox">
+    <view class="tabBox" hover-class="none" hover-stop-propagation="false">
+      <view bindtap="change" data-num="{{0}}" class="selectBtn {{change==0?'active':''}}">
         <text class="text ">当前借阅</text>
       </view>
-      <view class="selectBtn">
+      <view data-num="{{1}}" bindtap="change" class="selectBtn {{change==1?'active':''}}">
         <text class="text">历史借阅</text>
       </view>
     </view>
-    
+  </view>
+  <view class="resultBox">
+    <scroll-view bindscrolltolower="toBottom" scroll-y="true" style="height: {{height}};">
+      <view wx:if="{{change==0}}" class="contentBox">
+        <block wx:for="{{borrow}}" wx:key="{{index}}">
+          <view id="{{item.fkCataBookId}}" bindtap="toDetail" class="circleBox" hover-class="none" hover-stop-propagation="false">
+            <view class="imageBox">
+              <image class="img" src="../../../assets/image/indexIcon/9.jpg" />
+            </view>
+            <view class="textBox">
+              <text class="name">{{item.name}}</text>
+              <text class="author">{{item.author}}</text>
+              <text class="summary">简介</text>
+              <view class="summary">{{item.introduction}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view wx:if="{{change==1}}" class="contentBox">
+        <block wx:for="{{history}}" wx:key="{{index}}">
+          <view id="{{item.fkCataBookId}}" bindtap="toDetail" class="circleBox" hover-class="none" hover-stop-propagation="false">
+            <view class="imageBox">
+              <image class="img" src="../../../assets/image/indexIcon/9.jpg" />
+            </view>
+            <view class="textBox">
+              <text class="name">{{item.name}}</text>
+              <text class="author">{{item.author}}</text>
+              <text class="summary">简介</text>
+              <view class="summary">{{item.introduction}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
 </view>

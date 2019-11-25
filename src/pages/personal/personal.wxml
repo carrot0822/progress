@@ -10,7 +10,7 @@
                     </view>
                     <view class="nameBox">
                         <text class="name">{{userInfo.nickName}}</text>
-                        <text class="cardNum">卡号1111111111</text>
+                        <text class="cardNum">卡号：{{cardNum}}</text>
                     </view>
                 </view>
                 <view class="moreBox">
@@ -25,12 +25,12 @@
             </view>
             <view wx:if="{{isBind}}" class="bookInfo">
                 <view class="textData">
-                    <text class="number">2</text>
-                    <text class="des">已借阅本数</text>
+                    <text class="number">{{cardInfo.log}}</text>
+                    <text class="des">未归还本数</text>
                 </view>
                 <view class="textData">
-                    <text class="number">2</text>
-                    <text class="des">已借阅本数</text>
+                    <text class="number">{{cardInfo.his}}</text>
+                    <text class="des">历史借阅本数</text>
                 </view>
             </view>
         </view>

@@ -11,8 +11,13 @@ let index = {
     unBind:"wxxcxmodule/index/relieveBing" ,// 解除绑定
     getUser:'wxxcxmodule/readerInfo/select', // 获取用户信息
     barCode:'wxxcxmodule/query/getBarCode', // 条形码
-    qrCode:'wxxcxmodule/query/getQrCode'// 二维码
-
+    qrCode:'wxxcxmodule/query/getQrCode',// 二维码
+    bill:"wxxcxmodule/readerInfo/selectFinance", // 我的账单
+    broHis:"wxxcxmodule/reader/his/getReaderLog", // 借阅历史
+    myBro:"wxxcxmodule/reader/renew/getReaderLog", // 我的借阅
+    renew:"wxxcxmodule/reader/renew/renewBooks", // 续借
+    numbers:"wxxcxmodule/reader/renew/getLogAndHis", // 借阅数量和历史数量
+    collect:"wxxcxmodule/SfrTbCollect/getSfrTbCollects", // 收藏查询
 }
 const Api = {
     index,

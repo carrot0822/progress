@@ -1,17 +1,17 @@
 
 <view class="main">
   <block wx:for="{{list}}" wx:key="{{index}}">
-    <view bindtap="toDetail" class="cardBox">
+    <view id="{{item.id}}" class="cardBox">
       <view class="flowNum">
-        <text class="text">流水号：5002215547566</text>
+        <text class="text">流水号：{{item.serialNumber}}</text>
       </view>
       <view class="otherInfo">
-        <text class="date">2019/03/04</text>
-        <text class="text">押金充值</text>
-        <text class="position">重庆大学图书馆</text>
+        <text class="date">{{item.createTime}}</text>
+        <text class="text">{{item.typeName}}</text>
+        <text class="position">{{item.libraryName}}</text>
       </view>
       <view class="cash">
-        <text class="value">1元</text>
+        <text class="value">{{item.money}}元</text>
       </view>
     </view>
   </block>

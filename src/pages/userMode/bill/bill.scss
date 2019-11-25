@@ -5,7 +5,7 @@
     position: relative;
     box-shadow: 0rpx 0rpx 10rpx 0rpx 
     rgba(159, 159, 159, 0.18);
-    
+    margin-bottom: 20rpx;
     padding: 14rpx ;
     .flowNum{
       margin-bottom: 10rpx;
@@ -30,9 +30,9 @@
     }
     .cash{
       position: absolute;
-      right:0rpx ;
+      right:20rpx ;
       top: 30rpx;
-      transform: translateX(-50%);
+      transform: translateY(-50%);
       .value{
         color: #1a5fff;
         font-size: 36rpx;

@@ -1,3 +1,4 @@
+@import '../../../scss/mixin.scss';
 .main {
     padding-top: 20rpx;
 
@@ -34,6 +35,8 @@
                 width: 460rpx;
 
                 .name {
+                    @include textOver;
+                    width: 100%;
                     font-size: 28rpx;
                     line-height: 42rpx;
                     font-weight: bold;
@@ -44,6 +47,8 @@
                     font-size: 24rpx;
                     line-height: 36rpx;
                     color: #1a7bff;
+                    @include textOver;
+                    width: 100%;
                 }
 
                 .textBox {
