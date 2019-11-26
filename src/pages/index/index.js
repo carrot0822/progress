@@ -149,6 +149,10 @@ Page({
     axios(url, data, 'GET').then((res) => {
       if (res.state) {
         let arr = res.row
+        for (let item of arr) {
+          this.filterNull(item)
+          item.introduction = this.filterStr(item.introduction)
+        }
         this.setData({
           newBook: arr
         })
@@ -207,10 +211,11 @@ Page({
   },
   // 钩子函数 有点意思 onshow和onload vue里或者浏览器端有这个吗
   onLoad: function () {
-    if (isAuth) {
+  /*   if (isAuth) {
       this._recommend()
-    }
+    } */
     this.initPlace()
+    this._recommend()
     this._newBook()
     this._hot()
     console.log(App)
@@ -224,7 +229,7 @@ Page({
   // 初始化参数
   initPlace() {
     let value = wx.getStorageSync('lib').name
-    let isAuth = wx.getStorageSync('isAuth');
+    let isAuth = wx.getStorageSync('isAuth')||0;
     if (value) {
       wx.setNavigationBarTitle({
         title: value
@@ -261,5 +266,6 @@ Page({
       console.log('没授权吧')
     }
   },
+
 
 })

@@ -9,10 +9,27 @@ Page({
   data: {
     detail: {},
     list: [],
-    place:""
+    place: "",
+    isCollect: false,
+    id: ""
+  },
+  tapCollect() {
+    let juge = this.data.isCollect
+    let obj = {}
+    obj.fkBookId = this.data.id
+    let pbj = {}
+    let arr = []
+    arr.push(this.data.id)
+    pbj.ids = arr
+    if (juge) {
+      this._cancelCollect(pbj)
+    } else {
+      this._addCollect(obj)
+    }
+    console.log('juege')
   },
   // api
-  _search(params) {
+  _search(params = {}) {
     let data = params
     let url = Ip + Api.index.detail
     axios(url, data, 'GET').then((res) => {
@@ -25,7 +42,7 @@ Page({
       }
     })
   },
-  _list(params) {
+  _list(params = {}) {
     let data = params
     let url = Ip + Api.index.posList
     axios(url, data, 'GET').then((res) => {
@@ -40,11 +57,50 @@ Page({
       console.log(res, '馆藏')
     })
   },
-  filterNull(obj){
-    for(let key in obj){
-      if(obj[key]){
+  // 是否收藏
+  _isCollect(params = {}) {
+    let data = params
+    let url = Ip + Api.index.isCollect
+    axios(url, data, 'GET').then((res) => {
+      console.log(res, '是否收藏')
+      if (res.code == 200) {
+        this.setData({
+          isCollect: true
+        })
+      } else {
+        this.setData({
+          isCollect: false
+        })
+      }
+    })
+  },
+  _addCollect(params = {}) {
+    let data = params
+    let url = Ip + Api.index.addCollect
+    axios(url, data, "POST").then((res) => {
+      if (res.state) {
+        this.setData({
+          isCollect: true
+        })
+      }
+    })
+  },
+  _cancelCollect(params = {}) {
+    let data = params
+    let url = Ip + Api.index.cancelCollect
+    axios(url, data, "DELETE").then((res) => {
+      if (res.state) {
+        this.setData({
+          isCollect: false
+        })
+      }
+    })
+  },
+  filterNull(obj) {
+    for (let key in obj) {
+      if (obj[key] || key == "coverPhotoUrl") {
 
-      }else{
+      } else {
         obj[key] = '无数据'
       }
     }
@@ -69,12 +125,21 @@ Page({
   onLoad: function (option) {
     let obj = option
     let place = Store.getItem('lib').name
+    let token = Store.getItem('token')
+    let id = option.fkCataBookId
     this.setData({
-      place:place
+      place: place,
+      id: id
     })
     let pos = Object.assign({
       place
     }, option)
+
+    if (token) {
+      let idObj = {}
+      idObj.id = option.fkCataBookId
+      this._isCollect(idObj)
+    }
     this._search(obj)
     this._list(pos)
     console.log(option)

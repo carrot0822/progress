@@ -2,7 +2,7 @@
 
   <button wx:if="{{isAuth == 0}}" class='auth-btn' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"></button>
 
-<view class="index">
+<view class="index  {{isAuth?'test':'testA'}}">
   <!-- 搜索框 -->
   <view class="searchBox">
     <view class="search" catchtap="toSearch">

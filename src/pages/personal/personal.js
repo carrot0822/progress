@@ -88,7 +88,8 @@ Page({
     },
     init(){
         // 判定是否授权 授权后渲染头像和名字
-        let isAuth = wx.getStorageSync('isAuth');
+        let isAuth = wx.getStorageSync('isAuth')||0;
+        console.log(isAuth,'到底授权没')
         let token  = wx.getStorageSync('token')||''
         this.setData({
             isAuth: isAuth

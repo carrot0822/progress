@@ -2,9 +2,13 @@
 <view class="mainBox">
   <view class="infoBox">
     <view class="circleBox" hover-class="none" hover-stop-propagation="false">
-      <view class="collect iconfontIndex icon-icon"></view>
+      <view bindtap="tapCollect" class="collect">
+        <image wx:if="{{!isCollect}}" class="collectIcon" src="../../assets/collect.png" />
+        <image wx:if="{{isCollect}}" class="collectIcon" src="../../assets/collected.png" />
+      </view>
       <view class="imageBox">
-        <image class="img" src="../../assets/image/indexIcon/9.jpg" />
+        <image wx:if="{{detail.coverPhotoUrl}}" class="img" src="{{detail.coverPhotoUrl}}" />
+        <image wx:if="{{!detail.coverPhotoUrl}}" class="img" src="../../assets/image/indexIcon/9.jpg" />
       </view>
       <view class="detailBox">
         <text class="name">{{detail.name}}</text>
@@ -35,7 +39,9 @@
   </view>
   <!-- 馆藏列表 -->
   <view class="list">
-    <view class="icon">这是图标</view>
+    <view class="icon">
+      <image  class="imgSize"  src="../../assets/column.png" />
+    </view>
     <text class="text">馆藏列表</text>
   </view>
   <!-- 位置信息 -->

@@ -20,6 +20,11 @@
       top: 15rpx;
       right: 15rpx;
       font-size: 36rpx !important;
+      padding: 10rpx;
+      .collectIcon{
+        width: 38rpx;
+        height: 35rpx;
+      }
     }
 
     .imageBox {
@@ -112,6 +117,11 @@
 
   .icon {
     margin-right: 10rpx;
+    display: flex;
+    .imgSize{
+      width: 26rpx;
+      height: 20rpx;
+    }
   }
 
   .text {

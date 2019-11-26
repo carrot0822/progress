@@ -43,17 +43,17 @@ Page({
     },
     toDetail(e) {
         let {
-          id
+            id
         } = e.currentTarget
         let obj = {}
         obj.fkCataBookId = id
         console.log(e, '如果拿的到', id)
         Router.push({
-          path: "detail",
-          query: obj,
-          openType: 'nav'
+            path: "detail",
+            query: obj,
+            openType: 'nav'
         })
-      },
+    },
     watchInput(event) {
         let juge = this.data.clearShow
         if (!juge) {
@@ -110,13 +110,31 @@ Page({
         } else {
             searchHis.unshift(event.detail.value)
         }
-
+        Store.setItem('history',searchHis)
         this.setData({
             historyShow: false,
             searchHis: searchHis
         })
         this._search(obj)
         console.log(event.detail, '点击搜索的话', searchHis, '搜索历史')
+    },
+    // 过滤函数
+    filterNull(obj) {
+        for (let key in obj) {
+            if (obj[key]) {
+
+            } else {
+                obj[key] = '无数据'
+            }
+        }
+    },
+    filterStr(str) {
+        let len = str.length
+        let result = str
+        if (len > 60) {
+            result = str.slice(0, 60) + '...'
+        }
+        return result
     },
     // api
     _search(params = {}) {
@@ -141,9 +159,14 @@ Page({
                         toBottom: true
                     })
                 }
-                let arr = this.data.list.concat(res.row)
+                let arr = res.row
+                for (let item of arr) {
+                    this.filterNull(item)
+                    item.introduction = this.filterStr(item.introduction)
+                }
+                let newArr = this.data.list.concat(res.row)
                 this.setData({
-                    list: arr
+                    list: newArr
                 })
             } else {
                 wx.showToast({

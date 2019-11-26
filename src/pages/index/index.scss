@@ -277,7 +277,11 @@
   background: rgba(0, 0, 0, 0);//设置阴影半透明背景如： background: rgba(0, 0, 0, 0.4);
   display: block;
 }
-
+.testA{
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
 .auth-btn{
   width: 100%;
   height: 100%;

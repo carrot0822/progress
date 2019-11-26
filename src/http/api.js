@@ -18,6 +18,10 @@ let index = {
     renew:"wxxcxmodule/reader/renew/renewBooks", // 续借
     numbers:"wxxcxmodule/reader/renew/getLogAndHis", // 借阅数量和历史数量
     collect:"wxxcxmodule/SfrTbCollect/getSfrTbCollects", // 收藏查询
+    // 收藏相关
+    cancelCollect:"wxxcxmodule/SfrTbCollect/deleteSfrTbCollectByBook",// 取消收藏
+    addCollect:"wxxcxmodule/SfrTbCollect/addSfrTbCollect", // 添加收藏
+    isCollect:"wxxcxmodule/SfrTbCollect/checkCollect", // 是否收藏
 }
 const Api = {
     index,

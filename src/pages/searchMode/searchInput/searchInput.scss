@@ -1,5 +1,5 @@
 
-
+@import "../../../scss/mixin.scss";
 .searchBox {
     width: 100%;
     height: 60rpx;
@@ -136,12 +136,16 @@
             line-height: 42rpx;
             font-weight: bold;
             color: #181818;
+            width: 460rpx;
+            @include textOver;
           }
 
           .author {
             font-size: 24rpx;
             line-height: 36rpx;
             color: #1a7bff;
+            width: 460rpx;
+            @include textOver;
           }
 
           .summary {
@@ -150,6 +154,7 @@
             color: #676767;
             text-align: justify;
             width: 460rpx;
+           
           }
         }
       }
