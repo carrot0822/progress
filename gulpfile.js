@@ -57,7 +57,7 @@ gulp.task('scss', () => gulp.src('./src/**/*.{scss,wxss}')
         return `/** ${$2} **/`;
     }))
     .pipe(scss().on('error', scss.logError))
-    .pipe(postcss([autoprefixer(['iOS >= 8','Android >= 4.1'])]))
+    .pipe(postcss([autoprefixer(['iOS >= 8','Android >= 4.1'])])) // 这里还可以添加更多浏览器 不过我只设定了手机系统
     .pipe(replace(/(\/\*\*\s{0,})(@.+)(\s{0,}\*\*\/)/g, ($1, $2, $3) => $3.replace(/\.scss/g, '.wxss')))
     .pipe(rename({
         extname: '.wxss',

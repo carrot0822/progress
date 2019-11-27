@@ -45,7 +45,7 @@ Page({
     },
     toBorRet(){
         wx.navigateTo({
-            url:"../userMode/borRet/borRet",
+            url:"../../component/tab/index",
             events:{
 
             },

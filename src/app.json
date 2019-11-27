@@ -1,7 +1,11 @@
 {
   "pages": [
-    
     "pages/index/index",
+    "component/tab/index",
+    
+    "pages/tab/index",
+    
+    
     "pages/personal/personal",
     "pages/article/article",
     "pages/list/list",
