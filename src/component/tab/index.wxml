@@ -10,18 +10,38 @@
     <view class="scroll-view">
         <view bindtouchstart="handlerStart" catchtouchmove="handlerMove" bindtouchcancel="handlerCancel" bindtouchend="handlerEnd" style="left: -{{stv.offset}}px" class="scroll-view-wrapper {{!stv.tStart? 'withAnimate': ''}}">
             <view style="width: {{stv.windowWidth}}px;" class="one-scene">
-                <scroll-view style="height:100%" scroll-y>
+                <scroll-view bindscrolltolower="borrowBoottom" style="height:100%" scroll-y>
                     <view class="contentBox">
                         <block wx:for="{{borrow}}" wx:key="{{index}}">
-                            <view id="{{item.fkCataBookId}}" bindtap="toDetail" class="circleBox" hover-class="none" hover-stop-propagation="false">
-                                <view class="imageBox">
-                                    <image class="img" src="../../assets/image/indexIcon/9.jpg" />
+                            <view class="circleBox" hover-class="none" hover-stop-propagation="false">
+                                <view class="collect">
+                                    <view id="{{item.id}}" data-book="书ID" catchtap="renewBtn" class="button">
+                                        续借
+                                    </view>
                                 </view>
-                                <view class="textBox">
-                                    <text class="name">{{item.name}}</text>
+                                <view class="imageBox">
+                                    <image wx:if="{{item.coverPhotoUrl}}" class="img" src="{{item.coverPhotoUrl}}" />
+                                    <image wx:if="{{!item.coverPhotoUrl}}" class="img" src="../../../assets/image/indexIcon/9.jpg" />
+                                </view>
+                                <view class="desBox">
+                                    <text class="name">{{item.bookName}}</text>
                                     <text class="author">{{item.author}}</text>
-                                    <text class="summary">简介</text>
-                                    <view class="summary">{{item.introduction}}</view>
+                                    <view class="textBox">
+                                        <text class="textfront">状态</text>
+                                        <text class="textEnd">{{item.state}}</text>
+                                    </view>
+                                    <view class="textBox">
+                                        <text class="textfront">馆藏地</text>
+                                        <text class="textEnd">{{item.place}}</text>
+                                    </view>
+                                    <view class="textBox">
+                                        <text class="textfront">待还日期</text>
+                                        <text class="textEnd">{{item.planReturnTimeLong}}</text>
+                                    </view>
+                                    <view class="textBox">
+                                        <text class="textfront">续借次数</text>
+                                        <text class="textEnd">{{item.renewCount}}</text>
+                                    </view>
                                 </view>
                             </view>
                         </block>
@@ -29,7 +49,7 @@
                 </scroll-view>
             </view>
             <view style="width: {{stv.windowWidth}}px;" class="one-scene">
-                <scroll-view style="height:100%" scroll-y>
+                <scroll-view bindscrolltolower="historyBottom" style="height:100%" scroll-y>
                     <view class="historyBox">
                         <block wx:for="{{history}}" wx:key="{{index}}">
                             <view class="circleBox" hover-class="none" hover-stop-propagation="false">

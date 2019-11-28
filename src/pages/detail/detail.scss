@@ -1,3 +1,4 @@
+@import '../../scss/mixin.scss';
 .mainBox {
   padding: 0 20rpx;
   padding-top: 30rpx;
@@ -52,12 +53,16 @@
         line-height: 42rpx;
         font-weight: bold;
         color: #181818;
+        width:400rpx;
+        @include textOver;
       }
 
       .author {
         font-size: 24rpx;
         line-height: 36rpx;
         color: #1a7bff;
+        width:400rpx;
+        @include textOver;
       }
 
       .textBox {

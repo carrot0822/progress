@@ -11,10 +11,16 @@ Page({
   data: {
     borrow: [],
     history: [],
-    historyObj:{
-
+    historyObj: {
+      toBottom: false,
+      pageSize: 10,
+      currentPage: 1,
     },
-    
+    borrowObj: {
+      toBottom: false,
+      pageSize: 10,
+      currentPage: 1,
+    },
     tabs: ['我的借阅', '历史借阅'],
     tabsCount: 0, // tabs个数
     stv: {
@@ -27,42 +33,100 @@ Page({
   },
   // API
   _borrow(params = {}) {
-    let obj = {}
+    let {
+      borrowObj
+    } = this.data
+    let obj = {
+      pageSize: borrowObj.pageSize,
+      currentPage: borrowObj.currentPage
+    }
     let data = Object.assign(obj, params)
     let url = Ip + Api.index.myBro
+    // 请求开始
+    /* this.setData({
+      loading: true
+    }) */
     axios(url, data, 'GET').then((res) => {
       if (res.state) {
-        let arr = res.row
+        // 判断是否还有下一页 可以用page来判定
+        if (res.row.length < 10) {
+          borrowObj.toBottom = true
+          this.setData({
+            borrowObj: borrowObj
+          })
+        }
+        console.log(this.data.borrow, '现在的数据', res)
 
+        let arr = this.data.borrow.concat(res.row)
         this.setData({
           borrow: arr
         })
-      } else {
-        wx.showToast({
-          title: res.msg,
-          icon: 'none',
-        })
-      }
+        console.log(this.data.borrow, '现在的数据', res)
+      } else {}
+      /* this.setData({
+        loading: false
+      }) */
     })
   },
   _history(params = {}) {
-    let obj = {}
-
+    let {
+      historyObj
+    } = this.data
+    let obj = {
+      pageSize: historyObj.pageSize,
+      currentPage: historyObj.currentPage
+    }
     let data = Object.assign(obj, params)
     let url = Ip + Api.index.broHis
+    // 请求开始
+    /* this.setData({
+      loading: true
+    }) */
     axios(url, data, 'GET').then((res) => {
       if (res.state) {
-        let arr = res.row
+        // 判断是否还有下一页 可以用page来判定
+        if (res.row.length < 10) {
+          historyObj.toBottom = true
+          this.setData({
+            historyObj: historyObj
+          })
+        }
+        console.log(this.data.history, '现在的数据', res)
+
+        let arr = this.data.history.concat(res.row)
         this.setData({
           history: arr
         })
+        console.log(this.data.history, '现在的数据', res)
+      } else {}
+      /* this.setData({
+        loading: false
+      }) */
+    })
+  },
+  _renew(params = {}) {
+
+    let data = params
+    let url = Ip + Api.index.renew
+
+    axios(url, data, 'POST').then((res) => {
+      if (res.state) {
+        wx.showToast({
+          title: res.msg,
+          icon: 'success',
+          duration: 2000
+        })
+        console.log("????")
       } else {
         wx.showToast({
           title: res.msg,
-          icon: 'none',
-
+          icon: 'success',
+          duration: 2000
         })
       }
+
+
+
     })
   },
   // 过滤函数
@@ -84,8 +148,41 @@ Page({
     return result
   },
   //上拉
-  historyBottom(){
-
+  historyBottom(e) {
+    let {
+      historyObj
+    } = this.data
+    let juge = historyObj.toBottom
+    historyObj.currentPage = ++historyObj.currentPage
+    if (!juge) {
+      this.setData({
+        historyObj: historyObj
+      })
+      this._borrow()
+    }
+    console.log("上拉刷新会怎么样 那个logo", e)
+  },
+  borrowBoottom(e) {
+    let {
+      borrowObj
+    } = this.data
+    let juge = borrowObj.toBottom
+    borrowObj.currentPage = ++borrowObj.currentPage
+    if (!juge) {
+      this.setData({
+        borrowObj: borrowObj
+      })
+      this._history()
+    }
+    console.log("上拉刷新会怎么样 那个logo", e)
+  },
+  renewBtn(e) {
+    let arr = []
+    arr.push(e.currentTarget.id)
+    let obj = {}
+    obj.logids = arr
+    this._renew(obj)
+    console.log(e)
   },
   // 非业务代码
   _updateSelectedPage(page) {

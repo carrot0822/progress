@@ -17,17 +17,28 @@ Page({
     loading: false,
     errorTxt: '出现异常',
     first: false, // 可用来判定是不是第一次进来
+    checkArr:[], // 最终被选中的数组 用于提交
+    allChecked:true, // 控制是否全选
+    height:0,
+  },
+
+  singeChange(e){
+    console.log(e,'单个延迟')
+  },
+  checkboxChange(e){
+    console.log(e,'事件对象')
   },
   // 控制打开和关闭移除
-  control(){
-    wx.navigateTo({
-      url: './../collectM/collectM',
-      success: (result)=>{
-        
-      },
-      fail: ()=>{},
-      complete: ()=>{}
-    });
+  toBottom(e) {
+    let juge = this.data.toBottom
+    let currentPage = ++this.data.currentPage
+    if (!juge) {
+      this.setData({
+        currentPage: currentPage
+      })
+      this._search()
+    }
+    console.log("上拉刷新会怎么样 那个logo", e)
   },
   _search(params = {}) {
     let obj = {
@@ -48,10 +59,6 @@ Page({
         console.log(this.data.list, '现在的数据', res)
 
         let arr = this.data.list.concat(res.row)
-        for (let item of arr){
-          this.filterNull(item)
-          //item.introduction = this.filterStr(item.introduction)
-        }
         this.setData({
           list: arr
         })
@@ -64,23 +71,26 @@ Page({
   // 过滤函数
   filterNull(obj) {
     for (let key in obj) {
-      if (obj[key]||key == 'url') {
+      if (obj[key]) {
 
       } else {
         obj[key] = '无数据'
       }
     }
   },
-  filterStr(str) {
-    let len = str.length
-    let result = str
-    if (len > 60) {
-      result = str.slice(0, 60) + '...'
-    }
-    return result
-  },
   // 钩子函数
   onLoad(option) {
+    let that = this
+    wx.getSystemInfo({
+      success(res) {
+          let multiple = 750 / res.windowWidth
+          let height = Math.floor(multiple * res.windowHeight) - 100;
+          that.setData({
+              height: height + 'rpx'
+          })
+          console.log(that.data.height, '比较后高度')
+      }
+  })
     console.log(option, '是否有效')
     this._search()
   },

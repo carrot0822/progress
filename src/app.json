@@ -1,11 +1,9 @@
 {
   "pages": [
+    "pages/userMode/collectM/collectM",
     "pages/index/index",
     "component/tab/index",
-    
     "pages/tab/index",
-    
-    
     "pages/personal/personal",
     "pages/article/article",
     "pages/list/list",
@@ -19,6 +17,7 @@
     "pages/bindCard/bindCard",
     "pages/userMode/user/user",
     "pages/userMode/collect/collect",
+    
     "pages/userMode/bill/bill",
     "pages/userMode/billDetail/billDetail",
     "pages/userMode/borRet/borRet",

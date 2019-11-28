@@ -9,6 +9,7 @@ const routerPath = {
      detail:"/pages/detail/detail", // 书籍详情
      personal:"/pages/personal/personal", // 个人中心
      collect:"pages/userMode/collect/collect", // 我的收藏
+     collectM:"pages/userMode/collectM/collectM",// 收藏管理
      borRetL:"pages/userMode/borRet/borRet", // 我的借还
      readerCard:"pages/userMode/readerCard/readerCard", // 数字读者证
      unbindCard:"pages/userMode/unBindCard/unBindCard",// 解绑读者卡
