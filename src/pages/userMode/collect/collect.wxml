@@ -9,7 +9,7 @@
     <scroll-view bindscrolltolower="toBottom"  class="" style="height:100%" scroll-y>
       <view class="contentBox">
         <block wx:for="{{list}}" wx:key="{{index}}">
-          <view class="circleBox" hover-class="none" hover-stop-propagation="false">
+          <view bindtap="toDetail" id="{{item.fkBookId}}" class="circleBox" hover-class="none" hover-stop-propagation="false">
             <view class="collect"></view>
             <view class="imageBox">
               <image wx:if="{{item.url}}" class="img" src="{{item.url}}" />

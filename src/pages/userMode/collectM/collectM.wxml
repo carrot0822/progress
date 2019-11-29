@@ -12,7 +12,7 @@
             <view class="radioBox">
               <checkbox-group id="{{item.id}}" bindchange="singeChange">
                 <label class="checkbox">
-                  <checkbox value="{{index}}" checked="{{allChecked}}" />全选
+                  <checkbox value="{{item.bookName}}" checked="{{allChecked}}" />
                 </label>
               </checkbox-group>
             </view>
@@ -40,7 +40,7 @@
           </label>
         </checkbox-group>
       </view>
-      <view class="removeBtn">
+      <view bindtap="submit" class="removeBtn">
           移除
       </view>
     </view>

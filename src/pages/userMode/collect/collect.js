@@ -29,6 +29,19 @@ Page({
       complete: ()=>{}
     });
   },
+  toDetail(e) {
+    let {
+      id
+    } = e.currentTarget
+    let obj = {}
+    obj.fkCataBookId = id
+    console.log(e, '如果拿的到', id)
+    Router.push({
+      path: "detail",
+      query: obj,
+      openType: 'nav'
+    })
+  },
   _search(params = {}) {
     let obj = {
       pageSize: this.data.pageSize,
@@ -61,6 +74,32 @@ Page({
     })
 
   },
+  _initSearch(params = {}){
+
+    let data =  params
+    let url = Ip + Api.index.collect
+    // 请求开始
+    axios(url, data, 'GET').then((res) => {
+      if (res.state) {
+        // 判断是否还有下一页 可以用page来判定
+        if (res.row.length < 10) {
+          this.setData({
+            toBottom: true
+          })
+        }
+        let arr = res.row
+        for (let item of arr){
+          this.filterNull(item)
+          //item.introduction = this.filterStr(item.introduction)
+        }
+        this.setData({
+          list: arr
+        })
+        console.log(this.data.list, '初始化', res)
+      } else {}
+
+    })
+  },
   // 过滤函数
   filterNull(obj) {
     for (let key in obj) {
@@ -81,8 +120,11 @@ Page({
   },
   // 钩子函数
   onLoad(option) {
-    console.log(option, '是否有效')
-    this._search()
+    
+  },
+  onShow(){
+    console.log( '是否有效')
+    this._initSearch()
   },
   // 用户上拉触底
   toBottom(e) {

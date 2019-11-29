@@ -22,6 +22,7 @@ let index = {
     cancelCollect:"wxxcxmodule/SfrTbCollect/deleteSfrTbCollectByBook",// 取消收藏
     addCollect:"wxxcxmodule/SfrTbCollect/addSfrTbCollect", // 添加收藏
     isCollect:"wxxcxmodule/SfrTbCollect/checkCollect", // 是否收藏
+    batchCancel:"wxxcxmodule/SfrTbCollect/deleteSfrTbCollect" // 批量删除收藏
 }
 const Api = {
     index,

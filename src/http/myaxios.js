@@ -20,6 +20,7 @@ let myAxios = function (url, data, method) {
                 let res = result.data
                 if (res.code == 3001 || res.code == 3003) {
                     wx.setStorageSync('token', '') // 置空token
+                    console.log('置空？')
                     // 重定向到绑卡页面
                     wx.showModal({
                         title: res.msg,
