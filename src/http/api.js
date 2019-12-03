@@ -1,5 +1,7 @@
 const libSelect = require('./search/libSelect')
 let index = {
+    activeList:'wxxcxmodule/query/selectNotice',// 活动资讯
+    article:"wxxcxmodule/query/selectOneNotice", // 文章详情
     hot:'wxxcxmodule/query/getBorrowHost', // 热门借阅
     recommend:'wxxcxmodule/query/getRandBookByPlace', // 推荐书籍
     newBook:'wxxcxmodule/query/getNewBook', // 新书

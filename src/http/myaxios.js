@@ -37,6 +37,11 @@ let myAxios = function (url, data, method) {
                                     complete: () => {}
                                 });
                             } else if (res.cancel) {
+                                wx.navigateBack({
+                                    delta: 1,
+                                    success() {
+                                    }
+                                  })
                                 console.log('用户点击取消')
                             }
                         }

@@ -4,24 +4,24 @@ const routerPath = {
      searchInput:"/pages/searchMode/searchInput/searchInput", // 搜索
      libSelect:"/pages/searchMode/libSelect/libSelect", // 馆藏地选择
      activity:"/pages/searchMode/activity/activity", // 活动资讯
-     article:"pages/searchMode/article/article", // 活动详情
+     article:"/pages/searchMode/article/article", // 活动详情
      hotRecommend:"/pages/searchMode/hotRecommend/hotRecommend", // 热门详情
      detail:"/pages/detail/detail", // 书籍详情
      personal:"/pages/personal/personal", // 个人中心
-     collect:"pages/userMode/collect/collect", // 我的收藏
-     collectM:"pages/userMode/collectM/collectM",// 收藏管理
-     borRetL:"pages/userMode/borRet/borRet", // 我的借还
-     readerCard:"pages/userMode/readerCard/readerCard", // 数字读者证
-     unbindCard:"pages/userMode/unBindCard/unBindCard",// 解绑读者卡
-     bill:"pages/userMode/bill/bill", // 我的账单
-     billDetail:"pages/userMode/billDetail/billDetail", // 账单详情
-     about:"pages/userMode/about/about", // 关于我们
-     suggestion:"pages/userMode/suggestion/suggestion", // 意见反馈
-     borrow:"pages/userMode/myBorrow/myBorrow", // 我的借阅
-     borrowHis:"pages/userMode/borrowHis/borrowHis", // 借阅历史
-     myInfo:"pages/userMode/myInfo/myInfo", // 我的信息
-     reviseMail:"pages/userMode/reviseMail/reviseMail", // 修改邮件
-     revisePhone:"pages/userMode/revisePhone/revisePhone", // 修改 修改手机
+     collect:"/pages/userMode/collect/collect", // 我的收藏
+     collectM:"/pages/userMode/collectM/collectM",// 收藏管理
+     borRetL:"/pages/userMode/borRet/borRet", // 我的借还
+     readerCard:"/pages/userMode/readerCard/readerCard", // 数字读者证
+     unbindCard:"/pages/userMode/unBindCard/unBindCard",// 解绑读者卡
+     bill:"/pages/userMode/bill/bill", // 我的账单
+     billDetail:"/pages/userMode/billDetail/billDetail", // 账单详情
+     about:"/pages/userMode/about/about", // 关于我们
+     suggestion:"/pages/userMode/suggestion/suggestion", // 意见反馈
+     borrow:"/pages/userMode/myBorrow/myBorrow", // 我的借阅
+     borrowHis:"/pages/userMode/borrowHis/borrowHis", // 借阅历史
+     myInfo:"/pages/userMode/myInfo/myInfo", // 我的信息
+     reviseMail:"/pages/userMode/reviseMail/reviseMail", // 修改邮件
+     revisePhone:"/pages/userMode/revisePhone/revisePhone", // 修改 修改手机
 }
 
 class Router{
@@ -83,8 +83,8 @@ class Router{
      */
     to(openType,url){
         let obj = {url}
-        if(openType == 'redirect'){
-            wx.redirect(obj) // 页面重定向
+        if(openType == 'redirectTo'){
+            wx.redirectTo(obj) // 页面重定向
         } else if(openType == "reLaunch"){
             wx.reLaunch(obj) // 关闭所有页面 打开到应用内的某个页面
         } else if(openType == 'back'){

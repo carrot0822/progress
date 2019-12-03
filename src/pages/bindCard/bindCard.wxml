@@ -10,7 +10,7 @@
     <view class="pswBox">
       <view class="text">密码</view>
       <view class="inputBox">
-        <input name="password" password type="text" class="input" placeholder-style="" placeholder="请输入账号" />
+        <input name="password" password type="text" class="input" placeholder-style="" placeholder="请输入密码" />
       </view>
     </view>
     <button class="buttonBox" formType="submit">绑定读者卡</button>

@@ -1,17 +1,17 @@
-
+<import src="/wxParse/wxParse.wxml"/>
 <view class="main">
     <view class="imageBox">
-
+        <image class="img" src="{{detail.picture}}" mode="aspectFill"  />
     </view>
     <view class="contentBox">
-        <text class="title">“星空”的秘密主题艺术展</text>
-        <text class="des">
-            "继2015年巫鸿策划的群展“天人之际II: 上海星空”之后，美术馆在今年秋季迎来了“上海空”系列的第二次大规模展览——“上海星空 II”继2015年巫鸿策划的群展“天人之际II: 上海星空”之后，美术馆在今年秋季迎来了“上海星空”系列的第二次大规模展览“上海星空 II”, 共展出来自国内外22位/组艺术家的近60组作品。展览从美术馆自身及其所在地上海着眼出放眼全球，呈现上海当代艺术家或与上海这座城市关。最新作品，不断发掘上海当代艺术的历史发展过程，以最即时、在地的姿态，持续更新当代艺术的丰富质感和吸引力。"
-        </text>
+        <text class="title">{{detail.title}}</text>
+        <view class="des ql-container">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+        </view> 
     </view>
     <view class="authorBox">
-        <text class="publish">发布者：重庆大学图书馆</text>
-        <text class="position">地点：重庆大学A校区</text>
-        <text class="date">2019/03/040-2019/10/03/04</text>
+        <text class="publish">发布者：{{detail.person}}</text>
+        <text class="position">活动地点：{{detail.place}}</text>
+        <text class="date">活动时间：{{detail.time}}</text>
     </view>
 </view>

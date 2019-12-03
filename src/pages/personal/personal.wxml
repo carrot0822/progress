@@ -65,7 +65,7 @@
                     <image class="imgArrow" src="../../assets/image/person/arrow.png" />
                 </view>
             </view>
-            <view bindtap="toUnbind" class="itemBox">
+            <view bindtap="toUnbind" wx:if="{{isBind}}" class="itemBox">
                 <view class="itemLeft">
                     <image class="img"  src="../../assets/image/person/unBind@2x.png" />
                     <text class="text">解绑读者卡</text>
