@@ -1,11 +1,11 @@
 {
   "pages": [
-    
+    "pages/article/article",
     "pages/index/index",
     "component/tab/index",
     "pages/tab/index",
     "pages/personal/personal",
-    "pages/article/article",
+    
     "pages/list/list",
     "pages/logs/logs",
     "pages/detail/detail",

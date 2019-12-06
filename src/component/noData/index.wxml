@@ -1,0 +1,4 @@
+<view class="comBox">
+    <image class="comImg" src="../../assets/noData.png" />
+    <view class="text">无数据...</view>
+</view>

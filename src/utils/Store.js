@@ -51,3 +51,4 @@ class Store{
 }
 let obj = new Store()
 module.exports = obj
+// #6e7275
