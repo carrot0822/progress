@@ -15,6 +15,7 @@ Page({
       console.log(data,'这个呢')
       WxParse.wxParse("article",'html',data,that,5)
     })
-    
+
+
   }
 })

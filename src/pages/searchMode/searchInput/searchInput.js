@@ -11,10 +11,11 @@ Page({
         inputFocus: true,
         searchHis: [],
         historyShow: true,
-        clearShow: false,
+        clearShow: false, // 点叉了吗
         page: 1,
         height: 0,
         list: [],
+        noResult:false, // 没有结果
         // 分页
         toBottom: false, //判断是否有下一页 是否到底了
         pageSize: 10,
@@ -67,7 +68,8 @@ Page({
                 clearShow: false,
                 list: [],
                 historyShow: true,
-                currentPage: 1
+                currentPage: 1,
+                noResult:false,
             })
         }
         console.log('输入的话', event.detail)
@@ -86,7 +88,8 @@ Page({
     },
     clearHis() {
         this.setData({
-            searchHis: []
+            searchHis: [],
+            noResult:false,
         })
         Store.setItem('history', [])
     },
@@ -102,7 +105,8 @@ Page({
         let obj = {}
         obj.anyWord = event.detail.value
         // 存入本地 并且关闭历史
-        let searchHis = this.data.searchHis
+        let searchHis =this.data.searchHis
+        console.log(searchHis,'转为set之后')
         // 空值搜索不记录历史
         if (searchHis.length > 5) {
             searchHis.unshift(event.detail.value)
@@ -110,13 +114,16 @@ Page({
         } else {
             searchHis.unshift(event.detail.value)
         }
-        Store.setItem('history',searchHis)
+        searchHis = new Set(searchHis)
+        console.log(searchHis,'去重结束了吗')
+        let arr = [...searchHis]
+        Store.setItem('history',arr)
         this.setData({
             historyShow: false,
-            searchHis: searchHis
+            searchHis: arr
         })
         this._search(obj)
-        console.log(event.detail, '点击搜索的话', searchHis, '搜索历史')
+        console.log(event.detail, '点击搜索的话', arr, '搜索历史')
     },
     // 过滤函数
     filterNull(obj) {
@@ -148,9 +155,6 @@ Page({
         let data = Object.assign(obj, params)
         let url = Ip + Api.index.search
         // 请求开始
-        wx.showLoading({
-            title: '正在加载',
-        })
         axios(url, data, 'GET').then((res) => {
             if (res.state) {
                 // 判断是否还有下一页 可以用page来判定
@@ -165,8 +169,11 @@ Page({
                     item.introduction = this.filterStr(item.introduction)
                 }
                 let newArr = this.data.list.concat(res.row)
+                let len = newArr.length
+                let noResult = len?false:true;
                 this.setData({
-                    list: newArr
+                    list: newArr,
+                    noResult:noResult
                 })
             } else {
                 wx.showToast({
@@ -175,8 +182,6 @@ Page({
                     duration: 2000,
                 })
             }
-            console.log('????啥 你阻塞了？')
-            wx.hideLoading();
         })
 
     },

@@ -21,7 +21,7 @@
                         {{item}}
                     </view>
                 </block>
-                <view wx:if="{{!searchHis.length}}" class="noData">无搜索历史</view>
+                <view wx:if="{{!searchHis.length}}" class="noData">暂无搜索历史</view>
             </view>
         </view>
     </view>
@@ -48,7 +48,7 @@
                         </view>
                     </block>
                 </view>
-                <view wx:if="{{!list.length}}" class="">没有搜索结果啊</view>
+                <view wx:if="{{noResult}}" class="">没有搜索结果啊</view>
             </view>
         </scroll-view>
     </view>
