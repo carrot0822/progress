@@ -194,7 +194,7 @@ Page({
   // 过滤函数
   filterNull(obj) {
     for (let key in obj) {
-      if (obj[key]) {
+      if (obj[key]||key=="coverPhotoUrl") {
 
       } else {
         obj[key] = '无数据'

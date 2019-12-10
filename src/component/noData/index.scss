@@ -1,9 +1,16 @@
-.comImg{
-    width: 100%;
-}
-.text{
-    padding-top: 20rpx;
-    font-size: 30rpx;
-    color: #336fb7;
-    text-align: center;
+.comBox{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .comImg{
+        width: 352rpx;
+        height: 360rpx;
+        margin-bottom: 40rpx;
+    }
+    .text{
+        padding-top: 20rpx;
+        font-size: 30rpx;
+        color: #336fb7;
+        text-align: center;
+    }
 }

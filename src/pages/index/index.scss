@@ -1,36 +1,41 @@
 /**index.wxss**/
 @import '../../scss/mixin.scss';
-.placeholder{
+
+.placeholder {
   font-size: 14px;
   color: #d1d1d1;
-  
+
 }
+
 .index {
   .searchBox {
-    
+
     width: 100%;
     background-image: #f2f2f2;
     padding-left: 30rpx;
     box-sizing: border-box;
     margin-bottom: 30rpx;
+
     .search {
       display: flex;
       flex-direction: row;
       align-items: center;
-      
+
       height: 60rpx;
       width: 630rpx;
-      box-shadow: 0rpx 0rpx 13rpx 0rpx 
-		rgba(141, 141, 141, 0.3);
+      box-shadow: 0rpx 0rpx 13rpx 0rpx rgba(141, 141, 141, 0.3);
       box-sizing: border-box;
       border-radius: 30rpx;
-      .search-img{
-        margin:0 18rpx;
+
+      .search-img {
+        margin: 0 18rpx;
       }
-      .text{
+
+      .text {
         font-size: 24rpx;
         color: #c2c2c2;
       }
+
       .inputBox {
         width: 100%;
         font-size: 14px;
@@ -58,22 +63,30 @@
     align-items: center;
     justify-content: space-around;
     box-sizing: border-box;
-    padding:0 40rpx;
+    padding: 0 40rpx;
+
     .iconBox {
       margin: 0 20rpx;
       .icon {
         width: 60rpx;
         height: 60rpx;
-        margin:0 auto;
-        margin-bottom: 20rpx;
+        margin: 0 auto;
+        margin-bottom: 10rpx;
+  
+        .iconImg {
+          width: 60rpx;
+          height: 60rpx;
+        }
+  
         
       }
-
       .text {
         font-size: 20rpx;
         color: #171717;
       }
     }
+
+   
   }
 
   .hotRead {
@@ -91,7 +104,7 @@
         font-size: 16px;
         color: #171717;
         font-weight: bold;
-        
+
       }
 
       .more {
@@ -101,13 +114,14 @@
     }
 
     .content {
-      
+
 
       .circleBox {
-        
-        .scrollWidth{
+
+        .scrollWidth {
           white-space: nowrap; // 关键样式
         }
+
         .imageBox {
           height: 280rpx;
           width: 200rpx;
@@ -116,10 +130,12 @@
           position: relative;
           margin-left: 25rpx;
           display: inline-block;
-          .bookImg{
+
+          .bookImg {
             height: 280rpx;
             width: 200rpx;
           }
+
           .index {
             position: absolute;
             top: 7rpx;
@@ -147,10 +163,11 @@
             padding-left: 18rpx;
             padding-top: 14rpx;
             box-sizing: border-box;
+
             .name {
               @include textOver;
               font-size: 24rpx;
-              
+
               width: 100%;
             }
 
@@ -176,7 +193,8 @@
       display: flex;
       flex-direction: row;
       margin-bottom: 50rpx;
-      .selectBtn{
+
+      .selectBtn {
         width: 50%;
         height: 60rpx;
         display: flex;
@@ -186,21 +204,24 @@
         background-color: #ffffff;
         border: solid 1rpx #1a5fff;
         box-sizing: border-box;
-        .text{
+
+        .text {
           font-size: 34rpx;
           font-weight: bold;
         }
-        &.active{
+
+        &.active {
           color: #ffffff;
           background-color: #1a5fff;
         }
       }
-      
-      
+
+
     }
 
     .contentBox {
       padding: 0 20rpx;
+
       .circleBox {
         display: flex;
         flex-direction: row;
@@ -208,28 +229,31 @@
         height: 230rpx;
         margin-bottom: 60rpx;
         background-color: #ffffff;
-	    box-shadow: 0rpx 0rpx 10rpx 0rpx 
-		rgba(159, 159, 159, 0.3);
+        box-shadow: 0rpx 0rpx 10rpx 0rpx rgba(159, 159, 159, 0.3);
         position: relative;
-        .collect{
+
+        .collect {
           position: absolute;
           top: 15rpx;
           right: 15rpx;
-          font-size: 36rpx!important;
+          font-size: 36rpx !important;
         }
+
         .imageBox {
           height: 244rpx;
           width: 184rpx;
           position: relative;
-          
+
           margin-right: 30rpx;
-          .img{
+
+          .img {
             height: 244rpx;
             width: 184rpx;
             position: absolute;
             top: -30rpx;
           }
         }
+
         .textBox {
           padding-top: 16rpx;
           display: flex;
@@ -267,22 +291,25 @@
 
 
 }
-.authBox{
+
+.authBox {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 10;
-  background: rgba(0, 0, 0, 0);//设置阴影半透明背景如： background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0); //设置阴影半透明背景如： background: rgba(0, 0, 0, 0.4);
   display: block;
 }
-.testA{
+
+.testA {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
 }
-.auth-btn{
+
+.auth-btn {
   width: 100%;
   height: 100%;
   position: absolute;

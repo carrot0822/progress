@@ -1,5 +1,5 @@
 <!-- logs.wxml -->
-<view class="main">
+<view wx:if="{{list.length}}" class="main">
   <!-- 顶层悬浮 -->
   <view class="topBox">
     <view bindtap="control" class="button">管理</view>
@@ -26,4 +26,7 @@
       </view>
     </scroll-view>
   </view>
+</view>
+<view wx:if="{{!list.length}}" class="nodata">
+  <test></test>
 </view>

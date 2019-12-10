@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "我的借阅",
-  "usingComponents": {}
+  "usingComponents": {
+    "test":"../../../component/noData"
+  }
 }

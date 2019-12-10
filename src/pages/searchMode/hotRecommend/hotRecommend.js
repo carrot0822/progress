@@ -40,13 +40,7 @@ Page({
     let data = Object.assign(obj, params)
     let url = Ip + Api.index.hot
 
-    // 请求开始
-    /* this.setData({
-      loading: true
-    }) */
-    wx.showLoading({
-      title: '正在加载',
-    })
+
     axios(url, data, 'GET').then((res) => {
       if (res.state) {
         // 判断是否还有下一页 可以用page来判定
@@ -55,21 +49,18 @@ Page({
             toBottom: true
           })
         }
+        if (obj.currentPage <= 1) {
+          this.setData({
+            toBottom: false
+          })
+        }
         let arr = this.data.list.concat(res.row)
         this.setData({
           list: arr
         })
       } else {
 
-
       }
-      wx.hideLoading();
-      /* this.setData({
-        loading: false
-      }) */
-
-
-
     })
 
   },
@@ -81,8 +72,8 @@ Page({
   // 用户上拉触底
   onReachBottom(e) {
     let juge = this.data.toBottom
-    let currentPage = ++this.data.currentPage
     if (!juge) {
+      let currentPage = ++this.data.currentPage
       this.setData({
         currentPage: currentPage
       })

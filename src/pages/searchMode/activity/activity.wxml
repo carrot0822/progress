@@ -1,19 +1,24 @@
 <view class="main">
-    <block wx:for="{{list}}" wx:key="{{index}}">
-        <view id="{{item.id}}" bindtap="toArticle" class="cardBox">
-            <view class="layout">
-                <image class="img" src="{{item.picture}}" mode="aspectFill" />
-            </view>
-            <view class="desBox">
-                <text class="title">{{item.title}}</text>
-                <text class="content">{{item.introducation}}</text>
-            </view>
-            <view class="dateBox">
-                <view class="year">{{item.date.ym}}</view>
-                <view class="day">
-                    <text class="num">{{item.date.day}}</text>
+    <view wx:if="{{list.length}}" class="listBox" hover-class="none" hover-stop-propagation="false">
+        <block wx:for="{{list}}" wx:key="{{index}}">
+            <view id="{{item.id}}" bindtap="toArticle" class="cardBox">
+                <view class="layout">
+                    <image class="img" src="{{item.picture}}" mode="aspectFill" />
+                </view>
+                <view class="desBox">
+                    <text class="title">{{item.title}}</text>
+                    <text class="content">{{item.introducation}}</text>
+                </view>
+                <view class="dateBox">
+                    <view class="year">{{item.date.ym}}</view>
+                    <view class="day">
+                        <text class="num">{{item.date.day}}</text>
+                    </view>
                 </view>
             </view>
-        </view>
-    </block>
+        </block>
+    </view>
+    <view wx:if="{{!list.length}}" class="noData" hover-class="none" hover-stop-propagation="false">
+        <test></test>
+    </view>
 </view>

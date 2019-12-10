@@ -10,19 +10,30 @@ Page({
     let url = Ip + Api.index.unBind
     let obj = {}
     axios(url, obj, 'PUT').then((res) => {
-      wx.showToast({
-        title: res.msg,
-        icon: 'success',
-        duration: 2000,
-        success() {
+      if (res.state) {
+        wx.showToast({
+          title: '解绑成功',
+          icon: 'success',
+          duration: 2000,
+          success() {
 
-        }
-      })
-      Store.setItem('token', '')
-      wx.reLaunch({
-        url: "/pages/index/index"
-      })
+          }
+        })
+        Store.setItem('token', '')
+        setTimeout(() => {
+          wx.reLaunch({
+            url: "/pages/index/index"
+          })
+        }, 2000)
+      }else{
+        wx.showToast({
+          title: res.msg,
+          duration: 2000,
+          success() {
 
+          }
+        })
+      }
     })
   }
 })

@@ -48,7 +48,10 @@
                         </view>
                     </block>
                 </view>
-                <view wx:if="{{noResult}}" class="">没有搜索结果啊</view>
+                <view wx:if="{{noResult}}" class="nodata">
+                    <test></test>
+
+                </view>
             </view>
         </scroll-view>
     </view>

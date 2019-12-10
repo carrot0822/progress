@@ -21,7 +21,7 @@
     </swiper>
   </view>
   <!-- 扩展小功能 -->
-  <view class="expand">
+  <!-- <view class="expand">
     <view bindtap="toBorrow" class="iconBox">
       <view class="icon iconfontIndex icon-tushujieyue"></view>
       <view class="text">我的借阅</view>
@@ -38,6 +38,32 @@
       <view class="icon iconfontIndex icon-icon"></view>
       <view class="text">馆藏地选择</view>
     </view>
+  </view> -->
+  <view class="expand">
+    <view bindtap="toBorrow" class="iconBox">
+      <view class="icon">
+        <image class="iconImg" src="../../assets/index/mybroow.png" />
+      </view>
+      <view class="text">我的借阅</view>
+    </view>
+    <view bindtap="toBorrowHis" class="iconBox">
+      <view class="icon">
+        <image class="iconImg" src="../../assets/index/history.png" />
+      </view>
+      <view class="text">借阅历史</view>
+    </view>
+    <view bindtap="toActivity" class="iconBox">
+      <view class="icon">
+        <image class="iconImg" src="../../assets/index/activoty.png" />
+      </view>
+      <view class="text">活动资讯</view>
+    </view>
+    <view bindtap="toLibSelect" class="iconBox">
+      <view class="icon">
+        <image class="iconImg" src="../../assets/index/libselect.png" />
+      </view>
+      <view class="text">馆藏地选择</view>
+    </view>
   </view>
   <!-- 热门借阅 -->
   <view class="hotRead">
@@ -49,8 +75,9 @@
       <view wx:if="{{hotRead.length}}" class="circleBox">
         <scroll-view class="scrollWidth" scroll-x="true">
           <block wx:for="{{hotRead}}" wx:key="{{index}}">
-            <view bindtap="toDetail" id="{{item.id}}" class="imageBox">
-              <image class="bookImg" src="../../assets/image/indexIcon/9.jpg" />
+            <view bindtap="toDetail" id="{{item.fkCataBookId}}" class="imageBox">
+              <image wx:if="{{item.coverPhotoUrl}}" class="bookImg" src="{{item.coverPhotoUrl}}" />
+              <image wx:if="{{!item.coverPhotoUrl}}" class="bookImg" src="../../assets/image/indexIcon/9.jpg" />
               <view class="index">{{index+1}}</view>
               <view class="textBox">
                 <text class="name">{{item.name}}</text>
@@ -79,7 +106,8 @@
       <block wx:for="{{recommend}}" wx:key="{{index}}">
         <view id="{{item.fkCataBookId}}" bindtap="toDetail" class="circleBox" hover-class="none" hover-stop-propagation="false">
           <view class="imageBox">
-            <image class="img" src="../../assets/image/indexIcon/9.jpg" />
+            <image wx:if="{{item.coverPhotoUrl}}" class="img" src="{{item.coverPhotoUrl}}" />
+            <image wx:if="{{!item.coverPhotoUrl}}" class="img" src="../../assets/image/indexIcon/9.jpg" />
           </view>
           <view class="textBox">
             <text class="name">{{item.name}}</text>
@@ -95,7 +123,8 @@
       <block wx:for="{{newBook}}" wx:key="{{index}}">
         <view id="{{item.fkCataBookId}}" bindtap="toDetail" class="circleBox" hover-class="none" hover-stop-propagation="false">
           <view class="imageBox">
-            <image class="img" src="../../assets/image/indexIcon/9.jpg" />
+            <image wx:if="{{item.coverPhotoUrl}}" class="img" src="../../assets/image/indexIcon/9.jpg" />
+            <image wx:if="{{!item.coverPhotoUrl}}" class="img" src="../../assets/image/indexIcon/9.jpg" />
           </view>
           <view class="textBox">
             <text class="name">{{item.name}}</text>

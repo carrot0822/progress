@@ -32,21 +32,30 @@ Page({
       if (res.state) {
         let toekn = res.row.authorization
         Store.setItem('token', toekn)
-        console.log(Store.getItem('token'), "准备跳转到首页")
-        wx.navigateBack({
-          delta: 1,
-          success() {
-            let page = getCurrentPages().pop();
-            console.log('那么这里拿到的页面信息', page)
-            if (page == undefined || page == null) return;
-            page.onLoad()
-          }
+        wx.showToast({
+          title: '绑定成功',
+          icon: 'success',
+          duration: 2000
         })
+        console.log(Store.getItem('token'), "准备跳转到首页")
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1,
+
+            success() {
+              let page = getCurrentPages().pop();
+              console.log('那么这里拿到的页面信息', page)
+              if (page == undefined || page == null) return;
+              page.onLoad()
+            }
+          })
+        }, 2000)
+
 
       } else {
         wx.showToast({
           title: res.msg,
-          icon: 'success',
+          icon: 'none',
           duration: 2000
         })
       }

@@ -83,7 +83,7 @@ Page({
             clearShow: true,
             inputValue: value
         })
-        this._search(obj)
+        this._initSearch(obj)
         console.log(event)
     },
     clearHis() {
@@ -122,7 +122,7 @@ Page({
             historyShow: false,
             searchHis: arr
         })
-        this._search(obj)
+        this._initSearch(obj)
         console.log(event.detail, '点击搜索的话', arr, '搜索历史')
     },
     // 过滤函数
@@ -144,6 +144,49 @@ Page({
         return result
     },
     // api
+    _initSearch(params = {}){
+        let place = this.data.place
+        let obj = {
+            place: place,
+            pageSize: 10,
+            currentPage: 1
+        }
+        this.setData({
+            pageSize: 10,
+            currentPage: 1
+        })
+        let data = Object.assign(obj, params)
+        let url = Ip + Api.index.search
+        // 请求开始
+        axios(url, data, 'GET').then((res) => {
+            if (res.state) {
+                // 判断是否还有下一页 可以用page来判定
+                if (res.row.length < 10) {
+                    this.setData({
+                        toBottom: true
+                    })
+                }
+                let arr = res.row
+                for (let item of arr) {
+                    this.filterNull(item)
+                    item.introduction = this.filterStr(item.introduction)
+                }
+                
+                let len = arr.length
+                let noResult = len?false:true;
+                this.setData({
+                    list: arr,
+                    noResult:noResult
+                })
+            } else {
+                wx.showToast({
+                    title: res.msg,
+                    icon: 'none',
+                    duration: 2000,
+                })
+            }
+        })
+    },
     _search(params = {}) {
         // 初始参数配置
         let place = this.data.place

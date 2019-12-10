@@ -12,7 +12,7 @@ Page({
     list: [],
     pageSize: 10,
     currentPage: 1,
-
+    isOk:false,
     toBottom: false,
     loading: false,
     errorTxt: '出现异常',

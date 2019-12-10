@@ -64,10 +64,13 @@ Page({
     axios(url, data, 'GET').then((res) => {
       console.log(res, '是否收藏')
       if (res.code == 200) {
+        
         this.setData({
           isCollect: true
         })
+        
       } else {
+        
         this.setData({
           isCollect: false
         })
@@ -79,8 +82,19 @@ Page({
     let url = Ip + Api.index.addCollect
     axios(url, data, "POST").then((res) => {
       if (res.state) {
+        wx.showToast({
+          title: '收藏成功',
+          icon: 'success',
+          duration: 2000
+        })
         this.setData({
           isCollect: true
+        })
+      }else{
+        wx.showToast({
+          title: res.msg,
+          icon: 'none',
+          duration: 2000
         })
       }
     })
@@ -90,8 +104,19 @@ Page({
     let url = Ip + Api.index.cancelCollect
     axios(url, data, "DELETE").then((res) => {
       if (res.state) {
+        wx.showToast({
+          title: '取消收藏成功',
+          icon: 'success',
+          duration: 2000
+        })
         this.setData({
           isCollect: false
+        })
+      }else{
+        wx.showToast({
+          title: res.msg,
+          icon: 'none',
+          duration: 2000
         })
       }
     })

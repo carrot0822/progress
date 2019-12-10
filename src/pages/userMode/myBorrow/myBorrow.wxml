@@ -33,5 +33,7 @@
       </view>
     </block>
   </view>
-  <view wx:if="{{!list.length}}" class="nodata">暂无数据</view>
+  <view wx:if="{{!list.length}}" class="nodata">
+    <test></test>
+  </view>
 </view>

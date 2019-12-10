@@ -46,6 +46,7 @@
                             </view>
                         </block>
                     </view>
+                    <test wx:if="{{!borrow.length}}"></test>
                 </scroll-view>
             </view>
             <view style="width: {{stv.windowWidth}}px;" class="one-scene">
@@ -84,6 +85,7 @@
                             </view>
                         </block>
                     </view>
+                    <test wx:if="{{!history.length}}"></test>
                 </scroll-view>
             </view>
         </view>
