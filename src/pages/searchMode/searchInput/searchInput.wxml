@@ -37,7 +37,8 @@
                         <view id="{{item.fkCataBookId}}" catchtap="toDetail" class="circleBox" hover-class="none" hover-stop-propagation="false">
                             <view class="collect iconfontIndex icon-icon"></view>
                             <view class="imageBox">
-                                <image class="img" src="../../../assets/image/indexIcon/9.jpg" />
+                                <image wx:if="{{item.coverPhotoUrl}}" class="img" src="{{item.coverPhotoUrl}}" />
+                                <image wx:if="{{!item.coverPhotoUrl}}" class="img" src="../../../assets/image/indexIcon/9.jpg" />
                             </view>
                             <view class="textBox">
                                 <text class="name">{{item.name}}</text>

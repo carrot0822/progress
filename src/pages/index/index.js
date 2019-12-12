@@ -28,6 +28,7 @@ Page({
     newBook: [],
     change: 0, // 左右判定
     swiperArr: [],
+    linkArr:[], // 广告
     place: "", // 位置 
   },
   //API处理
@@ -42,6 +43,30 @@ Page({
   },
   bindViewTap: function () {
 
+  },
+  toLink(e){
+    let {linkType,link} = e.currentTarget.dataset.link
+    let obj = {}
+    
+    if(linkType == '0'){
+      obj.id = link
+      Router.push({
+        path:"article",
+        query:obj,
+        openType:'nav'
+      })
+    }else{
+      wx.navigateTo({
+        url:`/pages/link/link?link=${link}`
+      })
+      /* obj.link = link
+      Router.push({
+        path:"link",
+        query:obj,
+        openType:'nav'
+      }) */
+    }
+    console.log('链接跳转',e)
   },
   // 扩展四个小功能
   toBorrow() {
@@ -104,6 +129,18 @@ Page({
     console.log('前往热门借阅')
   },
   // API
+  _banner(params = {}){
+    let url = Ip + Api.index.banner
+    let data = params
+    axios(url, data, 'GET').then((res) => {
+      if (res.state) {
+        console.log(res.row.linkArr,'广告')
+        this.setData({
+          linkArr:res.row.linkArr
+        })
+      }
+    })
+  },
   _hot(params = {}) {
     let obj = {}
     obj.place = this.data.place
@@ -214,6 +251,7 @@ Page({
   /*   if (isAuth) {
       this._recommend()
     } */
+    this._banner()
     this.initPlace()
     this._recommend()
     this._newBook()

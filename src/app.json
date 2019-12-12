@@ -3,6 +3,7 @@
     
     "pages/index/index",
     "component/tab/index",
+    "pages/link/link",
     "pages/tab/index",
     "pages/personal/personal",
     "pages/article/article",

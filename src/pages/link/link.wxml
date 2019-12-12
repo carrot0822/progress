@@ -1,0 +1,4 @@
+<!--pages/link/link.wxml-->
+<view class="container">
+ <web-view bindload="webload" binderror="errload" src="{{url}}"></web-view>
+</view>

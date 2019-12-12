@@ -22,6 +22,7 @@ const routerPath = {
      myInfo:"/pages/userMode/myInfo/myInfo", // 我的信息
      reviseMail:"/pages/userMode/reviseMail/reviseMail", // 修改邮件
      revisePhone:"/pages/userMode/revisePhone/revisePhone", // 修改 修改手机
+     link:"/pages/link/link",
 }
 
 class Router{
@@ -35,6 +36,7 @@ class Router{
      */
     parse(data){
         let tempArr = []
+        // 这里'/'会被转义掉 可以尝试手动填值
         for(let key in data){
             tempArr.push(key + '=' + encodeURIComponent(data[key]))
         }

@@ -128,7 +128,7 @@ Page({
     // 过滤函数
     filterNull(obj) {
         for (let key in obj) {
-            if (obj[key]) {
+            if (obj[key] || key== "coverPhotoUrl") {
 
             } else {
                 obj[key] = '无数据'
@@ -165,7 +165,9 @@ Page({
                     this.setData({
                         toBottom: true
                     })
+                    console.log(this.data.toBottom)
                 }
+                
                 let arr = res.row
                 for (let item of arr) {
                     this.filterNull(item)
@@ -231,10 +233,11 @@ Page({
     //数据过滤函数
     toBottom(e) {
         let juge = this.data.toBottom
-        let currentPage = ++this.data.currentPage
         let obj = {}
         obj.anyWord = this.data.inputValue
         if (!juge) {
+            let currentPage = ++this.data.currentPage
+            
             this.setData({
                 currentPage: currentPage
             })

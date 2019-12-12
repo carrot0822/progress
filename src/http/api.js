@@ -1,5 +1,6 @@
 const libSelect = require('./search/libSelect')
 let index = {
+    banner:'wxxcxmodule/query/getAdvertisement', // 轮播广告
     activeList:'wxxcxmodule/query/selectNotice',// 活动资讯
     article:"wxxcxmodule/query/selectOneNotice", // 文章详情
     hot:'wxxcxmodule/query/getBorrowHost', // 热门借阅
