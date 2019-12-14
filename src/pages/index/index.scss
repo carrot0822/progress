@@ -1,6 +1,8 @@
 /**index.wxss**/
 @import '../../scss/mixin.scss';
-
+.noData{
+  text-align: center;
+}
 .placeholder {
   font-size: 14px;
   color: #d1d1d1;

@@ -10,7 +10,7 @@
   </view>
   <view class="desBox">
     <text class="title">性别</text>
-    <text class="value">♂</text>
+    <text class="value">{{userInfo.filterSex}}</text>
   </view>
   <view class="desBox">
     <text class="title">身份证号</text>

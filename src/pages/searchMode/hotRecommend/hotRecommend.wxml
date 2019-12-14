@@ -5,8 +5,8 @@
     <view bindtap="toDetail" id="{{item.id}}" class="cardBox">
       <view class="centerBox">
         <view class="coverBox">
-          <image wx:if="{{item.coverPhotoUrl}}" class="bookImg" src="{{item.coverPhotoUrl}}" />
-          <image class="cover" src="../../../assets/image/indexIcon/9.jpg" />
+          <image wx:if="{{item.coverPhotoUrl}}" class="cover" src="{{item.coverPhotoUrl}}" />
+          <image wx:if="{{!item.coverPhotoUrl}}" class="cover" src="../../../assets/image/indexIcon/9.jpg" />
         </view>
         <view class="textBox">
           <text class="title">{{item.name}}</text>
@@ -16,7 +16,7 @@
     </view>
   </block>
  </view>
- <view wx:if="{{!list.length}}" class="noData">无数据</view>
-  <view wx:if="{{loading}}" class="loading">等待logo</view>
-  <view wx:if="{{toBottom}}" class="">已经到底了</view>
+ <view wx:if="{{!list.length}}" class="noData">
+  <test></test>
+ </view>
 </view>

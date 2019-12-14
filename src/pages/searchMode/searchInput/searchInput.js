@@ -81,7 +81,8 @@ Page({
         this.setData({
             historyShow: false,
             clearShow: true,
-            inputValue: value
+            inputValue: value,
+            anyWord:value
         })
         this._initSearch(obj)
         console.log(event)
@@ -120,7 +121,9 @@ Page({
         Store.setItem('history',arr)
         this.setData({
             historyShow: false,
-            searchHis: arr
+            searchHis: arr,
+            anyWord:obj.anyWord
+
         })
         this._initSearch(obj)
         console.log(event.detail, '点击搜索的话', arr, '搜索历史')
@@ -195,7 +198,8 @@ Page({
         let obj = {
             place: place,
             pageSize: this.data.pageSize,
-            currentPage: this.data.currentPage
+            currentPage: this.data.currentPage,
+            anyWord:this.data.anyWord
         }
         let data = Object.assign(obj, params)
         let url = Ip + Api.index.search
@@ -233,8 +237,10 @@ Page({
     //数据过滤函数
     toBottom(e) {
         let juge = this.data.toBottom
+        
         let obj = {}
-        obj.anyWord = this.data.inputValue
+        //obj.anyWord = this.data.anyWord
+        console.log(juge,obj)
         if (!juge) {
             let currentPage = ++this.data.currentPage
             

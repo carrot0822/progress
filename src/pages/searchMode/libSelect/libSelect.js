@@ -70,7 +70,7 @@ Page({
             Store.setItem('lib', data)
             this.toIndex()
         }
-
+        Store.setItem('fromLib',true)
         console.log(e, '数据肯定是这里拿啊')
     },
     searchBtn(e) {

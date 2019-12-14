@@ -1,16 +1,16 @@
 <!--logs.wxml-->
 <view class="main">
   <view class="imgBox">
-    <image class="img" src="https://game.gtimg.cn/images/c2/web201801/pc/slider1.jpg" />
+    <image class="img" src="{{url}}" />
   </view>
   <view class="desBox">
     <view class="textBox">
       <text class="title">公司网站</text>
-      <text class="content">http://www.cqkuiniu.com</text>
+      <text class="content">{{title}}</text>
     </view>
     <view class="textBox">
       <text class="title">联系我们</text>
-      <text class="content">023-63424295</text>
+      <text class="content">{{phone}}</text>
     </view>
   </view>
 </view>

@@ -32,6 +32,37 @@ Page({
     activeTab: 0, // 当前触发的tab
   },
   // API
+  _initBorrow(params = {}){
+    let {
+      borrowObj
+    } = this.data
+    let obj = {
+      pageSize: 10,
+      currentPage: 1,
+      toBottom:false
+    }
+    this.setData({
+      borrowObj:obj
+    })
+    let data = Object.assign(obj, params)
+    let url = Ip + Api.index.myBro
+    axios(url, data, 'GET').then((res) => {
+      if (res.state) {
+        // 判断是否还有下一页 可以用page来判定
+        if (res.row.length < 10) {
+          borrowObj.toBottom = true
+          this.setData({
+            borrowObj: borrowObj
+          })
+        }
+        let arr = res.row
+        this.setData({
+          borrow: arr
+        })
+        console.log(this.data.borrow, '现在的数据', res)
+      } else {}
+    })
+  },
   _borrow(params = {}) {
     let {
       borrowObj
@@ -42,10 +73,6 @@ Page({
     }
     let data = Object.assign(obj, params)
     let url = Ip + Api.index.myBro
-    // 请求开始
-    /* this.setData({
-      loading: true
-    }) */
     axios(url, data, 'GET').then((res) => {
       if (res.state) {
         // 判断是否还有下一页 可以用page来判定
@@ -63,9 +90,6 @@ Page({
         })
         console.log(this.data.borrow, '现在的数据', res)
       } else {}
-      /* this.setData({
-        loading: false
-      }) */
     })
   },
   _history(params = {}) {
@@ -116,6 +140,7 @@ Page({
           icon: 'success',
           duration: 2000
         })
+        this._initBorrow()
         console.log("????")
       } else {
         wx.showToast({
@@ -333,7 +358,7 @@ Page({
     } catch (e) {
 
     }
-    this._borrow()
+    this._initBorrow()
     this._history()
 
   }

@@ -1,5 +1,5 @@
 <view class="main">
-  <view class="contentBox">
+  <view wx:if="{{list.length}}" class="contentBox">
     <block wx:for="{{list}}" wx:key="{{index}}">
       <view class="circleBox" hover-class="none" hover-stop-propagation="false">
         <view class="imageBox">
@@ -32,5 +32,8 @@
         </view>
       </view>
     </block>
+  </view>
+  <view wx:if="{{!list.length}}" class="nodata">
+    <test></test>
   </view>
 </view>

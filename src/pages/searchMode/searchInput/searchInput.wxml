@@ -3,7 +3,7 @@
         <view class="searchBox">
             <view class="search">
                 <icon type='search' class='search-img' size='15' color='#c8c8c8'></icon>
-                <input class="inputBox" bindconfirm="search" bindinput="watchInput" value="{{inputValue}}" confirm-type="search" focus="{{inputFocus}}" placeholder="将会获取焦点" />
+                <input class="inputBox" bindconfirm="search" bindinput="watchInput" value="{{inputValue}}" confirm-type="search" focus="{{inputFocus}}" placeholder="请输入检索关键词" />
                 <icon catchtap="clear" wx:if="{{clearShow}}" type='clear' class='clear-img' size='15' color='#c8c8c8'></icon>
             </view>
             <view catchtap="toIndex" class="text">取消</view>
@@ -35,7 +35,7 @@
                 <view wx:if="{{list.length}}" class="resultList">
                     <block wx:for="{{list}}" wx:key="{{index}}">
                         <view id="{{item.fkCataBookId}}" catchtap="toDetail" class="circleBox" hover-class="none" hover-stop-propagation="false">
-                            <view class="collect iconfontIndex icon-icon"></view>
+                            
                             <view class="imageBox">
                                 <image wx:if="{{item.coverPhotoUrl}}" class="img" src="{{item.coverPhotoUrl}}" />
                                 <image wx:if="{{!item.coverPhotoUrl}}" class="img" src="../../../assets/image/indexIcon/9.jpg" />

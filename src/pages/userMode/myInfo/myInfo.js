@@ -28,6 +28,9 @@ Page({
         let url = Ip + Api.index.getUser
         let data = params
         axios(url,data,'GET').then((res)=>{
+           
+                res.row.filterSex = this.filterSex(res.row.readerSex)
+            
             if(res.state){
                 this.setData({
                     userInfo:res.row
@@ -35,6 +38,10 @@ Page({
             }
             console.log(res,'用户信息')
         })
+    },
+    filterSex(sex){
+        let arr = ['女','男']
+        return arr[sex]
     },
     onLoad(){
         this._getUserInfo()

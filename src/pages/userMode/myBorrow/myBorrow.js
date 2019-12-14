@@ -56,17 +56,48 @@ Page({
           icon: 'success',
           duration: 2000
         })
+        this._initSearch()
         console.log("????")
       } else {
         wx.showToast({
           title: res.msg,
-          icon: 'success',
+          icon: 'none',
           duration: 2000
         })
       }
       
       
       
+    })
+  },
+  _initSearch(params = {}) {
+    let obj = {
+      pageSize: 10,
+      currentPage: 1,
+      toBottom:false
+    }
+    this.setData({
+      pageSize:obj.pageSize,
+      currentPage:obj.currentPage
+    })
+    let data = Object.assign(obj, params)
+    let url = Ip + Api.index.myBro
+    axios(url, data, 'GET').then((res) => {
+      if (res.state) {
+        // 判断是否还有下一页 可以用page来判定
+        if (res.row.length < 10) {
+          this.setData({
+            toBottom: true
+          })
+        }
+        console.log(this.data.list, '现在的数据', res)
+
+        let arr = res.row
+        this.setData({
+          list: arr
+        })
+        console.log(this.data.list, '现在的数据', res)
+      } else {}
     })
   },
   _search(params = {}) {
@@ -119,7 +150,7 @@ Page({
   // 钩子函数
   onLoad(option) {
     console.log(option, '是否有效')
-    this._search()
+    this._initSearch()
   },
   // 用户上拉触底
   onReachBottom(e) {

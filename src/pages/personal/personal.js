@@ -109,15 +109,15 @@ Page({
         }
         // 判定是否绑卡
         if (token) {
-            Store.setItem('entry',true); // 第一次进来是否授权
+            Store.setItem('entry', true); // 第一次进来是否授权
             this.setData({
                 isBind: true,
-                
+
             })
             this._getUserInfo()
             this._getNumbers()
-        }else{
-            Store.setItem('entry',false);
+        } else {
+            Store.setItem('entry', false);
         }
         // 判定是否绑定卡号 授权后 调取用户信息
         console.log(App, '开始获取用户信息')
@@ -159,15 +159,15 @@ Page({
                     })
                     this._getUserInfo()
                     this._getNumbers()
-                }else{
+                } else {
                     this.setData({
-                        isBind: true,
-                    }) 
+                        isBind: false,
+                    })
                 }
             }
 
 
-            
+
 
             console.log('授权换token', res)
         })
@@ -200,6 +200,14 @@ Page({
             obj.code = App.globalData.code
             obj = Object.assign(obj, e.detail)
             wx.setStorageSync('isAuth', 1)
+            let {
+                avatarUrl,
+                nickName
+            } = App.globalData.userInfo
+            console.log(avatarUrl, nickName)
+            this.setData({
+                userInfo: App.globalData.userInfo
+            })
             this._login(obj)
         } else {
             console.log('没授权吧')
@@ -212,18 +220,18 @@ Page({
     // 每次展现出来
     onShow() {
         let juge = Store.getItem('entry') // 可以考虑存全局
-        let token = wx.getStorageSync('token') || '' 
-        console.log(juge,'授权？',token,'token')
-        if(token){
-            if(!juge){
+        let token = wx.getStorageSync('token') || ''
+        console.log(juge, '授权？', token, 'token')
+        if (token) {
+            if (!juge) {
                 this.setData({
                     isBind: true,
                 })
-                Store.setItem('entry',true);
+                Store.setItem('entry', true);
                 this._getUserInfo()
                 this._getNumbers()
-            }else{
-                Store.setItem('entry',true);
+            } else {
+                Store.setItem('entry', true);
                 console.log('第一次进来已经授权了')
             }
         }

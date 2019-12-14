@@ -7,6 +7,7 @@ let axios = App.axios
 let Store = App.Store
 let Router = App.Router
 let isAuth = Store.getItem('isAuth')
+let colorArr = ['ff2424','ff6021','ff9b24','ffba13','fbc133']
 Page({
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -15,13 +16,7 @@ Page({
     interval: 5000,
     duration: 1000,
     isAuth: 0,
-    imgUrls: ['https://game.gtimg.cn/images/c2/web201801/pc/slider1.jpg',
-      'https://game.gtimg.cn/images/c2/web201801/pc/slider2.jpg',
-      'https://game.gtimg.cn/images/c2/web201801/pc/slider3.jpg',
-      'https://game.gtimg.cn/images/c2/web201801/pc/slider4.jpg',
-      'https://game.gtimg.cn/images/c2/web201801/pc/slider5.jpg',
-
-    ],
+    imgUrls: [],
     inputValue: "",
     hotRead: [],
     recommend: [],
@@ -30,6 +25,7 @@ Page({
     swiperArr: [],
     linkArr:[], // 广告
     place: "", // 位置 
+    
   },
   //API处理
 
@@ -40,9 +36,6 @@ Page({
       change: value
     })
     console.log(value, '点击的值是什么')
-  },
-  bindViewTap: function () {
-
   },
   toLink(e){
     let {linkType,link} = e.currentTarget.dataset.link
@@ -128,6 +121,13 @@ Page({
   tohotBro() {
     console.log('前往热门借阅')
   },
+  init(){
+    this._banner()
+    this._hot()
+    this._recommend()
+    this._newBook()
+    this.initPlace()
+  },
   // API
   _banner(params = {}){
     let url = Ip + Api.index.banner
@@ -143,12 +143,17 @@ Page({
   },
   _hot(params = {}) {
     let obj = {}
-    obj.place = this.data.place
+    obj.place = wx.getStorageSync('lib').name
     let data = Object.assign(obj, params)
     let url = Ip + Api.index.hot
     axios(url, data, 'GET').then((res) => {
       if (res.state) {
+
         let arr = res.row.slice(0, 5)
+        for(let [index,item] of arr.entries()){
+          item.color = colorArr[index]
+        }
+        console.log(arr,'过滤后的热门')
         this.setData({
           hotRead: arr
         })
@@ -157,7 +162,7 @@ Page({
   },
   _recommend(params = {}) {
     let obj = {}
-    obj.place = this.data.place
+    obj.place = wx.getStorageSync('lib').name
     let data = Object.assign(obj, params)
     let url = Ip + Api.index.recommend
     axios(url, data, 'GET').then((res) => {
@@ -180,7 +185,7 @@ Page({
   },
   _newBook(params = {}) {
     let obj = {}
-    obj.place = this.data.place
+    obj.place = wx.getStorageSync('lib').name
     let data = Object.assign(obj, params)
     let url = Ip + Api.index.newBook
     axios(url, data, 'GET').then((res) => {
@@ -251,8 +256,9 @@ Page({
   /*   if (isAuth) {
       this._recommend()
     } */
-    this._banner()
     this.initPlace()
+    this._banner()
+    
     this._recommend()
     this._newBook()
     this._hot()
@@ -261,13 +267,22 @@ Page({
   },
   onShow() {
     // 判断
-    let pages = getCurrentPages()
-    console.log(pages)
+    let fromLib = wx.getStorageSync('fromLib')
+    if(fromLib){
+      this.init()
+      Store.setItem('fromLib',false)
+      console.log('从馆藏选择过来的')
+    }
+    let isAuth = wx.getStorageSync('isAuth');
+    this.setData({
+      isAuth: isAuth
+    })
   },
   // 初始化参数
   initPlace() {
     let value = wx.getStorageSync('lib').name
     let isAuth = wx.getStorageSync('isAuth')||0;
+    console.log(value,'nmd值应该拿到了啊')
     if (value) {
       wx.setNavigationBarTitle({
         title: value

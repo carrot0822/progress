@@ -78,7 +78,7 @@
             <view bindtap="toDetail" id="{{item.fkCataBookId}}" class="imageBox">
               <image wx:if="{{item.coverPhotoUrl}}" class="bookImg" src="{{item.coverPhotoUrl}}" />
               <image wx:if="{{!item.coverPhotoUrl}}" class="bookImg" src="../../assets/image/indexIcon/9.jpg" />
-              <view class="index">{{index+1}}</view>
+              <view class="index" style="background-color:#{{item.color}}">{{index+1}}</view>
               <view class="textBox">
                 <text class="name">{{item.name}}</text>
                 <text class="author">{{item.author}}</text>

@@ -44,17 +44,8 @@ Page({
     axios(url, data, 'GET').then((res) => {
       if (res.state) {
         // 判断是否还有下一页 可以用page来判定
-        if (res.row.length < 15) {
-          this.setData({
-            toBottom: true
-          })
-        }
-        if (obj.currentPage <= 1) {
-          this.setData({
-            toBottom: false
-          })
-        }
-        let arr = this.data.list.concat(res.row)
+        
+        let arr = res.row
         this.setData({
           list: arr
         })
@@ -71,15 +62,6 @@ Page({
   },
   // 用户上拉触底
   onReachBottom(e) {
-    let juge = this.data.toBottom
-    if (!juge) {
-      let currentPage = ++this.data.currentPage
-      this.setData({
-        currentPage: currentPage
-      })
-      this._search()
-    }
-    console.log("上拉刷新会怎么样 那个logo", e)
   },
   // 用户下拉动作
   onPullDownRefresh() {
