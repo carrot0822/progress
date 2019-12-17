@@ -11,6 +11,7 @@ let myAxios = function (url, data, method) {
             header: {
                 'content-type': 'application/json',
                 "Authorization": token,
+                "type":"wx"
             },
             method: method || 'GET',
             dataType: 'json',

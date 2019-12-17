@@ -76,8 +76,11 @@
         .logoBox {
             width: 180rpx;
             height: 180rpx;
-            background-color: #cdcdcd;
+            background-color: #ffffff;
             margin-right: 24rpx;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .desBox {

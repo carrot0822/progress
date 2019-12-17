@@ -13,7 +13,7 @@
   <!-- 轮播图 -->
   <view class="slideBox">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{linkArr}}" wx:key="{{index}}">
+      <block wx:for="{{linkArr}}" wx:key="index">
         <swiper-item>
           <image bindtap="toLink" data-link ="{{item}}" src="{{item.url}}" class="slide-image" width="355" height="150" />
         </swiper-item>
@@ -74,7 +74,7 @@
     <view class="content" hover-class="none" hover-stop-propagation="false">
       <view wx:if="{{hotRead.length}}" class="circleBox">
         <scroll-view class="scrollWidth" scroll-x="true">
-          <block wx:for="{{hotRead}}" wx:key="{{index}}">
+          <block wx:for="{{hotRead}}" wx:key="index">
             <view bindtap="toDetail" id="{{item.fkCataBookId}}" class="imageBox">
               <image wx:if="{{item.coverPhotoUrl}}" class="bookImg" src="{{item.coverPhotoUrl}}" />
               <image wx:if="{{!item.coverPhotoUrl}}" class="bookImg" src="../../assets/image/indexIcon/9.jpg" />
@@ -103,7 +103,28 @@
       </view>
     </view>
     <view wx:if="{{change==0}}" class="contentBox">
-      <block wx:for="{{recommend}}" wx:key="{{index}}">
+      <block wx:for="{{recommend}}" wx:key="index">
+        <view id="{{item.fkCataBookId}}" bindtap="toDetail" class="circleBox" hover-class="none" hover-stop-propagation="false">
+          <view class="imageBox">
+            <image bind:error="imgError" data-index="{{index}}" wx:if="{{item.coverPhotoUrl}}" class="img" src="{{item.coverPhotoUrl}}" />
+            <image wx:if="{{!item.coverPhotoUrl}}" class="img" src="../../assets/image/indexIcon/9.jpg" />
+          </view>
+          <view class="textBox">
+            <text class="name">{{item.name}}</text>
+            <text class="author">{{item.author}}</text>
+            <text class="summary">简介</text>
+            <view class="summary">{{item.introduction}}</view>
+          </view>
+        </view>
+        
+      </block>
+      <view style="padding:20rpx 0;" wx:if="{{!recommend.length}}" class="">
+          <test></test>
+        </view>
+    </view>
+    <!-- 新书推荐 -->
+    <view wx:if="{{change==1}}" class="contentBox">
+      <block wx:for="{{newBook}}" wx:key="index">
         <view id="{{item.fkCataBookId}}" bindtap="toDetail" class="circleBox" hover-class="none" hover-stop-propagation="false">
           <view class="imageBox">
             <image wx:if="{{item.coverPhotoUrl}}" class="img" src="{{item.coverPhotoUrl}}" />
@@ -116,24 +137,11 @@
             <view class="summary">{{item.introduction}}</view>
           </view>
         </view>
+        
       </block>
-    </view>
-    <!-- 新书推荐 -->
-    <view wx:if="{{change==1}}" class="contentBox">
-      <block wx:for="{{newBook}}" wx:key="{{index}}">
-        <view id="{{item.fkCataBookId}}" bindtap="toDetail" class="circleBox" hover-class="none" hover-stop-propagation="false">
-          <view class="imageBox">
-            <image wx:if="{{item.coverPhotoUrl}}" class="img" src="../../assets/image/indexIcon/9.jpg" />
-            <image wx:if="{{!item.coverPhotoUrl}}" class="img" src="../../assets/image/indexIcon/9.jpg" />
-          </view>
-          <view class="textBox">
-            <text class="name">{{item.name}}</text>
-            <text class="author">{{item.author}}</text>
-            <text class="summary">简介</text>
-            <view class="summary">{{item.introduction}}</view>
-          </view>
+      <view style="padding:20rpx 0;" wx:if="{{!newBook.length}}" class="">
+          <test></test>
         </view>
-      </block>
     </view>
   </view>
 </view>

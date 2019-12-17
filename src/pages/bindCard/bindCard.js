@@ -27,7 +27,7 @@ Page({
     }
     obj.openid = App.globalData.card.openId
     obj = Object.assign(obj, e.detail.value)
-    console.log(e.detail.value)
+    console.log(e.detail.value,obj,'绑卡')
     axios(url, obj, 'POST').then((res) => {
       if (res.state) {
         let toekn = res.row.authorization

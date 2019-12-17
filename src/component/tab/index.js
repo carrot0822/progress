@@ -4,7 +4,7 @@ let Api = App.Api
 let axios = App.axios
 let Store = App.Store
 let Router = App.Router
-
+let filter = require('../../utils/util')
 
 
 Page({
@@ -55,6 +55,9 @@ Page({
             borrowObj: borrowObj
           })
         }
+        for(let item of res.row){
+          item.toDate = filter.formatTime(item.planReturnTimeLong,'yyyy-MM-dd')
+        }
         let arr = res.row
         this.setData({
           borrow: arr
@@ -83,7 +86,9 @@ Page({
           })
         }
         console.log(this.data.borrow, '现在的数据', res)
-
+        for(let item of res.row){
+          item.toDate = filter.formatTime(item.planReturnTimeLong,'yyyy-MM-dd')
+        }
         let arr = this.data.borrow.concat(res.row)
         this.setData({
           borrow: arr
@@ -116,7 +121,7 @@ Page({
           })
         }
         console.log(this.data.history, '现在的数据', res)
-
+        
         let arr = this.data.history.concat(res.row)
         this.setData({
           history: arr
@@ -132,15 +137,21 @@ Page({
 
     let data = params
     let url = Ip + Api.index.renew
-
+    let that = this
     axios(url, data, 'POST').then((res) => {
       if (res.state) {
         wx.showToast({
           title: res.msg,
           icon: 'success',
-          duration: 2000
+          duration: 2000,
+          success: (result)=>{
+            setTimeout(()=>{
+              that._initBorrow()
+            },1000)
+            
+          },
         })
-        this._initBorrow()
+        
         console.log("????")
       } else {
         wx.showToast({
@@ -354,6 +365,7 @@ Page({
       this.setData({
         stv: this.data.stv
       })
+      console.log(filter.formatTime(1576461876147,'yyyy-MM-dd'),'转换时间')
       console.log(res, '获取设备信息', len, tabs)
     } catch (e) {
 

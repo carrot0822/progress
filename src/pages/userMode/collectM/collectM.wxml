@@ -6,7 +6,7 @@
   <view class="scroll-view">
     <scroll-view bindscrolltolower="toBottom" class="" style="height: {{height}};" scroll-y>
       <view class="contentBox">
-        <block wx:for="{{list}}" wx:key="{{index}}">
+        <block wx:for="{{list}}" wx:key="index">
           <view class="circleBox" hover-class="none" hover-stop-propagation="false">
             <view class="collect"></view>
             <view class="radioBox">
@@ -17,7 +17,8 @@
               </checkbox-group>
             </view>
             <view class="imageBox">
-              <image class="img" src="../../../assets/image/indexIcon/9.jpg" />
+              <image wx:if="{{item.url}}" class="img" src="{{item.url}}" />
+              <image wx:if="{{!item.url}}" class="img" src="../../../assets/image/indexIcon/9.jpg" />
             </view>
             <view class="textBox">
               <text class="name">{{item.bookName}}</text>

@@ -1,7 +1,7 @@
 <!-- logs.wxml -->
 <view class="main">
   <view wx:if="{{list.length}}" class="contentBox">
-    <block wx:for="{{list}}">
+    <block wx:for="{{list}}" wx:key="index">
       <view  class="circleBox" hover-class="none" hover-stop-propagation="false">
         <view class="collect">
           <view id="{{item.id}}" data-book="书ID" catchtap="renewBtn" class="button">续借</view>
@@ -23,7 +23,7 @@
           </view>
           <view class="textBox">
             <text class="textfront">待还日期</text>
-            <text class="textEnd">{{item.planReturnTimeLong}}</text>
+            <text class="textEnd">{{item.toDate}}</text>
           </view>
           <view class="textBox">
             <text class="textfront">续借次数</text>

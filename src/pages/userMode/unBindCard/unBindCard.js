@@ -6,6 +6,9 @@ let Store = App.Store
 let Router = App.Router
 
 Page({
+  data:{
+    url:'http://hbimg.huabanimg.com/52accc9a32aac742ef9691dadd3c6421706756c0666a5-1NgVfg_fw658'
+  },
   submit() {
     let url = Ip + Api.index.unBind
     let obj = {}

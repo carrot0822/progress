@@ -28,7 +28,9 @@ Page({
     
   },
   //API处理
-
+  imgError(e){
+    console.log('baocuo',e)
+  },
   //事件处理函数
   change(e) {
     let value = e.currentTarget.dataset.num
@@ -277,6 +279,9 @@ Page({
     this.setData({
       isAuth: isAuth
     })
+  },
+  onReady(){
+
   },
   // 初始化参数
   initPlace() {

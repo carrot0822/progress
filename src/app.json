@@ -1,6 +1,8 @@
 {
   "pages": [
+    
     "pages/index/index",
+    "component/templet/index",
     "component/tab/index",
     "pages/link/link",
     "pages/tab/index",

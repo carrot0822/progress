@@ -1,6 +1,9 @@
 
 <view class="main">
-  <view class="imgBox"></view>
+  <view class="imgBox">
+  <image style="width:100%;height:100%;" class="img" src="{{url}}" />
+ 
+  </view>
   <view bindtap="submit" class="buttonBox">
     解除绑定读者卡
   </view>

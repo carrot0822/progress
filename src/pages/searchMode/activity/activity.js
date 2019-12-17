@@ -101,6 +101,10 @@ Page({
             toBottom: true
           })
         }
+        for(let item of res.row){
+          item.introducation = this.filterStr(item.introducation)
+          item.date = this.filterDate(item.createTime)
+        }
         let arr = this.data.list.concat(res.row)
         this.setData({
           list: arr

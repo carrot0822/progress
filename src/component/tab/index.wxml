@@ -12,7 +12,7 @@
             <view style="width: {{stv.windowWidth}}px;" class="one-scene">
                 <scroll-view bindscrolltolower="borrowBoottom" style="height:100%" scroll-y>
                     <view class="contentBox">
-                        <block wx:for="{{borrow}}" wx:key="{{index}}">
+                        <block wx:for="{{borrow}}" wx:key="index">
                             <view class="circleBox" hover-class="none" hover-stop-propagation="false">
                                 <view class="collect">
                                     <view id="{{item.id}}" data-book="书ID" catchtap="renewBtn" class="button">
@@ -36,7 +36,7 @@
                                     </view>
                                     <view class="textBox">
                                         <text class="textfront">待还日期</text>
-                                        <text class="textEnd">{{item.planReturnTimeLong}}</text>
+                                        <text class="textEnd">{{item.toDate}}</text>
                                     </view>
                                     <view class="textBox">
                                         <text class="textfront">续借次数</text>

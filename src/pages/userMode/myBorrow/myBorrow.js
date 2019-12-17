@@ -6,7 +6,7 @@ let Api = App.Api
 let axios = App.axios
 let Store = App.Store
 let Router = App.Router
-
+let filter = require('../../../utils/util')
 Page({
   data: {
     list: [],
@@ -48,15 +48,21 @@ Page({
 
     let data =  params
     let url = Ip + Api.index.renew
-
+    let that = this
     axios(url, data, 'POST').then((res) => {
       if (res.state) {
         wx.showToast({
           title: res.msg,
           icon: 'success',
-          duration: 2000
+          duration: 2000,
+          success: (result)=>{
+            setTimeout(()=>{
+              that._initSearch()
+            },1000)
+            
+          },
         })
-        this._initSearch()
+        
         console.log("????")
       } else {
         wx.showToast({
@@ -91,7 +97,9 @@ Page({
           })
         }
         console.log(this.data.list, '现在的数据', res)
-
+        for(let item of res.row){
+          item.toDate = filter.formatTime(item.planReturnTimeLong,'yyyy-MM-dd')
+        }
         let arr = res.row
         this.setData({
           list: arr
@@ -111,9 +119,7 @@ Page({
     /* this.setData({
       loading: true
     }) */
-    wx.showLoading({
-      title: '正在加载',
-    })
+
     axios(url, data, 'GET').then((res) => {
       if (res.state) {
         // 判断是否还有下一页 可以用page来判定
@@ -123,7 +129,9 @@ Page({
           })
         }
         console.log(this.data.list, '现在的数据', res)
-
+        for(let item of res.row){
+          item.toDate = filter.formatTime(item.planReturnTimeLong,'yyyy-MM-dd')
+        }
         let arr = this.data.list.concat(res.row)
         this.setData({
           list: arr

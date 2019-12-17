@@ -3,7 +3,7 @@
         <view class="searchBox">
             <view class="search">
                 <icon type='search' class='search-img' size='15' color='#c8c8c8'></icon>
-                <input class="inputBox" bindconfirm="searchBtn" bindinput="watchInput" value="{{inputMode.inputValue}}" confirm-type="search" placeholder="将会获取焦点" />
+                <input class="inputBox" bindconfirm="searchBtn" bindinput="watchInput" value="{{inputMode.inputValue}}" confirm-type="search" placeholder="请输入馆藏地关键词" />
                 <view bindtap="clear" class="iconBox">
                     <icon wx:if="{{clearShow}}" type='clear' class='clear-img' size='15' color='#c8c8c8'></icon>
                 </view>
@@ -15,7 +15,9 @@
     <view wx:if="{{list.length}}" class="searchRe">
         <block wx:for="{{list}}" wx:key="{{index}}">
             <view bindtap="select" data-item="{{item}}" class="circleBox">
-                <view class="logoBox"></view>
+                <view class="logoBox">
+                    <image style="width:60%;height:60%;" class="img" src="../../../assets/lib.png" />
+                </view>
                 <view class="desBox">
                     <text class="title">{{item.name}}</text>
                     <text class="concrete">{{item.location}}</text>
