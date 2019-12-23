@@ -16,11 +16,12 @@
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-changed": "^3.2.0",
+    "gulp-clean": "^0.4.0",
     "gulp-postcss": "^6.4.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
-    "gulp-tap":"^2.0.0",
-    "gulp-clean":"^0.4.0"
+    "gulp-tap": "^2.0.0",
+    "mddir": "^1.1.1"
   }
 }
