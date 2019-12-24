@@ -21,6 +21,7 @@ Page({
       id
     } = e.currentTarget
     let obj = {}
+    console.log(obj,id)
     obj.fkCataBookId = id
     console.log(e, '如果拿的到', id)
     Router.push({

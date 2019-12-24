@@ -2,7 +2,7 @@
 <view class="mainBox">
  <view wx:if="{{list.length}}" class="main">
    <block wx:for="{{list}}" wx:key="{{index}}">
-    <view bindtap="toDetail" id="{{item.id}}" class="cardBox">
+    <view bindtap="toDetail" id="{{item.fkCataBookId}}" class="cardBox">
       <view class="centerBox">
         <view class="coverBox">
           <image wx:if="{{item.coverPhotoUrl}}" class="cover" src="{{item.coverPhotoUrl}}" />
