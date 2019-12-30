@@ -6,9 +6,9 @@ const replace = require('gulp-replace'); // 替换内容？哪部分的 替换�
 const changed = require('gulp-changed'); // 检测改动
 const autoprefixer = require('autoprefixer'); // 自动添加前缀
 const del = require('del'); // 删除文件和文件夹
-const tap = require('gulp-tap');
-const path = require('path');
-const clean = require('gulp-clean');
+const tap = require('gulp-tap'); // 遍历指定文件
+const path = require('path'); // Node获取默认路径
+const clean = require('gulp-clean'); // 启用clean 清除所有文件
 // src语法 important 禁用 问题不大 可以不用 但是解决方法要弄
 
 const config = {
@@ -64,7 +64,7 @@ gulp.task('scss', () => gulp.src('./src/**/*.{scss,wxss}')
     }))
     .pipe(gulp.dest('./dist')));
 
-
+// 对改变的文件复制到dist包中 热更新
 gulp.task('copy', (done) => {
 
     gulp.src(['src/**', '!src/**/**/*.scss'], {
@@ -75,6 +75,7 @@ gulp.task('copy', (done) => {
         .pipe(gulp.dest('dist'))
     done();
 })
+// 清除所有wxss 多余的wxss是为了兼容scss import语法 
 gulp.task('cleanWxss',(done)=>{
     const arr = []
     hasRmCssFiles.forEach((item)=>{
@@ -83,16 +84,44 @@ gulp.task('cleanWxss',(done)=>{
     return gulp.src(arr,{read: false})
             .pipe(clean({force:true}))
 })
-
+// 清除所有文件
 gulp.task('clean', (done) => {
     del(['dist/**/*'], done());
 })
+
+
 gulp.task('watch', (done) => {
-    gulp.watch('src/**', gulp.series(['scss', 'copy','cleanWxss']))
+    gulp.watch('src/**', gulp.series(['scss', 'copy','cleanWxss'])) // 串行 按顺序执行任务  gulp4的写法
 })
 
-gulp.task('default', gulp.parallel(['watch', 'scss', 'copy']))
+gulp.task('default', gulp.parallel(['watch', 'scss', 'copy'])) // 并行执行任务 其实是有问题的
 
 // 处理思路
 // 无法进行删除操作 小程序是有缓存且无热更新的 删除文件后（大批量 需要重启一次
 // 遇到含有变量的包 他是先导入再处理编译为css文件 而这些包在后续是不需要的 所以有了待删除列表
+
+// 联调
+gulp.task('Dev',(done)=>{
+    gulp.src(['src/app.js'],{base:'src'})
+    .pipe(replace(/env = "Dev"/g,'env = "Dev"'))
+    .pipe(gulp.dest('dist'))
+    done()
+})
+
+gulp.task('Test',()=>{
+    gulp.src(['src/app.js'],{base:'src'})
+    .pipe(replace(/env = "Test"/g,'env = "Test"'))
+    .pipe(gulp.dest('dist'))
+})
+
+gulp.task('Slave',()=>{
+    gulp.src(['src/app.js'],{base:'src'})
+    .pipe(replace(req,'Slave'))
+    .pipe(gulp.dest('dist'))
+})
+
+gulp.task('Prod',()=>{
+    gulp.src(['src/app.js'],{base:'src'})
+    .pipe(replace(req,'Prod'))
+    .pipe(gulp.dest('dist'))
+})

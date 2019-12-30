@@ -4,9 +4,15 @@ let myAxios = require('./http/myaxios')
 let Env_config = require('./env/index.js')
 let Router = require('./utils/Router')
 let Store = require('./utils/Store')
+/* let back = require('./env/back')
+back.shake() */
+/*------ 测试环境切换 ------*/
+
+
+
 
 /*------ 版本发布修改环境配置 ------*/
-let env = 'Dev';
+let env = "Dev";
 let config = {}
 config = Env_config[env]; // 环境更换配置
 config.mockApi = Env_config.mockApi;

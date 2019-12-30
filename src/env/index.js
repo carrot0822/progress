@@ -5,7 +5,7 @@ module.exports = {
         otherApi:'',
     },
     Test:{
-        baseApi:'',
+        baseApi:'http://192.168.2.114:8083/',
         otherApi:'',
     },
     Slave:{

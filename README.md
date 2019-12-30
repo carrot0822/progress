@@ -1,9 +1,11 @@
 ### 部署步骤
+0. 请确保本地有Node环境(尚未确定自己的Node环境) 和gulp环境(npm install --global gulp-cli)
 1. git clone 项目在本地文件
 2. cd 到文件内使用 npm install 安装镜像 注意提前安装Node环境
 3. 输入命令 gulp 进行复制编译src中的各项文件生成dist 并会启动热更新
 4. 使用微信开发者工具打开dist文件即可 
 5. 如果需要上线 则使用自己的appID登录(appID在微信开放平台中获取) 使用微信开发者工具右上角上传即可上传到相应的测试版本
+
 
 ### 功能简介
 + 核心的任意词查询功能 
@@ -40,7 +42,7 @@
 ### 注意事项
 + 如果gulp运行的时候出现scss文件等找不到 可以输入gulp clean 再输入gulp命令行
 + 如果运行出现登录error失误 请检查自己的appID与后端的appID appSelect一致 由于接口设置问题导致这块需要前后端确认 如果要修改可以更改 API中的login接口使用方式 由前端传递appId和 appSelect
-
++ 以后编写前 还是先确定自己的编译环境 Node环境 webpack环境
 ### 莫名的机型Bug
 + 如果不使用自定义tabbar 安卓的title是靠右 ios则是居中
 #### 安卓
