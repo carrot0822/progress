@@ -334,5 +334,11 @@ Page({
     }
   },
 
+  onPullDownRefresh: function () {
+    // Do something when pull down.
+    this._recommend()
+    this._newBook()
+    this._hot()
+  },
 
 })
