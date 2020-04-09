@@ -82,6 +82,8 @@
           font-size: 22rpx;
           color: #565e73;
           line-height: 34rpx;
+          width: 100%;
+          @include textOver;
         }
 
       }
@@ -107,6 +109,7 @@
     margin-right: 20rpx;
     line-height: 36rpx;
     letter-spacing: 1px;
+    width: 100%;
     font-size: 20rpx;
     color: #676767;
   }
