@@ -11,7 +11,8 @@ Page({
     list: [],
     place: "",
     isCollect: false,
-    id: ""
+    id: "",
+    jugeType:false, // 检查ISSN和ISBN类别
   },
   tapCollect() {
     let juge = this.data.isCollect
@@ -36,8 +37,11 @@ Page({
       console.log(res)
       if (res.state) {
         this.filterNull(res.row)
+        console.log(res.row.hasOwnProperty('isbn'),'检查是图书还是期刊')
+        let jugeType = res.row.hasOwnProperty('isbn')
         this.setData({
-          detail: res.row
+          detail: res.row,
+          jugeType:jugeType
         })
       }
     })
@@ -129,6 +133,7 @@ Page({
         obj[key] = '无数据'
       }
     }
+
   },
   filterList(arr) {
     let map = ['无', '在架', '借出']

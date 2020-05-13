@@ -25,7 +25,11 @@
           <text class="textfront">馆藏地：</text>
           <text class="textEnd">{{place}}</text>
         </view>
-        <view class="textBox">
+        <view wx:if="{{!jugeType}}" class="textBox">
+          <text class="textfront">ISSN：</text>
+          <text class="textEnd">{{detail.issn}}</text>
+        </view>
+        <view wx:if="{{jugeType}}" class="textBox">
           <text class="textfront">ISBN：</text>
           <text class="textEnd">{{detail.isbn}}</text>
         </view>

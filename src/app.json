@@ -2,6 +2,7 @@
   "pages": [
     
     "pages/index/index",
+    
     "component/templet/index",
     "component/tab/index",
     "pages/link/link",
@@ -31,7 +32,8 @@
     "pages/userMode/borrowHis/borrowHis",
     "pages/userMode/myInfo/myInfo",
     "pages/userMode/reviseMail/reviseMail",
-    "pages/userMode/revisePhone/revisePhone"
+    "pages/userMode/revisePhone/revisePhone",
+    "pages/changePage/change"
   ],
   "window": {
     "backgroundTextStyle": "dark",

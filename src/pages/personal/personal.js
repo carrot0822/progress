@@ -138,6 +138,8 @@ Page({
                     cardInfo: data
                 })
             }
+            // 停止下拉动画
+            wx.stopPullDownRefresh()
             console.log(res, '借阅数量')
         })
     },
@@ -232,12 +234,23 @@ Page({
                 this._getNumbers()
             } else {
                 Store.setItem('entry', true);
+                //this._getNumbers()
                 console.log('第一次进来已经授权了')
             }
         }
-    }
+    },
     /**
      * 判定是否绑定看读者卡 flag 绑定了就不跳转
      */
-
+    // 下拉刷新
+    onPullDownRefresh(){
+        let juge = Store.getItem('entry') // 可以考虑存全局
+        let token = wx.getStorageSync('token') || ''
+        console.log(juge, '授权？', token, 'token')
+        if (token) {
+            if (juge) {
+                this._getNumbers()
+            }
+        }
+    }
 })

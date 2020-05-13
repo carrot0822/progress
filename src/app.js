@@ -6,7 +6,7 @@ let Router = require('./utils/Router')
 let Store = require('./utils/Store')
 
 /*------ 版本发布修改环境配置 ------*/
-let env = 'Dev';
+let env = 'Test';
 let config = {}
 config = Env_config[env]; // 环境更换配置
 config.mockApi = Env_config.mockApi;

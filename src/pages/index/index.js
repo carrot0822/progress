@@ -2,6 +2,7 @@
 //获取应用实例
 const App = getApp()
 let Ip = App.config.baseApi
+console.log(App,'改变过后',Ip)
 let Api = App.Api
 let axios = App.axios
 let Store = App.Store
@@ -25,7 +26,6 @@ Page({
     swiperArr: [],
     linkArr: [], // 广告
     place: "", // 位置 
-
   },
   //API处理
   imgError(e) {

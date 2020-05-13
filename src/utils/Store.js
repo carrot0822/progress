@@ -45,8 +45,8 @@ class Store{
         }
     }
 
-    clear(key){
-        name? wx.removeStorageSync(key):wx.clearStorage();;
+    clear(key,module_name){
+        module_name? wx.removeStorageSync(key):wx.clearStorage();
     }
 }
 let obj = new Store()
